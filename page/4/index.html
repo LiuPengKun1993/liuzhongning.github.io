@@ -99,13 +99,16 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+  <meta name="description" content="iOS 修炼中...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="以梦为马">
 <meta property="og:url" content="http://yoursite.com/page/4/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="以梦为马">
+<meta property="og:description" content="iOS 修炼中...">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="以梦为马">
+<meta name="twitter:description" content="iOS 修炼中...">
 
 
 
@@ -122,7 +125,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>以梦为马</title>
   
 
 
@@ -181,12 +184,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">以梦为马</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">谨以此纪念岁月</p>
       
   </div>
 
@@ -271,16 +274,748 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 小冷易忘知识点总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - WKWebView VS UIWebView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="刘朋坤">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - WKWebView VS UIWebView/" itemprop="url">
+                  iOS开发之 - WKWebView VS UIWebView
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>WKWebView是苹果在 iOS 8 中推出的新框架，相比UIWebView来说，WKWebView 性能好，速度快，内存小，功能多，且支持了更多的 HTML5 特性……因此本小白禁不住“诱惑”利用了一晚上的时间，整理了一些关于 WKWebView 的资料，与大家分享下！在说 WKWebView 之前，我们先说说他的老大哥 UIWebView ！！！</p>
+</blockquote>
+<p>UIWebView 是苹果在 iOS 2 之后推出的，由于资格比较“老”，大家对 UIWebView 应该也不会陌生，这里直接上代码：</p>
+<h3 id="1-UIWebView-基本使用"><a href="#1-UIWebView-基本使用" class="headerlink" title="1.UIWebView 基本使用"></a>1.UIWebView 基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建webview</span><br><span class="line">UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, NNWidth, NNHeight - 20)];</span><br><span class="line">// 网络请求</span><br><span class="line">NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;http://www.baidu.com&quot;]];</span><br><span class="line">// 加载网页</span><br><span class="line">[webView loadRequest:request];</span><br><span class="line">// 添加到界面</span><br><span class="line">[self.view addSubview:webView];</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - WKWebView VS UIWebView/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 内购/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 内购/" itemprop="url">
+                  iOS开发之 - 内购
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>电商之类的 app 大多用的都是第三方支付（支付宝微信等支付），但是在某种特殊情况之下，我们却不得不使用内购。比如商品是在本 app 中使用和消耗的（游戏币游戏道具等），就一定要用内购，苹果强制的，否则会被拒绝上线。因此作为 iOS 开发者，不光要了解第三方支付，对内购也要有一定的认识！</p>
+</blockquote>
+<h2 id="一、什么是内购？"><a href="#一、什么是内购？" class="headerlink" title="一、什么是内购？"></a>一、什么是内购？</h2><p>内购是苹果推出的一种支付方式。说白了内购就是苹果获取利润的方式之一。如果我们使用第三方支付，只会支付少量的💰，但使用内购却要支付很多💰💰💰💰💰💰💰💰，要和苹果三七分帐（以前是四六分😢）。</p>
+<h2 id="二、内购产品的类别"><a href="#二、内购产品的类别" class="headerlink" title="二、内购产品的类别"></a>二、内购产品的类别</h2><p>官方的注释写的很清楚了，内购有五种产品类别，简介如下：</p>
+<ul>
+<li>非消耗品（Nonconsumable）<br>指的是在游戏中一次性购买并拥有永久访问权的物品或服务。非消耗品物品可以被用户再次下载，并且能够在用户的所有设备上使用。</li>
+<li>消耗品（Consumable）<br>消耗品购买不可被再次下载,根据其特点,消耗品不能在用户的设备之间跨设备使用,除非自定义服务在用户的账号之间共享这些信息。<br><strong>以下三种类别在iBooks中使用，目前iBooks不支持大陆市场</strong></li>
+<li>免费订阅（Free subscriptions）</li>
+<li>自动续费订阅（Auto-renewing subscriptions）</li>
+<li>非自动续费订阅（Nonrenewing subscriptions）
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 内购/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 微信支付/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 微信支付/" itemprop="url">
+                  iOS开发之 - 微信支付
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-0d0a74ab4c5830ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - 微信支付"></p>
+<blockquote>
+<p>作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank" rel="noopener">文档</a>。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。</p>
+</blockquote>
+<ul>
+<li><strong>第一步：创建应用</strong></li>
+</ul>
+<p><em>通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～</em></p>
+<p>在 <a href="https://open.weixin.qq.com/cgi-bin/index?t=home/index&amp;lang=zh_CN&amp;token=0ebf4697e5671e8567a5c5f4682a4c6cb0fcaa92" target="_blank" rel="noopener">微信开放平台</a> 的管理中心 <a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN" target="_blank" rel="noopener">创建一个应用。</a>此应用官方称七日内审核通过，一般都是三四天！而关于填写经营信息、填写商户信息、填写对公帐号信息在这里就忽略不写了。有兴趣的朋友可以了解下<a href="http://494075592.blog.51cto.com/10682677/1701260" target="_blank" rel="noopener">这篇文章</a>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-723d6f42f6b41ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建应用"></p>
+<ul>
+<li><strong>第二步：了解支付的流程</strong>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 微信支付/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 多线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 多线程/" itemprop="url">
+                  iOS开发之 - 多线程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-72633919539a5942.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 － 多线程"></p>
+<blockquote>
+<p>最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结在这里，只希望对看到的朋友们有所帮助！文章有些长，涵盖的知识点也比较多，希望朋友们能够耐心读完哈！我们这篇文章主要包括以下几个模块：</p>
+</blockquote>
+<ul>
+<li><strong>（一）iOS开发之多线程 基础知识</strong></li>
+<li><strong>（二）iOS开发之多线程 NSThread</strong></li>
+<li><strong>（三）iOS开发之多线程 NSOperation</strong></li>
+<li><strong>（四）iOS开发之多线程 GCD</strong></li>
+<li><strong>（五）iOS开发之多线程 线程间的通信</strong></li>
+</ul>
+<p><em>下面我们开始了解 iOS 多线程的基础知识，如果在此之前对多线程已经有所了解的朋友，大可跳过这一部分，直接看后边三种多线程编程的 demo 即可！</em><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 多线程/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 好玩的富文本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 好玩的富文本/" itemprop="url">
+                  iOS开发之 - 好玩的富文本
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>周末闲着没事，就想着不如把那些容易遗忘的知识点整理一下，一来可以让有需要的朋友少走弯路，二来自己以后再忘记的时候也可以回头看看……但 iOS 中小冷易忘的知识点实在太多了，不知道该从哪里开始整理，“百无聊赖”逛了下淘宝，发现里面好多都是富文本，就想着为什么不从富文本开始呢？反正闲着也是闲着……于是就有了下面这些东西，希望可以帮到看到的盆友们！</p>
+<ul>
+<li>先写一个小引子<blockquote>
+<p>在项目中，很多时候我们都需要把文字设置成倾斜、加粗、加下划线、加删除线、加阴影等等状态，就比如下面这张图：<br><img src="http://upload-images.jianshu.io/upload_images/2665449-efaea7b3b4c215d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不是打广告哦"></p>
+</blockquote>
+</li>
+</ul>
+<p>但如果我们只是简单的设置字体<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.textView.text = @&quot;很好玩的富文本&quot;;</span><br></pre></td></tr></table></figure></p>
+<p>显示出来大概是这个样子滴：<br><img src="http://upload-images.jianshu.io/upload_images/2665449-ab7fd6348e681a88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="普通文本"></p>
+<p>为了让文字变的好看一些，接下来我们尝试一下富文本！</p>
+<ul>
+<li>改变字体颜色
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 好玩的富文本/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 小冷易忘知识点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
     </span>
 
     
@@ -414,168 +1149,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/" itemprop="url">
-                  iOS开发之 - 键盘处理神器 IQKeyboardManager
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>  年后上班第一天，比较闲，上午的时候抽空整理了<code>iOS</code>开发中常用的易忘知识点：<a href="http://www.jianshu.com/p/328a4c65dc5c" target="_blank" rel="noopener">iOS开发之 - 小冷易忘知识点总结</a>，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  <code>IQKeyboardManager</code>。</p>
-</blockquote>
-<blockquote>
-<p>平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… <code>IQKeyboardManager</code> 可以很简单快捷的解决键盘遮盖输入框的问题，接下来就一起来学习一下吧。</p>
-</blockquote>
-<ul>
-<li><p>先简单认识下 IQKeyboardManager<br>GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">GitHub 地址</a></p>
-</li>
-<li><p>官方示意效果图如下：</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip" alt="官方示意效果图"></p>
-<hr>
-<p>再贴一下自己做的简单效果图☺️<br>先说下我的 Xcode 版本是：Version 8.1 (8B62)，简单起见直接在 Main.storyboard 中拖入 7 个UITextField， 每个 UITextField 都设有占位文字。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip" alt="简单效果图☺️"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 广告植入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="刘朋坤">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="以梦为马">
     </span>
 
     
@@ -713,16 +1296,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 支付宝支付/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="刘朋坤">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="以梦为马">
     </span>
 
     
@@ -732,8 +1315,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 支付宝支付/" itemprop="url">
-                  iOS开发之 - 支付宝支付
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/" itemprop="url">
+                  iOS开发之 - 键盘处理神器 IQKeyboardManager
                 </a>
               
             
@@ -792,880 +1375,24 @@
       
         
           <blockquote>
-<p>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过<a href="http://www.jianshu.com/p/a17b37cb8fe3" target="_blank" rel="noopener">微信支付流程</a>，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：</p>
+<p>  年后上班第一天，比较闲，上午的时候抽空整理了<code>iOS</code>开发中常用的易忘知识点：<a href="http://www.jianshu.com/p/328a4c65dc5c" target="_blank" rel="noopener">iOS开发之 - 小冷易忘知识点总结</a>，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  <code>IQKeyboardManager</code>。</p>
 </blockquote>
-<h3 id="一、支付流程理解"><a href="#一、支付流程理解" class="headerlink" title="一、支付流程理解"></a>一、支付流程理解</h3><p>先看个图<br><img src="http://upload-images.jianshu.io/upload_images/2665449-111551cb2f5ba892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="支付流程"></p>
-<p>流程和咱们平时在手机上买东西是一样的：<br>1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。<br>2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。<br>3.后台的服务器将各种数据拼接签名后生成一个签名后的字符串，回传到客户端APP上。<br>4.用户点击确认支付按钮，调用手机支付宝客户端，利用后台传过来的那个参数调起支付宝，让支付宝客户端传给他们服务器交互，进行付款。(这一步是支付宝自己完成的，安全性高)<br>5.支付宝的服务器将支付的结果（可能成功也可能不成功）返回给手机支付宝客户端和你们公司的后台服务器。<br>6.你们公司后台服务器收到后一般是更新下数据信息，手机支付宝客户端会显示一下支付成功。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 支付宝支付/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发技巧 - UIViewController 基类设计/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/" itemprop="url">
-                  iOS开发技巧 - UIViewController 基类设计
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 <strong><code>UIViewController</code></strong> 的基类，通常叫做 <strong><code>baseViewController</code></strong>或<strong><code>rootViewController</code></strong>，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。</p>
-</blockquote>
-<h5 id="一般来说这种基类控制器里面需要做的操作有以下几个："><a href="#一般来说这种基类控制器里面需要做的操作有以下几个：" class="headerlink" title="一般来说这种基类控制器里面需要做的操作有以下几个："></a>一般来说这种基类控制器里面需要做的操作有以下几个：</h5><ul>
-<li>为 APP 设置统一的背景色</li>
-<li>设置是否允许控制器自动调整高度（一般是 NO）</li>
-<li>自定义导航栏返回按钮</li>
-<li>重新布局视图大小，及时更新视图的 frame</li>
-</ul>
-<p>当然还有其它的一些，毕竟这和项目的具体需求息息相关，因此还要因项目而异。我这里主要就列出基类控制器中基本的常用的一些需求，和大家分享下，希望能帮到需要的人，少走弯路；另外文章如果有不足之处，也希望各位同行能多多的交流指点。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之源码解析 - MBProgressHUD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" itemprop="url">
-                  iOS开发之源码解析 - MBProgressHUD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 是一个为 <code>APP</code> 添加 <code>HUD</code> 窗口的第三方框架，使用起来极其简单方便，关于 <code>MBProgressHUD</code> 的使用方法，<code>GitHub</code> 上有详细的说明，这里就不多加介绍了，本文主要是从源码的角度分析 <code>MBProgressHUD</code>的具体实现。</p>
+<blockquote>
+<p>平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… <code>IQKeyboardManager</code> 可以很简单快捷的解决键盘遮盖输入框的问题，接下来就一起来学习一下吧。</p>
 </blockquote>
 <ul>
-<li>先来对 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 有个大体的认识，这是刚从 <code>GitHub</code> 上拉下来的代码，如下图，MBProgressHUD 的主要文件只有两个：<br><br><br></li>
+<li><p>先简单认识下 IQKeyboardManager<br>GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">GitHub 地址</a></p>
+</li>
+<li><p>官方示意效果图如下：</p>
+</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-3cbf54d2915cfc84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MBProgressHUD 源码解析"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip" alt="官方示意效果图"></p>
 <hr>
-<p>下面我们就开始分析 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 的具体实现。在此之前先了解下文章的目录，本文主要有三个部分：</p>
+<p>再贴一下自己做的简单效果图☺️<br>先说下我的 Xcode 版本是：Version 8.1 (8B62)，简单起见直接在 Main.storyboard 中拖入 7 个UITextField， 每个 UITextField 都设有占位文字。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip" alt="简单效果图☺️"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之源码解析 - Masonry/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之源码解析 - Masonry/" itemprop="url">
-                  iOS开发之源码解析 - Masonry
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>这是 <em>GitHub</em> 上，<a href="https://github.com/SnapKit/Masonry" target="_blank" rel="noopener">Masonry</a> 官方对 <em>Masonry</em> 的介绍：</strong></p>
-<blockquote>
-<p><a href="https://github.com/SnapKit/Masonry" target="_blank" rel="noopener">Masonry</a>  is a light-weight layout framework which wraps AutoLayout with a nicer syntax. Masonry has its own layout <a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener">DSL</a> which provides a chainable way of describing your NSLayoutConstraints which results in layout code that is more concise and readable. Masonry supports iOS and Mac OS X.</p>
-</blockquote>
-<p>译文如下：</p>
-<blockquote>
-<p><a href="https://github.com/SnapKit/Masonry" target="_blank" rel="noopener">Masonry</a> 是一个轻量级的布局框架，它通过一种友好的语法封装了自动布局。Masonry 通过链式语法 <a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener">DSL(Domain-specific language)</a> 来封装 NSLayoutConstraints，使布局代码更加地简洁易读。Masonry 支持 iOS 和 Mac OS X。</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之源码解析 - Masonry/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 银联支付/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 银联支付/" itemprop="url">
-                  iOS开发之 - 银联支付
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>前阵子看了很多篇博客，有很多朋友吐槽说银联支付怎么怎么坑，所以集成的时候小心翼翼，但集成完银联支付之后，觉得相对于支付宝支付微信支付而言，银联支付还可以说的过去。下面就来介绍一下怎样快速的集成银联支付。</p>
-</blockquote>
-<ul>
-<li>首先，下载<a href="https://open.unionpay.com/ajweb/help/search?category=aj&amp;keyword=开发包" target="_blank" rel="noopener">银联支付SDK</a>（这个有点不好找），里面包含需要的库文件和详细的文档；下载好开发包之后，进行解压，解压成下面这样的文件</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-02336a46b0ff2407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付SDK"></p>
-<ul>
-<li>官方文档也在这个目录下：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-0602bf8cbd8aea0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付官方文档"></p>
-<ul>
-<li>下面开始集成SDK</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 银联支付/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/数据结构 -《大话数据结构》读书笔记(2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(2)/" itemprop="url">
-                  数据结构 -《大话数据结构》读书笔记(2)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="文章共分为三篇"><a href="#文章共分为三篇" class="headerlink" title="文章共分为三篇"></a>文章共分为三篇</h5><h5 id="第一篇：数据结构-《大话数据结构》读书笔记-1"><a href="#第一篇：数据结构-《大话数据结构》读书笔记-1" class="headerlink" title="第一篇：数据结构 -《大话数据结构》读书笔记(1)"></a><a href="https://www.jianshu.com/p/72aabf06a450" target="_blank" rel="noopener">第一篇：数据结构 -《大话数据结构》读书笔记(1)</a></h5><p><strong>一、数据结构绪论<br>二、算法<br>三、线性表</strong></p>
-<h5 id="第二篇：数据结构-《大话数据结构》读书笔记-2"><a href="#第二篇：数据结构-《大话数据结构》读书笔记-2" class="headerlink" title="第二篇：数据结构 -《大话数据结构》读书笔记(2)"></a><a href="https://www.jianshu.com/p/c7c16110b796" target="_blank" rel="noopener">第二篇：数据结构 -《大话数据结构》读书笔记(2)</a></h5><p><strong>四、栈与队列<br>五、串<br>六、树<br>七、图</strong></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(2)/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/" itemprop="url">
-                  用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><code>UITextView</code> 实现占位文本的方式有很多种，网上一搜一大把，，这里只介绍 <strong>最简单</strong> 的一种，如标题所述：<strong>用 <code>RunTime</code> 为 <code>UITextView</code> 设置占位文本并实时改变文本框占位文本的颜色。</strong></p>
-</blockquote>
-<blockquote>
-<p>对 <code>RunTime</code> 不太了解的童鞋可以简单看下这篇文章：<a href="http://www.jianshu.com/p/d92452217f68" target="_blank" rel="noopener">iOS开发之 - Runtime</a>，懒得点击鼠标的话我这里也简单的说下，<code>Runtime 简称运行时，是苹果官方的一套比较底层的纯 C 语言 API, 用它可以做很多底层操作（比如访问隐藏的成员变量和方法）。</code></p>
-</blockquote>
-<p>OK，足够了，接下来我们就抓紧时间来看看如何用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色。。。</p>
-<h5 id="首先我们利用-RunTime-获取一下-UITextView-中一些隐藏的成员变量"><a href="#首先我们利用-RunTime-获取一下-UITextView-中一些隐藏的成员变量" class="headerlink" title="首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量"></a>首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量</h5>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1710,7 +1437,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1742,8 +1469,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">刘朋坤</p>
+              <p class="site-description motion-element" itemprop="description">iOS 修炼中...</p>
           </div>
 
           
@@ -1801,7 +1528,7 @@
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">刘朋坤</span>
 
   
 
