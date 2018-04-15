@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-a305784e0ac30193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-a97902c3ba89e176.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-ecf24222fa369f6e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:50:43.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:19:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之源码解析 - Masonry">
 <meta name="twitter:description" content="这是 GitHub 上，Masonry 官方对 Masonry 的介绍：  Masonry  is a light-weight layout framework which wraps AutoLayout with a nicer syntax. Masonry has its own layout DSL which provides a chainable way of describin">
@@ -359,6 +359,7 @@
 <blockquote>
 <p><a href="https://github.com/SnapKit/Masonry" target="_blank" rel="noopener">Masonry</a> 是一个轻量级的布局框架，它通过一种友好的语法封装了自动布局。Masonry 通过链式语法 <a href="https://en.wikipedia.org/wiki/Domain-specific_language" target="_blank" rel="noopener">DSL(Domain-specific language)</a> 来封装 NSLayoutConstraints，使布局代码更加地简洁易读。Masonry 支持 iOS 和 Mac OS X。</p>
 </blockquote>
+<a id="more"></a>
 <p>在分析 Masonry 源码之前，有必要先说一下 Masonry 的基本使用，而在说 Masonry 的基本使用之前，我们还是先来看看 storyboard 以及 xib 中是如何进行 AutoLayout 的，我截了两张图：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-a305784e0ac30193.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-a97902c3ba89e176.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -485,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(1)/" rel="next" title="数据结构 -《大话数据结构》读书笔记(1)">
-                <i class="fa fa-chevron-left"></i> 数据结构 -《大话数据结构》读书笔记(1)
+              <a href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" rel="next" title="iOS开发之源码解析 - MBProgressHUD">
+                <i class="fa fa-chevron-left"></i> iOS开发之源码解析 - MBProgressHUD
               </a>
             
           </div>
@@ -495,8 +496,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" rel="prev" title="iOS开发之源码解析 - MBProgressHUD">
-                iOS开发之源码解析 - MBProgressHUD <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(1)/" rel="prev" title="数据结构 -《大话数据结构》读书笔记(1)">
+                数据结构 -《大话数据结构》读书笔记(1) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

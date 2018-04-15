@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-79cac6572336637c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-df522e1f9642c24e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-39aa192999a9d489.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:33:25.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:17:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之 - 支付宝支付">
 <meta name="twitter:description" content="在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过微信支付流程，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：  一、支付流程理解先看个图 流程和咱们平时在手机上买东西是一样的：1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。3.后台的服务器将各种数">
@@ -356,7 +356,7 @@
 <p>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过<a href="http://www.jianshu.com/p/a17b37cb8fe3" target="_blank" rel="noopener">微信支付流程</a>，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：</p>
 </blockquote>
 <h3 id="一、支付流程理解"><a href="#一、支付流程理解" class="headerlink" title="一、支付流程理解"></a>一、支付流程理解</h3><p>先看个图<br><img src="http://upload-images.jianshu.io/upload_images/2665449-111551cb2f5ba892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="支付流程"></p>
-<p>流程和咱们平时在手机上买东西是一样的：<br>1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。<br>2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。<br>3.后台的服务器将各种数据拼接签名后生成一个签名后的字符串，回传到客户端APP上。<br>4.用户点击确认支付按钮，调用手机支付宝客户端，利用后台传过来的那个参数调起支付宝，让支付宝客户端传给他们服务器交互，进行付款。(这一步是支付宝自己完成的，安全性高)<br>5.支付宝的服务器将支付的结果（可能成功也可能不成功）返回给手机支付宝客户端和你们公司的后台服务器。<br>6.你们公司后台服务器收到后一般是更新下数据信息，手机支付宝客户端会显示一下支付成功。</p>
+<p>流程和咱们平时在手机上买东西是一样的：<br>1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。<br>2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。<br>3.后台的服务器将各种数据拼接签名后生成一个签名后的字符串，回传到客户端APP上。<br>4.用户点击确认支付按钮，调用手机支付宝客户端，利用后台传过来的那个参数调起支付宝，让支付宝客户端传给他们服务器交互，进行付款。(这一步是支付宝自己完成的，安全性高)<br>5.支付宝的服务器将支付的结果（可能成功也可能不成功）返回给手机支付宝客户端和你们公司的后台服务器。<br>6.你们公司后台服务器收到后一般是更新下数据信息，手机支付宝客户端会显示一下支付成功。<br><a id="more"></a></p>
 <h3 id="二、支付流程详解"><a href="#二、支付流程详解" class="headerlink" title="二、支付流程详解"></a>二、支付流程详解</h3><ol>
 <li><p>下载支付宝SDK<br><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.B7TwKK&amp;treeId=54&amp;articleId=104509&amp;docType=1" target="_blank" rel="noopener">App支付DEMO&amp;SDK</a></p>
 </li>

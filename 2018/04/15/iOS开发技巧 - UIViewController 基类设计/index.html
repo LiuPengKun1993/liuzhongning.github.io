@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="以梦为马">
 <meta property="og:description" content="在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 UIViewController 的基类，通常叫做 baseViewController或rootViewController，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。  一般来说这种基类控制器里面需要做的操作有以下几个： 为 APP">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-04-15T10:52:13.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:14:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发技巧 - UIViewController 基类设计">
 <meta name="twitter:description" content="在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 UIViewController 的基类，通常叫做 baseViewController或rootViewController，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。  一般来说这种基类控制器里面需要做的操作有以下几个： 为 APP">
@@ -357,6 +357,7 @@
 <li>重新布局视图大小，及时更新视图的 frame</li>
 </ul>
 <p>当然还有其它的一些，毕竟这和项目的具体需求息息相关，因此还要因项目而异。我这里主要就列出基类控制器中基本的常用的一些需求，和大家分享下，希望能帮到需要的人，少走弯路；另外文章如果有不足之处，也希望各位同行能多多的交流指点。</p>
+<a id="more"></a>
 <h4 id="UIViewController-基类控制器设计步骤"><a href="#UIViewController-基类控制器设计步骤" class="headerlink" title="UIViewController 基类控制器设计步骤"></a>UIViewController 基类控制器设计步骤</h4><h6 id="首先创建一个-UIViewController-类，命名为-NNBaseViewController"><a href="#首先创建一个-UIViewController-类，命名为-NNBaseViewController" class="headerlink" title="首先创建一个 UIViewController 类，命名为 NNBaseViewController"></a>首先创建一个 <code>UIViewController</code> 类，命名为 <code>NNBaseViewController</code></h6><h6 id="接着在-NNBaseViewController-m中做一些操作"><a href="#接着在-NNBaseViewController-m中做一些操作" class="headerlink" title="接着在 NNBaseViewController.m中做一些操作"></a>接着在 <code>NNBaseViewController.m</code>中做一些操作</h6><p>1.设置应用的统一背景色</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置应用的背景色</span></span><br><span class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> lightGrayColor];</span><br></pre></td></tr></table></figure>
 <p>2.将 automaticallyAdjustsScrollViewInsets 设置为NO，不然视图会下移64像素</p>
@@ -402,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" rel="next" title="iOS开发之源码解析 - MBProgressHUD">
-                <i class="fa fa-chevron-left"></i> iOS开发之源码解析 - MBProgressHUD
+              <a href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(1)/" rel="next" title="数据结构 -《大话数据结构》读书笔记(1)">
+                <i class="fa fa-chevron-left"></i> 数据结构 -《大话数据结构》读书笔记(1)
               </a>
             
           </div>

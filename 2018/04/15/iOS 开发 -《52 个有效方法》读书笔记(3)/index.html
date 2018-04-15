@@ -107,7 +107,7 @@
 <meta property="og:description" content="文章共分为三篇：第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)第二篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)第三篇：iOS 开发 -《Effective Objective-C 2.0:编">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-92afc35d076a4c15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T11:17:19.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:12:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之 - 银联支付">
 <meta name="twitter:description" content="文章共分为三篇：第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)第二篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)第三篇：iOS 开发 -《Effective Objective-C 2.0:编">
@@ -355,6 +355,7 @@
 <ul>
 <li>格式： 返回类型 （^blockName）(参数){实现代码};</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无返回值无参数</span></span><br><span class="line"><span class="keyword">void</span>(^testBlcok)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"testBlcok"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">testBlcok(); <span class="comment">// print："testBlcok"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无返回值有参数</span></span><br><span class="line"><span class="keyword">void</span>(^testBlcok)(<span class="keyword">int</span> a) = ^(<span class="keyword">int</span> a) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, a);</span><br><span class="line">&#125;;</span><br><span class="line">testBlcok(<span class="number">5</span>); <span class="comment">// print："5"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值有参数</span></span><br><span class="line"><span class="keyword">int</span> (^addBlock)(<span class="keyword">int</span> a, <span class="keyword">int</span> b) = ^(<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line"><span class="keyword">return</span> a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, addBlock(<span class="number">13</span>, <span class="number">6</span>)); <span class="comment">// print："19"</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p><code>block</code>可以访问局部变量，但是不能修改，如果修改局部变量，需要加<code>__block</code></p>
@@ -527,8 +528,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/15/iOS 获取设备的各种信息/" rel="next" title="iOS 获取设备的各种信息">
-                <i class="fa fa-chevron-left"></i> iOS 获取设备的各种信息
+              <a href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/" rel="next" title="iOS 开发中导航栏渐变的两种方法">
+                <i class="fa fa-chevron-left"></i> iOS 开发中导航栏渐变的两种方法
               </a>
             
           </div>
@@ -537,8 +538,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/" rel="prev" title="iOS 开发中导航栏渐变的两种方法">
-                iOS 开发中导航栏渐变的两种方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(2)/" rel="prev" title="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)">
+                iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

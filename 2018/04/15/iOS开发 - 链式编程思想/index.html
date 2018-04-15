@@ -107,7 +107,7 @@
 <meta property="og:description" content="因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码：  123[imageView mas_makeConstraints:^(MASConstraintMaker *make) &amp;#123;make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeIns">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-98cb658222344c24.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:54:27.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:13:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - 链式编程思想">
 <meta name="twitter:description" content="因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码：  123[imageView mas_makeConstraints:^(MASConstraintMaker *make) &amp;#123;make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeIns">
@@ -357,6 +357,9 @@
 <h4 id="链式编程思想："><a href="#链式编程思想：" class="headerlink" title="链式编程思想："></a>链式编程思想：</h4><p>所谓链式编程就是通过点（.）将多个操作链接在一起成为一句代码，使代码更加紧凑，也提高了代码的可读性（如上面那句代码）。</p>
 <h4 id="链式编程特点："><a href="#链式编程特点：" class="headerlink" title="链式编程特点："></a>链式编程特点：</h4><ul>
 <li>方法的返回值是 block，block 中必须有一个返回值，通常返回它本身，也可以是处理后的数据或对象。</li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>返回值中的 block 具备两个功能，第一：可以作为类的属性被’点’出来。第二：可以当作函数直接调用。</li>
 <li>通常会通过调用一个函数来给属性赋值，在函数内部封装赋值的语句，也可以加入一些判断逻辑等。</li>
 </ul>

@@ -107,7 +107,7 @@
 <meta property="og:description" content="前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的读了一遍，对重构有了更深层次的认识了。这里结合 iOS 项目的重构，谈谈与重构相关的问题，做一下记录及分享。  一、《重构》读书笔记1.1 重构的定义 “重构”这个词有两种不同的定义： 第一个定义是名词形式：重构（名词）：对软件内部结构的一种调整，目的是在">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-afbd6c99f54d9c04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:58:54.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:10:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式-《重构》读书笔记及 APP 重构心得">
 <meta name="twitter:description" content="前段时间和一同事一起重构了两个 APP，正好想写一些重构心得，前天又在知乎上看到一前辈推荐《重构》这本书，据说是程序员的必读书籍，于是就粗略的读了一遍，对重构有了更深层次的认识了。这里结合 iOS 项目的重构，谈谈与重构相关的问题，做一下记录及分享。  一、《重构》读书笔记1.1 重构的定义 “重构”这个词有两种不同的定义： 第一个定义是名词形式：重构（名词）：对软件内部结构的一种调整，目的是在">
@@ -358,7 +358,8 @@
 <li>第二个定义是动词形式：<br><strong>重构（动词）：使用一系列重构手法，在不改变软件可观察行为的前提下，调整其结构。</strong></li>
 </ul>
 <p>重构的定义说明了两点，第一，重构的目的是使软件更容易被理解和修改；第二，重构不会改变软件可观察的行为——重构之后软件功能一如既往。</p>
-<h4 id="1-2-为何重构？"><a href="#1-2-为何重构？" class="headerlink" title="1.2 为何重构？"></a>1.2 为何重构？</h4><ul>
+<h4 id="1-2-为何重构？"><a href="#1-2-为何重构？" class="headerlink" title="1.2 为何重构？"></a>1.2 为何重构？</h4><a id="more"></a>
+<ul>
 <li><p><strong>重构可以帮你始终良好的控制自己的代码，它可以用于以下几个目的：</strong></p>
 </li>
 <li><p><strong>重构改进软件设计</strong><br>如果没有重构，程序的设计会逐渐腐败变质。当人们只为短期目的，或是在完全理解整体设计之前，就贸然修改代码，程序将逐渐失去自己的结构，程序员越来越难通过阅读源码而理解原来的设计。<br>完成同一件事情，设计不良的程序往往需要更多代码，这常常是因为代码在不同的地方使用完全相同的语句做同样的事情。因此改进设计的一个重要方向就是消除重复代码。</p>

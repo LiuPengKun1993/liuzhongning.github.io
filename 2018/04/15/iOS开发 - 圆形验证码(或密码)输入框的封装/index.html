@@ -109,7 +109,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-7b41dd80189fc084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-a1ab2114dbc942f9.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-7d2566ca5c78135b.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-04-15T11:04:45.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:14:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - 圆形验证码(或密码)输入框的封装">
 <meta name="twitter:description" content="项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：    上面的UI图主要有以下几个要求： 输入框为圆形 输入框之间有适当距离 输入框颜色在输入文本时有变化  刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：  创建">
@@ -363,7 +363,8 @@
 </ul>
 <p>刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：</p>
 <ul>
-<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。</li>
+<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。<a id="more"></a>
+</li>
 </ul>
 <h5 id="封装的圆形输入框主要实现了以下功能：输入框的数量、距离、颜色、大小等都可以自行设定，用起来也很方便，只需以下几行代码即可："><a href="#封装的圆形输入框主要实现了以下功能：输入框的数量、距离、颜色、大小等都可以自行设定，用起来也很方便，只需以下几行代码即可：" class="headerlink" title="封装的圆形输入框主要实现了以下功能：输入框的数量、距离、颜色、大小等都可以自行设定，用起来也很方便，只需以下几行代码即可："></a>封装的圆形输入框主要实现了以下功能：输入框的数量、距离、颜色、大小等都可以自行设定，用起来也很方便，只需以下几行代码即可：</h5><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">NNValidationCodeView *view = [[NNValidationCodeView alloc] initWithFrame:CGRectMake(<span class="number">80</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">45</span>) <span class="keyword">andLabelCount:4 </span><span class="keyword">andLabelDistance:10];</span></span><br><span class="line"><span class="keyword">[self.view </span><span class="keyword">addSubview:view];</span></span><br><span class="line"><span class="keyword">view.changedColor </span>= [UIColor yellowColor]<span class="comment">;</span></span><br><span class="line">view.codeBlock = ^(NSString *codeString) &#123;</span><br><span class="line">NSLog(@<span class="string">"验证码:%@"</span>, codeString)<span class="comment">;</span></span><br><span class="line">&#125;<span class="comment">;</span></span><br></pre></td></tr></table></figure>
 <p>这是 demo 的效果图：</p>

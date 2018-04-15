@@ -108,7 +108,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-22dab42fdda6386d.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-fc0ce6698f16a1a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T11:16:31.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:12:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)">
 <meta name="twitter:description" content="《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总结和探讨了 OC 编程中的 52 个特性与陷阱，很值得读。  文章共分为三篇：第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS">
@@ -355,7 +355,7 @@
 </blockquote>
 <h5 id="文章共分为三篇："><a href="#文章共分为三篇：" class="headerlink" title="文章共分为三篇："></a>文章共分为三篇：</h5><p>第一篇：<a href="https://www.jianshu.com/p/6985ec0666cb" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a><br>第二篇：<a href="https://www.jianshu.com/p/72b5525e82e3" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a><br>第三篇：<a href="https://www.jianshu.com/p/43fb6ccea4b2" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a></p>
 <h5 id="文章目录："><a href="#文章目录：" class="headerlink" title="文章目录："></a>文章目录：</h5><blockquote>
-<p>第 1 章：熟悉 OC<br>第 2 章：对象、消息、运行期<br>第 3 章：接口与 API 设计<br>第 4 章：协议与分类<br>第 5 章：内存管理<br>第 6 章：块与大中枢派发（block 与 GCD）<br>第 7 章：系统框架</p>
+<p>第 1 章：熟悉 OC<br>第 2 章：对象、消息、运行期<br>第 3 章：接口与 API 设计<br>第 4 章：协议与分类<br>第 5 章：内存管理<br>第 6 章：块与大中枢派发（block 与 GCD）<br>第 7 章：系统框架<br><a id="more"></a></p>
 </blockquote>
 <h2 id="第-1-章：熟悉-OC"><a href="#第-1-章：熟悉-OC" class="headerlink" title="第 1 章：熟悉 OC"></a>第 1 章：熟悉 OC</h2><h4 id="第-1-条-在类的头文件中尽量少引入其他头文件"><a href="#第-1-条-在类的头文件中尽量少引入其他头文件" class="headerlink" title="第 1 条 - 在类的头文件中尽量少引入其他头文件"></a>第 1 条 - 在类的头文件中尽量少引入其他头文件</h4><p>OC 中应尽量避免在头文件中引用其他类，即比如我们有两个类，<code>NNListViewController</code> 以及 <code>NNHomeViewController</code>，应避免在 <code>NNListViewController.h</code> 中引用 <code>NNHomeViewController</code>，如果非要在 <code>NNListViewController.h</code> 中引入 <code>NNHomeViewController</code>，如下面代码：</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NNListViewController</span> : <span class="title">UIViewController</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *age;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) NNHomeViewController *homeVC;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
@@ -530,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(2)/" rel="next" title="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)">
-                <i class="fa fa-chevron-left"></i> iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)
+              <a href="/2018/04/15/iOS 开发 - Swift 全面系统的学习（持续更新...）/" rel="next" title="iOS 开发 - Swift 全面系统的学习（持续更新...）">
+                <i class="fa fa-chevron-left"></i> iOS 开发 - Swift 全面系统的学习（持续更新...）
               </a>
             
           </div>
@@ -540,8 +540,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/15/iOS 开发 - Swift 全面系统的学习（持续更新...）/" rel="prev" title="iOS 开发 - Swift 全面系统的学习（持续更新...）">
-                iOS 开发 - Swift 全面系统的学习（持续更新...） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/15/Markdown 常用语法/" rel="prev" title="Markdown 常用语法">
+                Markdown 常用语法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

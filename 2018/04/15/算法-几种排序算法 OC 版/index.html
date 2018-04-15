@@ -107,7 +107,7 @@
 <meta property="og:description" content="如果你交给某人一个程序，你将“折磨”他一整天；如果你教某人如何编写程序，你将“折磨”他一辈子。——《大话数据结构》  这阵子抽空看了一些算法与数据结构相关的东西，不得不说算法数据结构这些思想真的是博大精深，作为 iOS 开发人员，为什么要学习算法？说实话很多开发人员可能不会算法，但照样能做 App，有位大家都熟悉的大神在几个月前写了篇文章，我也是无意间读到的，搞 iOS 的学算法有意义吗？，大家">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-60505d0e355b8bc1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T11:18:19.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:11:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法-几种排序算法 OC 版">
 <meta name="twitter:description" content="如果你交给某人一个程序，你将“折磨”他一整天；如果你教某人如何编写程序，你将“折磨”他一辈子。——《大话数据结构》  这阵子抽空看了一些算法与数据结构相关的东西，不得不说算法数据结构这些思想真的是博大精深，作为 iOS 开发人员，为什么要学习算法？说实话很多开发人员可能不会算法，但照样能做 App，有位大家都熟悉的大神在几个月前写了篇文章，我也是无意间读到的，搞 iOS 的学算法有意义吗？，大家">
@@ -357,6 +357,7 @@
 <p>这两天看了八大排序算法，并试着用 OC 语言写了几种，给大家分享下！</p>
 </blockquote>
 <h3 id="算法一：冒泡排序"><a href="#算法一：冒泡排序" class="headerlink" title="算法一：冒泡排序"></a>算法一：冒泡排序</h3><p>个人觉得冒泡排序是最简单的排序了</p>
+<a id="more"></a>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#pragma mark - 冒泡排序</span></span><br><span class="line">+ (void)<span class="keyword">bubbleSort:(NSMutableArray </span>*)mutableArray &#123;</span><br><span class="line">if(mutableArray == nil <span class="title">||</span> mutableArray.count == <span class="number">0</span>)</span><br><span class="line">return<span class="comment">;</span></span><br><span class="line">NSLog(@<span class="string">"冒泡排序之前: %@"</span>, mutableArray)<span class="comment">;</span></span><br><span class="line">for (NSInteger i = <span class="number">0</span><span class="comment">; i &lt; mutableArray.count; i++) &#123;</span></span><br><span class="line">for (NSInteger <span class="keyword">j </span>= <span class="number">0</span><span class="comment">; j &lt; mutableArray.count - i - 1; j++) &#123;</span></span><br><span class="line">if ([mutableArray[<span class="keyword">j </span>+ <span class="number">1</span>] floatValue] &lt; [mutableArray[<span class="keyword">j] </span>floatValue]) &#123;</span><br><span class="line">CGFloat tempFloat = [mutableArray[<span class="keyword">j] </span>floatValue]<span class="comment">;</span></span><br><span class="line">mutableArray[<span class="keyword">j] </span>= mutableArray[<span class="keyword">j </span>+ <span class="number">1</span>]<span class="comment">;</span></span><br><span class="line">mutableArray[<span class="keyword">j </span>+ <span class="number">1</span>] = [NSNumber numberWithFloat:tempFloat]<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">NSLog(@<span class="string">"冒泡排序之后: %@"</span>, mutableArray)<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>算法步骤：<br>1）比较相邻的元素。如果第一个比第二个大，就交换他们两个。<br>2）对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。<br>3）针对所有的元素重复以上的步骤，除了最后一个。<br>4）持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
@@ -419,8 +420,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/" rel="prev" title="用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色">
-                用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(3)/" rel="prev" title="数据结构 -《大话数据结构》读书笔记(3)">
+                数据结构 -《大话数据结构》读书笔记(3) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

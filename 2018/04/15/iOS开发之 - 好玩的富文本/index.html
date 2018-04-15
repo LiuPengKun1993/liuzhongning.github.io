@@ -120,7 +120,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-8f882d994febb18b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-27adc1a27e0637ee.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-4e0d6a0908bfb1e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:11:06.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:15:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之 - 好玩的富文本">
 <meta name="twitter:description" content="周末闲着没事，就想着不如把那些容易遗忘的知识点整理一下，一来可以让有需要的朋友少走弯路，二来自己以后再忘记的时候也可以回头看看……但 iOS 中小冷易忘的知识点实在太多了，不知道该从哪里开始整理，“百无聊赖”逛了下淘宝，发现里面好多都是富文本，就想着为什么不从富文本开始呢？反正闲着也是闲着……于是就有了下面这些东西，希望可以帮到看到的盆友们！  先写一个小引子 在项目中，很多时候我们都需要把文字设">
@@ -373,9 +373,10 @@
 <p>显示出来大概是这个样子滴：<br><img src="http://upload-images.jianshu.io/upload_images/2665449-ab7fd6348e681a88.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="普通文本"></p>
 <p>为了让文字变的好看一些，接下来我们尝试一下富文本！</p>
 <ul>
-<li>改变字体颜色</li>
-</ul>
+<li>改变字体颜色<a id="more"></a>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableAttributedString</span> *string = [[<span class="built_in">NSMutableAttributedString</span> alloc] initWithString:<span class="string">@"很好玩的富文本"</span>];</span><br><span class="line"></span><br><span class="line">[string addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> blueColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">1</span>, <span class="number">2</span>)];</span><br><span class="line">[string addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> redColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">3</span>, <span class="number">1</span>)];</span><br><span class="line">[string addAttribute:<span class="built_in">NSForegroundColorAttributeName</span> value:[<span class="built_in">UIColor</span> blueColor] range:<span class="built_in">NSMakeRange</span>(<span class="number">4</span>, <span class="number">3</span>)];</span><br><span class="line"><span class="keyword">self</span>.textView.attributedText = string;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-9ab05decdf730650.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="改变字体颜色"></p>
 <ul>
 <li>改变字体大小</li>

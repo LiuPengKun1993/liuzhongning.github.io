@@ -107,7 +107,7 @@
 <meta property="og:description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结在这里，只希望对看到的朋友们有所帮助！文章有些长，涵盖的知识点也比较多，希望朋友们能够耐心读完哈！我们这篇文章主要包括以下几个模块：   （一）iOS开发之多线程 基础知识 （二）iOS开发之多线程 NSThread （三）iOS开发之多线程 NSOper">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-72633919539a5942.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:23:03.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:14:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之 - 多线程">
 <meta name="twitter:description" content="最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结在这里，只希望对看到的朋友们有所帮助！文章有些长，涵盖的知识点也比较多，希望朋友们能够耐心读完哈！我们这篇文章主要包括以下几个模块：   （一）iOS开发之多线程 基础知识 （二）iOS开发之多线程 NSThread （三）iOS开发之多线程 NSOper">
@@ -360,7 +360,7 @@
 <li><strong>（四）iOS开发之多线程 GCD</strong></li>
 <li><strong>（五）iOS开发之多线程 线程间的通信</strong></li>
 </ul>
-<p><em>下面我们开始了解 iOS 多线程的基础知识，如果在此之前对多线程已经有所了解的朋友，大可跳过这一部分，直接看后边三种多线程编程的 demo 即可！</em></p>
+<p><em>下面我们开始了解 iOS 多线程的基础知识，如果在此之前对多线程已经有所了解的朋友，大可跳过这一部分，直接看后边三种多线程编程的 demo 即可！</em><br><a id="more"></a></p>
 <h2 id="（一）iOS-开发之多线程-基础知识"><a href="#（一）iOS-开发之多线程-基础知识" class="headerlink" title="（一）iOS 开发之多线程 基础知识"></a>（一）iOS 开发之多线程 基础知识</h2><h3 id="1-多线程简介"><a href="#1-多线程简介" class="headerlink" title="1.多线程简介:"></a>1.多线程简介:</h3><p>一个进程要想执行任务, 必须得有线程(每个进程至少要有一条线程), 线程是进程的基本执行单元, 一个进程（程序）的所有任务都在线程中执行.</p>
 <h3 id="2-多线程的原理"><a href="#2-多线程的原理" class="headerlink" title="2.多线程的原理:"></a>2.多线程的原理:</h3><p>同一时间, CPU 只能处理一条线程,只有一条线程在工作.<br>多线程并发(同时)执行, 其实是 CPU 快速地在多条线程之间调度.<br>如果 CPU 调度线程的时间足够快,就造成了多线程并发执行的假象.</p>
 <h3 id="3-多线程的优缺点"><a href="#3-多线程的优缺点" class="headerlink" title="3.多线程的优缺点:"></a>3.多线程的优缺点:</h3><h4 id="多线程的优点"><a href="#多线程的优点" class="headerlink" title="多线程的优点:"></a>多线程的优点:</h4><p>能适当提高程序的执行效率.<br>能适当提高资源利用率(CPU、内存利用率).</p>

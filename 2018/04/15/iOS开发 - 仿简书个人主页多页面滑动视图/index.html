@@ -99,19 +99,19 @@
 
 
 
-  <meta name="description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。   简书APP个人主页：  demo 效果图：     demo 地址：https://github.com/liuzhongning/NNJaneBookView  简单说下思路及核心代码：思路： 导航栏上面的头像会随着视">
+  <meta name="description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。   简书APP个人主页：  demo 效果图：     demo 地址：https://github.com/liuzhongning/NNJaneBookView  简单说下思路及核心代码：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发 - 仿简书个人主页多页面滑动视图">
 <meta property="og:url" content="http://yoursite.com/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/index.html">
 <meta property="og:site_name" content="以梦为马">
-<meta property="og:description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。   简书APP个人主页：  demo 效果图：     demo 地址：https://github.com/liuzhongning/NNJaneBookView  简单说下思路及核心代码：思路： 导航栏上面的头像会随着视">
+<meta property="og:description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。   简书APP个人主页：  demo 效果图：     demo 地址：https://github.com/liuzhongning/NNJaneBookView  简单说下思路及核心代码：">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-5b13d9033bba3752.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-64f7bc0e3b50267d.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2018-04-15T11:07:47.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:13:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发 - 仿简书个人主页多页面滑动视图">
-<meta name="twitter:description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。   简书APP个人主页：  demo 效果图：     demo 地址：https://github.com/liuzhongning/NNJaneBookView  简单说下思路及核心代码：思路： 导航栏上面的头像会随着视">
+<meta name="twitter:description" content="之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。   简书APP个人主页：  demo 效果图：     demo 地址：https://github.com/liuzhongning/NNJaneBookView  简单说下思路及核心代码：">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-5b13d9033bba3752.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -363,7 +363,8 @@
 <ul>
 <li>demo 地址：<a href="https://github.com/liuzhongning/NNJaneBookView" target="_blank" rel="noopener">https://github.com/liuzhongning/NNJaneBookView</a></li>
 </ul>
-<h4 id="简单说下思路及核心代码："><a href="#简单说下思路及核心代码：" class="headerlink" title="简单说下思路及核心代码："></a>简单说下思路及核心代码：</h4><h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><ul>
+<h4 id="简单说下思路及核心代码："><a href="#简单说下思路及核心代码：" class="headerlink" title="简单说下思路及核心代码："></a>简单说下思路及核心代码：</h4><a id="more"></a>
+<h5 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h5><ul>
 <li>导航栏上面的头像会随着视图的上下滑动而变大变小，这里注册了一个通知，用来监听视图的上下滑动，可以根据偏移量的值来改变头像的大小。</li>
 <li>此 UI 页面分为三部分，第一部分是信息展示，用来显示昵称签名等；第二部分是标签栏，即“动态”，“文章”，“更多”这三个标签；第三部分是主要显示内容；</li>
 <li>我这里用了这样的思路：页面底部是一个 UIScrollView; 接着 UIScrollView 上面 add 了三个 UITableView ；信息展示以及标签栏放在 UITableView 的 tableHeaderView 中；接着挨个实现其功能即可。</li>

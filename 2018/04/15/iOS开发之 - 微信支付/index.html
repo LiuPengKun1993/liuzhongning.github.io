@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-a0dfa21d98e8d045.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-f4bd0524a4a2d18f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-8c7b570a18293fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T09:40:22.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:16:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之 - 微信支付">
 <meta name="twitter:description" content="作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下文档。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。   第一步：创建应用  通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～ 在 微信开放平台 的管理中心 创建">
@@ -364,9 +364,9 @@
 <p>在 <a href="https://open.weixin.qq.com/cgi-bin/index?t=home/index&amp;lang=zh_CN&amp;token=0ebf4697e5671e8567a5c5f4682a4c6cb0fcaa92" target="_blank" rel="noopener">微信开放平台</a> 的管理中心 <a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN" target="_blank" rel="noopener">创建一个应用。</a>此应用官方称七日内审核通过，一般都是三四天！而关于填写经营信息、填写商户信息、填写对公帐号信息在这里就忽略不写了。有兴趣的朋友可以了解下<a href="http://494075592.blog.51cto.com/10682677/1701260" target="_blank" rel="noopener">这篇文章</a>。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-723d6f42f6b41ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建应用"></p>
 <ul>
-<li><strong>第二步：了解支付的流程</strong></li>
+<li><strong>第二步：了解支付的流程</strong><a id="more"></a>
+如果做过其它支付，就会发现这些流程其实都差不多，就像我们平时用手机支付买东西一样。下边的流程两分钟大概就能读完，很容易理解！</li>
 </ul>
-<p>如果做过其它支付，就会发现这些流程其实都差不多，就像我们平时用手机支付买东西一样。下边的流程两分钟大概就能读完，很容易理解！</p>
 <p>1&gt; 用户使用 APP 客户端，选择商品下单。<br>2&gt; APP 客户端将用户的商品数据传给商户服务器，请求生成支付订单。<br>3&gt; 商户后台调用统一下单 API 向微信的服务器发送请求，微信服务器生成预付单，并生成一个 prepay_id 返回给商户后台。<br>4&gt; 商户后台将这个 prepay_id 返回给商户客户端。<br>5&gt; 用户点击确认支付，这时候商户客户端调用 SDK 打开微信客户端，进行微信支付。<br>6&gt; 微信客户端向微信服务器发起支付请求并返回支付结果（他们之间交互用的就是prepay_id这个参数，微信的服务器要验证微信客户端传过去的参数是否跟第三步中生成的那个id一致）。<br>7&gt; 用户输入支付密码后，微信客户端提交支付授权，跟微信服务器交互，完成支付<br>8&gt; 微信服务器给微信客户端发送支付结果提示，并异步给商户服务器发送支付结果通知。<br>9&gt; 商户客户端通过支付结果回调接口查询支付结果，并向后台检查支付结果是否正确，后台返回支付结果。<br>10&gt; 商户客户端显示支付结果，完成订单，发货。</p>
 <ul>
 <li><strong>第三步：集成SDK</strong></li>

@@ -107,7 +107,7 @@
 <meta property="og:description" content="以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。  一、RunLoop 基础知识1.1 RunLoop  简介一般来说，一个线程只能执行一个任务，执行完就会退出，如果我们需要一种机制，让线程能随时处理时间但并不退出，那么 RunLoop 就是这样的一个机制。Runloop是事件接收和分发机制的一个实现。所以它实际上是一个对象，这个对象管理了其需要处理的事件和消息。在">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-4d7042ab55fbe301.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-04-15T10:37:26.000Z">
+<meta property="og:updated_time" content="2018-04-15T12:18:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之 - RunLoop">
 <meta name="twitter:description" content="以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。  一、RunLoop 基础知识1.1 RunLoop  简介一般来说，一个线程只能执行一个任务，执行完就会退出，如果我们需要一种机制，让线程能随时处理时间但并不退出，那么 RunLoop 就是这样的一个机制。Runloop是事件接收和分发机制的一个实现。所以它实际上是一个对象，这个对象管理了其需要处理的事件和消息。在">
@@ -354,7 +354,7 @@
 <p>以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。</p>
 </blockquote>
 <h2 id="一、RunLoop-基础知识"><a href="#一、RunLoop-基础知识" class="headerlink" title="一、RunLoop 基础知识"></a>一、RunLoop 基础知识</h2><h3 id="1-1-RunLoop-简介"><a href="#1-1-RunLoop-简介" class="headerlink" title="1.1 RunLoop  简介"></a>1.1 RunLoop  简介</h3><p>一般来说，一个线程只能执行一个任务，执行完就会退出，如果我们需要一种机制，让线程能随时处理时间但并不退出，那么 RunLoop 就是这样的一个机制。Runloop是事件接收和分发机制的一个实现。所以它实际上是一个对象，这个对象管理了其需要处理的事件和消息。在iOS 系统中，有这样两个对象： NSRunLoop 和 CFRunLoopRef。 NSRunLoop 和 CFRunLoopRef都代表着 RunLoop 对象。</p>
-<h3 id="1-2-RunLoop的基本作用"><a href="#1-2-RunLoop的基本作用" class="headerlink" title="1.2 RunLoop的基本作用"></a>1.2 RunLoop的基本作用</h3><p>(1)保持程序的持续运行；<br>(2)处理 App 中的各种事件(比如触摸事件、定时器事件、Selector 事件)；<br>(3)节省 CPU 资源, 提高程序性能。</p>
+<h3 id="1-2-RunLoop的基本作用"><a href="#1-2-RunLoop的基本作用" class="headerlink" title="1.2 RunLoop的基本作用"></a>1.2 RunLoop的基本作用</h3><p>(1)保持程序的持续运行；<br>(2)处理 App 中的各种事件(比如触摸事件、定时器事件、Selector 事件)；<br>(3)节省 CPU 资源, 提高程序性能。<br><a id="more"></a></p>
 <h3 id="1-3-RunLoop的使用环境"><a href="#1-3-RunLoop的使用环境" class="headerlink" title="1.3 RunLoop的使用环境"></a>1.3 RunLoop的使用环境</h3><p>仅当在为你的程序创建辅助线程的时候，你才需要显示运行 RunLoop 。对于辅助线程，你需要判断一个 RunLoop 是否是必须的。如果是必须的，那么你要自己配置并启动它，你不需要再任何情况下都去启动一个线程的 RunLoop 。 RunLoop 在你要和线程有更多的交互时才需要，比如以下情况：<br>(1)使用端口或者自定义输入源来和其他线程通信；<br>(2)使用线程的定时器；<br>(3) Cocoa 中使用任何 performSelector 的方法；<br>(4)使线程周期性工作。</p>
 <h3 id="1-4-RunLoop工作的特点"><a href="#1-4-RunLoop工作的特点" class="headerlink" title="1.4 RunLoop工作的特点:"></a>1.4 RunLoop工作的特点:</h3><p>(1)当有时间发生时, RunLoop 会根据具体的事件类型通知应用程序作出响应；<br>(2)当没有事件发生时, RunLoop 会进入休眠状态；<br>(3)当事件再次发生时, RunLoop 会被重新唤醒, 处理事件。</p>
 <h3 id="1-5-runLoop的内部逻辑"><a href="#1-5-runLoop的内部逻辑" class="headerlink" title="1.5 runLoop的内部逻辑"></a>1.5 runLoop的内部逻辑</h3><p>runLoop其实是一个函数，其内部是一个 do-while 循环，当你调用CFRunLoop() 时，线程就会一直停留在这个循环中；直到超时或被手动停止，该函数才会返回。每次运行 runLoop，线程的 runLoop 会自动处理之前未处理的消息，并通知相关的观察者，具体的顺序如下：<br>(1)通知观察者 runLoop 已经启动；<br>(2)通知观察者处理将要开始的定时器；<br>(3)通知观察者处理即将启动的非基于端口的源；<br>(4)处理非基于端口的源；<br>(5)如果基于端口的源准备好并处于等待状态，立即启动进入步骤⑨；<br>(6)通知观察者线程即将进入休眠；<br>(7)线程处于休眠状态，直到下面的任意的一个事件发生：<br>A.某一时间到达基于端口的源；<br>B.定时器启动；<br>C.runLoop被外部手动唤醒；<br>(8)通知观察者线程刚被唤醒；<br>(9)处理接收到的事件，处理定时器并重启 runLoop，进入步骤2；<br>(10)通知观察者，即将退出 runLoop。</p>
