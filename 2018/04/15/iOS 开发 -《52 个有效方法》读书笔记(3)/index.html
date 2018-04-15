@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="文章共分为三篇：第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)第二篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)第三篇：iOS 开发 -《Effective Objective-C 2.0:编">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之 - 银联支付">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(3)/index.html">
+<meta property="og:site_name" content="以梦为马">
+<meta property="og:description" content="文章共分为三篇：第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)第二篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)第三篇：iOS 开发 -《Effective Objective-C 2.0:编">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-92afc35d076a4c15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-15T11:17:19.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之 - 银联支付">
+<meta name="twitter:description" content="文章共分为三篇：第一篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)第二篇：iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)第三篇：iOS 开发 -《Effective Objective-C 2.0:编">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-92afc35d076a4c15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(3)/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之 - 银联支付 | 以梦为马</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">以梦为马</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">谨以此纪念岁月</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />主页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(3)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之 - 银联支付
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="文章共分为三篇："><a href="#文章共分为三篇：" class="headerlink" title="文章共分为三篇："></a>文章共分为三篇：</h5><p>第一篇：<a href="https://www.jianshu.com/p/6985ec0666cb" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a><br>第二篇：<a href="https://www.jianshu.com/p/72b5525e82e3" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a><br>第三篇：<a href="https://www.jianshu.com/p/43fb6ccea4b2" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a></p>
+<p>接上篇：<a href="https://www.jianshu.com/p/72b5525e82e3" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a></p>
+<h2 id="第-6-章-块与大中枢派发"><a href="#第-6-章-块与大中枢派发" class="headerlink" title="第 6 章 块与大中枢派发"></a>第 6 章 块与大中枢派发</h2><h3 id="第-35-条：理解-“块”这一概念"><a href="#第-35-条：理解-“块”这一概念" class="headerlink" title="第 35 条：理解 “块”这一概念"></a>第 35 条：理解 “块”这一概念</h3><p><code>blcok</code>和函数类似，它是直接定义在另一个函数里的，和定义它的那个函数共享同一个范围的东西。用<code>^</code>来表示，后面接一对大括号，括号里是<code>blcok</code>的实现代码。</p>
+<ul>
+<li>格式： 返回类型 （^blockName）(参数){实现代码};</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 无返回值无参数</span></span><br><span class="line"><span class="keyword">void</span>(^testBlcok)(<span class="keyword">void</span>) = ^&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"testBlcok"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">testBlcok(); <span class="comment">// print："testBlcok"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 无返回值有参数</span></span><br><span class="line"><span class="keyword">void</span>(^testBlcok)(<span class="keyword">int</span> a) = ^(<span class="keyword">int</span> a) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, a);</span><br><span class="line">&#125;;</span><br><span class="line">testBlcok(<span class="number">5</span>); <span class="comment">// print："5"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有返回值有参数</span></span><br><span class="line"><span class="keyword">int</span> (^addBlock)(<span class="keyword">int</span> a, <span class="keyword">int</span> b) = ^(<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line"><span class="keyword">return</span> a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, addBlock(<span class="number">13</span>, <span class="number">6</span>)); <span class="comment">// print："19"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>block</code>可以访问局部变量，但是不能修改，如果修改局部变量，需要加<code>__block</code></p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__block NSInteger <span class="built_in">count</span> = <span class="number">0</span><span class="comment">;</span></span><br><span class="line">int <span class="keyword">additional </span>= <span class="number">5</span><span class="comment">;</span></span><br><span class="line">int (^<span class="keyword">addBlock)(int </span>a, int <span class="keyword">b) </span>= ^(int a, int <span class="keyword">b) </span>&#123;</span><br><span class="line"><span class="built_in">count</span> = <span class="built_in">count</span> + <span class="number">10</span><span class="comment">;</span></span><br><span class="line">return a + <span class="keyword">b </span>+ <span class="keyword">additional;</span></span><br><span class="line"><span class="keyword">&#125;;</span></span><br><span class="line"><span class="keyword">NSLog(@"addBlock </span>= %d<span class="string">", addBlock(13, 6)); // print："</span><span class="number">24</span><span class="string">"</span></span><br><span class="line"><span class="string">NSLog(@"</span><span class="built_in">count</span> = %ld<span class="string">", count); // print："</span><span class="number">10</span><span class="string">"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>另外关于<code>block</code>的修饰符应该注意：<br>1.如果用<code>copy</code>修饰<code>Block</code>，该<code>Block</code>就会存储在堆空间。则会对<code>Block</code>的内部对象进行强引用，导致循环引用。内存无法释放。<br>解决方法：新建一个指针<code>(__weak typeof(Target) weakTarget = Target )</code>指向<code>Block</code>代码块里的对象，然后用<code>weakTarget</code>进行操作。就可以解决循环引用问题。<br>2.如果用<code>weak</code>修饰<code>Block</code>，该<code>Block</code>就会存放在栈空间。不会出现循环引用问题。</p>
+</li>
+</ul>
+<h3 id="第-36-条：为常用的块类型创建-typedef"><a href="#第-36-条：为常用的块类型创建-typedef" class="headerlink" title="第 36 条：为常用的块类型创建 typedef"></a>第 36 条：为常用的块类型创建 typedef</h3><p>为常用的块类型创建 <code>typedef</code>，主要是为了代码的易读性，用的时候也较为方便。请看下面代码对比：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种写法</span></span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">testWithBlockString</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">string</span> <span class="selector-tag">withBlock</span><span class="selector-pseudo">:(void(</span>^)(id dataSource))<span class="selector-tag">block</span>;</span><br><span class="line"><span class="comment">/* 这种写法非常难记，也很难懂，用的时候不方便 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种写法</span></span><br><span class="line"><span class="selector-tag">typedef</span> <span class="selector-tag">void</span> (^testBlock)(id dataSource);</span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">testWithBlockString</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">string</span> <span class="selector-tag">withBlockName</span><span class="selector-pseudo">:(testBlock)block</span>;</span><br><span class="line"><span class="comment">/* 用 typedef 关键字，为常用的块类型起个别名，方便易懂 */</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="第-37-条：用-handler-块降低代码分散程度"><a href="#第-37-条：用-handler-块降低代码分散程度" class="headerlink" title="第 37 条：用 handler 块降低代码分散程度"></a>第 37 条：用 handler 块降低代码分散程度</h3><p>在<code>iOS</code>开发中，我们经常会异步处理一些任务，然后等任务执行结束后通知相关方法。实现此需求的方法有很多，比如可以选择代理委托，也可以选择<code>block</code>。<code>block</code>更轻型，使用更简单，能够直接访问上下文，这样类中不需要存储临时数据，使用<code>block</code>的代码通常会在同一个地方，这样使代码更连贯，可读性好。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">typedef</span> <span class="selector-tag">void</span> (^testBlock)(id dataSource);</span><br><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">testWithBlockString</span><span class="selector-pseudo">:(NSString</span> *)<span class="selector-tag">string</span> <span class="selector-tag">withBlockName</span><span class="selector-pseudo">:(testBlock)block</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="第-38-条：用块引用其所属对象时不要出现保留环"><a href="#第-38-条：用块引用其所属对象时不要出现保留环" class="headerlink" title="第 38 条：用块引用其所属对象时不要出现保留环"></a>第 38 条：用块引用其所属对象时不要出现保留环</h3><p>这条讲的比较基础，是<code>iOS</code>中<code>block</code>的循环引用问题。所谓循环引用，就是两个对象相互持有，这样就会造成循环引用。</p>
+<ul>
+<li><p>请看下面代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (^testBlock)(<span class="keyword">id</span> dataSource);</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) testBlock block;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *blockString;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)testBlock &#123;</span><br><span class="line"><span class="keyword">self</span>.block = ^(<span class="keyword">id</span> dataSource) &#123;</span><br><span class="line"><span class="built_in">NSString</span> *blockString = <span class="keyword">self</span>.blockString;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"blockString = %@"</span>, blockString);</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代码截图：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-92afc35d076a4c15.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="block 循环引用"></p>
+<ul>
+<li>解决方法：<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)testBlock &#123;</span><br><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line"><span class="keyword">self</span>.block = ^(<span class="keyword">id</span> dataSource) &#123;</span><br><span class="line"><span class="built_in">NSString</span> *blockString = weakSelf.blockString;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"blockString = %@"</span>, blockString);</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>但并非所有 block 都会造成循环引用</strong>，在开发中，一些同学只要有<code>block</code>的地方就会用<code>__weak</code>来修饰对象，其实没有必要，以下几种<code>block</code>是不会造成循环引用的：</p>
+<ul>
+<li>大部分<code>GCD</code>方法<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dispatch_async(dispatch_get_main_queue(), </span>^&#123;</span><br><span class="line">NSString *<span class="keyword">blockString </span>= self.<span class="keyword">blockString;</span></span><br><span class="line"><span class="keyword">NSLog(@"blockString </span>= %@<span class="string">", blockString);</span></span><br><span class="line"><span class="string">&#125;);</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>代码解读：因为<code>self</code>并没有对<code>GCD</code>中的<code>block</code>进行持有，所以不会形成循环引用。</p>
+<ul>
+<li><code>block</code> 属于另外一个类</li>
+</ul>
+<figure class="highlight hy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[NNHomeViewController testWithBlockName:^(<span class="name"><span class="builtin-name">id</span></span> dataSource) &#123;</span><br><span class="line">NSString *blockString = self.blockString;</span><br><span class="line">NSLog(@<span class="string">"blockString = %@"</span>, blockString)<span class="comment">;</span></span><br><span class="line">&#125;]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>代码解读：同上，<code>block</code>不是被<code>self</code>所持有的。</p>
+<ul>
+<li><code>block</code>并不是属性值，而是临时变量<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">[<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">[<span class="keyword">self</span> testWithBlock:^&#123;</span><br><span class="line"><span class="built_in">NSString</span> *blockString = <span class="keyword">self</span>.blockString;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"blockString = %@"</span>, blockString);</span><br><span class="line">&#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)testWithBlock:(<span class="keyword">void</span>(^)(<span class="keyword">void</span>))block &#123;</span><br><span class="line">block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="第-39-条：多用派发队列，少用同步锁"><a href="#第-39-条：多用派发队列，少用同步锁" class="headerlink" title="第 39 条：多用派发队列，少用同步锁"></a>第 39 条：多用派发队列，少用同步锁</h3><p><strong>在 OC 中，如果有多个线程要执行同一份代码，有时可能会出问题。这种情况下，通常要使用锁来实现某种同步机制。</strong></p>
+<ul>
+<li>GCD 出现之前通常使用两种方法：</li>
+</ul>
+<p>第一种：内置的“同步块”</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">-</span> (void)<span class="selector-tag">synchronizedMethod</span> &#123;</span><br><span class="line"><span class="variable">@synchronized</span>(self) &#123;</span><br><span class="line"><span class="comment">// safe</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种写法会根据给定的对象，自动创建一个锁，并等待块中代码执行完毕。执行到这段代码结尾处，锁就释放了。但滥用<code>@synchronized(self)</code>会很大程度上降低代码效率，因此不推荐使用。</p>
+<p>第二种：直接使用 NSLock 对象(也可以使用 NSRecursiveLock 递归锁)<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">_lock</span> = [[NSLock alloc] init];</span><br><span class="line"></span><br><span class="line">- (void)synchronizedMethod &#123;</span><br><span class="line">[<span class="variable">_lock</span> <span class="built_in">lock</span>];</span><br><span class="line"><span class="comment">// safe</span></span><br><span class="line">[<span class="variable">_lock</span> unlock];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这种写法也有缺陷，在极端情况下，同步块会导致死锁，另外与 GCD 相比效率也很低。</p>
+<ul>
+<li>推荐：GCD 方式<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="name">NSString</span> *)testString &#123;</span><br><span class="line">__block NSString *localTestString<span class="comment">;</span></span><br><span class="line">dispatch_sync(<span class="name">dispatch_get_global_queue</span>(<span class="name">DISPATCH_QUEUE_PRIORITY_DEFAULT</span>, <span class="number">0</span>), ^&#123;</span><br><span class="line">localTestString = self.testString<span class="comment">;</span></span><br><span class="line">&#125;)<span class="comment">;</span></span><br><span class="line">return localTestString<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="name">void</span>)setTestString:(<span class="name">NSString</span> *)testString &#123;</span><br><span class="line">dispatch_barrier_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</span><br><span class="line">self.testString = testString;</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>使用同步队列及栅栏块，可以令同步行为更加高效。</p>
+<h3 id="第-40-条：多用-GCD，少用-performSelector-系列方法"><a href="#第-40-条：多用-GCD，少用-performSelector-系列方法" class="headerlink" title="第 40 条：多用 GCD，少用 performSelector 系列方法"></a>第 40 条：多用 GCD，少用 performSelector 系列方法</h3><p>在 <code>GCD</code> 出现之前，开发者延迟调用一些方法，或者指定运行方法的线程会用 <code>performSelector</code>，但是在 <code>GCD</code> 出来之后就不需要再使用<code>performSelector</code>了。</p>
+<ul>
+<li>performSelector 系列的方法：</li>
+</ul>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)aSelector;</span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)aSelector withObject:(<span class="keyword">id</span>)object;</span><br><span class="line">- (<span class="keyword">id</span>)performSelector:(SEL)aSelector withObject:(<span class="keyword">id</span>)object1 withObject:(<span class="keyword">id</span>)object2;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anArgument afterDelay:(<span class="built_in">NSTimeInterval</span>)delay inModes:(<span class="built_in">NSArray</span>&lt;<span class="built_in">NSRunLoopMode</span>&gt; *)modes;</span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)anArgument afterDelay:(<span class="built_in">NSTimeInterval</span>)delay;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)aSelector withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait modes:(<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)array;</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)aSelector withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector onThread:(<span class="built_in">NSThread</span> *)thr withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait modes:(<span class="keyword">nullable</span> <span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)array;</span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector onThread:(<span class="built_in">NSThread</span> *)thr withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</span><br><span class="line">- (<span class="keyword">void</span>)performSelectorInBackground:(SEL)aSelector withObject:(<span class="keyword">nullable</span> <span class="keyword">id</span>)arg;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>performSelector 方法存在的缺点</li>
+<li>内存管理问题：在<code>ARC</code>下使用<code>performSelector</code>编译器经常出现警告，因为它无法确定将要执行的选择子具体是什么，因而<code>ARC</code>编译器也就无法插入适当的内存管理方法。</li>
+<li><p><code>performSelector</code>系列方法所能处理的选择子太过于局限，<code>performSelector</code>的返回值只能是<code>void</code>或对象类型；而且它无法处理带有多个参数的选择子，最多只能处理两个参数。</p>
+</li>
+<li><p>用 GCD 代替 performSelector 系列方法</p>
+</li>
+</ul>
+<ol>
+<li><p>延迟调用方法：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GCD</span></span><br><span class="line">dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">5.0</span> * <span class="built_in">NSEC_PER_SEC</span>)); dispatch_after(time, dispatch_get_main_queue(), ^(<span class="keyword">void</span>)&#123;</span><br><span class="line">[<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// performSelector</span></span><br><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span>  afterDelay:<span class="number">5.0</span>];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>指定运行方法的线程：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// GCD</span></span><br><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">[<span class="keyword">self</span> doSomething];</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// performSelector</span></span><br><span class="line">[<span class="keyword">self</span> performSelectorOnMainThread:<span class="keyword">@selector</span>(doSomething) withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="第-41-条：掌握-GCD-及操作队列的使用时机"><a href="#第-41-条：掌握-GCD-及操作队列的使用时机" class="headerlink" title="第 41 条：掌握 GCD 及操作队列的使用时机"></a>第 41 条：掌握 GCD 及操作队列的使用时机</h3><p>这条讲的是什么时候该用 <code>GCD</code>，什么时候不该用<code>GCD</code>。<code>GCD</code>技术确实很棒，但<code>GCD</code>并不总是最佳解决方案。比如<strong>当我们想取消队列中的某个操作时，或者需要后台执行任务时</strong>，这时我们可以用<code>NSOperationQueue</code>，其实<code>NSOperationQueue</code>跟<code>GCD</code>有很多相像之处。<code>NSOperationQueue</code>在<code>GCD</code>之前就已经有了，<code>GCD</code>就是在其某些原理上构建的。<strong><code>GCD</code>是<code>C</code>层次的<code>API</code>，而<code>NSOperation</code>是重量级的<code>OC</code>对象。</strong></p>
+<ul>
+<li>使用<code>NSOperation</code>及<code>NSOperationQueue</code>的好处如下：</li>
+<li>取消某个操作。</li>
+<li>指定操作间的依赖关系。</li>
+<li>通过键值观察机制监控NSOperation对象的属性。</li>
+<li>指定操作的优先级。</li>
+<li>重用NSOperation对象。</li>
+</ul>
+<h3 id="第-42-条：通过-Dispatch-Group-机制，根据系统资源状况来执行任务"><a href="#第-42-条：通过-Dispatch-Group-机制，根据系统资源状况来执行任务" class="headerlink" title="第 42 条：通过 Dispatch Group 机制，根据系统资源状况来执行任务"></a>第 42 条：通过 Dispatch Group 机制，根据系统资源状况来执行任务</h3><p><code>dispatch group</code>是<code>GCD</code>的一项特性，能够把任务分组。调用者可以等待这组任务执行完毕，也可以在提供回调函数之后继续往下执行，这组任务完成时，调用者会得到通知，开发者可以拿到结果然后继续下一步操作。</p>
+<p>请看以下代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line"><span class="comment">// 创建一个队列组</span></span><br><span class="line">dispatch_group_t group = dispatch_group_create();</span><br><span class="line">dispatch_group_async(group, queue, ^&#123;</span><br><span class="line"><span class="comment">// 添加操作...</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"1%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_group_async(group, queue, ^&#123;</span><br><span class="line"><span class="comment">// 添加操作...</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"2%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_group_async(group, queue, ^&#123;</span><br><span class="line"><span class="comment">// 添加操作...</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"3%@"</span>, [<span class="built_in">NSThread</span> currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 收到通知，回到主线程刷新UI</span></span><br><span class="line">dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"回到主线程刷新UI"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>多个任务可归入一个<code>dispatch group</code>之中。开发者可以在这组任务执行完毕时获得通知。</p>
+<h3 id="第-43-条：使用-dispatch-once-来执行只需运行一次的线程安全代码"><a href="#第-43-条：使用-dispatch-once-来执行只需运行一次的线程安全代码" class="headerlink" title="第 43 条：使用 dispatch_once 来执行只需运行一次的线程安全代码"></a>第 43 条：使用 dispatch_once 来执行只需运行一次的线程安全代码</h3><p>这条讲的单例模式，即常用的<code>dispatch_once</code>。使用 <code>dispatch_once</code> 可以简化代码并且彻底保证线程安全，我们根本无须担心加锁或同步，另外它没有使用重量级的同步机制，所以也更高效。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ (id)<span class="keyword">shareInstance </span>&#123;</span><br><span class="line">static EOCClass *<span class="keyword">sharedInstance </span>= nil<span class="comment">;</span></span><br><span class="line">static <span class="keyword">dispatch_once_t </span>onceToken<span class="comment">;</span></span><br><span class="line"><span class="keyword">dispatch_once(&amp;onceToken, </span>^&#123;</span><br><span class="line"><span class="keyword">sharedInstance </span>= [[self alloc] init]<span class="comment">;</span></span><br><span class="line">&#125;)<span class="comment">;</span></span><br><span class="line">return <span class="keyword">sharedInstance;</span></span><br><span class="line"><span class="keyword">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="第-44-条：不要使用-dispatch-get-current-queue"><a href="#第-44-条：不要使用-dispatch-get-current-queue" class="headerlink" title="第 44 条：不要使用 dispatch_get_current_queue"></a>第 44 条：不要使用 dispatch_get_current_queue</h3><ul>
+<li><code>dispatch_get_current_queue</code> 函数的行为常常与开发者所预期的不同，此函数已经废弃，只应做调试之用。</li>
+<li>由于<code>GCD</code>是按层级来组织的，所以无法单用某个队列对象来描述”当前队列”这一概念。</li>
+<li><code>dispatch_get_current_queue</code> 函数用于解决由不可以重入的代码所引发的死锁，然后能用此函数解决的问题，通常也可以用”队列特定数据”来解决。</li>
+</ul>
+<h2 id="第-7-章-系统框架"><a href="#第-7-章-系统框架" class="headerlink" title="第 7 章 系统框架"></a>第 7 章 系统框架</h2><h3 id="第-45-条：熟悉系统框架"><a href="#第-45-条：熟悉系统框架" class="headerlink" title="第 45 条：熟悉系统框架"></a>第 45 条：熟悉系统框架</h3><p>开发者会碰到的主要框架就是<code>Fundation</code>。另外还有个与<code>Fundation</code>相伴的框架，叫做<code>CoreFoundation</code>。除了<code>Fundation</code>与<code>CoreFoundation</code>，还有很多系统库，其中包括但不限于下面列出的这些：</p>
+<ul>
+<li>CFNetwork：此框架提供了 C 语言级别的网络通信能力，它将 BSD 套接字<code>(BSD socket)</code>抽象成易于使用的网络接口。而 <code>Foundation</code> 则将该框架里的部分内容封装为<code>OC</code>语言的接口，以便进行网络通信。</li>
+<li>CoreAudio：此框架所提供的<code>C</code>语言<code>API</code>可以用来操作设备上的音频硬件。</li>
+<li>AVFoundation：此框架所提供的<code>OC</code>对象可用来回访并录制音频及视频，比如能够在UI视图类里播放视频。</li>
+<li>CoreData：此框架所提供的<code>OC</code>接口可以将对象放入数据库，将数持久保存。</li>
+<li><p>CoreText：此框架提供的C语言接口可以高效执行文字排版以及渲染操作。</p>
+</li>
+<li><p>要点：</p>
+</li>
+<li>许多系统框架都可以直接使用。其中最重要的是<code>Fundation</code>与<code>CoreFoundation</code>，这两个框架提供了构架应用程序所需的许多核心功能。</li>
+<li>很多常见任务都能用框架来做。例如音频与视频处理、网络通信、数据管理等。</li>
+<li>用纯<code>C</code>写成的框架与用<code>OC</code>写成的一样重要，若想成为优秀的<code>OC</code>开发者，应该掌握<code>C</code>语言的核心概念。</li>
+</ul>
+<h3 id="第-46-条：多用块枚举，少用-for-循环"><a href="#第-46-条：多用块枚举，少用-for-循环" class="headerlink" title="第 46 条：多用块枚举，少用 for 循环"></a>第 46 条：多用块枚举，少用 for 循环</h3><p>遍历<code>collection</code>有四种方式。最基本的办法是<code>for循环</code>，其次是<code>NSEnumerator遍历法</code>及<code>快速遍历法</code>，最新最先进的方式则是<code>“块枚举法”</code>。</p>
+<ul>
+<li>四种遍历方法：<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *testArray = @[@<span class="number">1</span>, @<span class="number">2</span>, @<span class="number">3</span>, @<span class="number">4</span>, @<span class="number">5</span>];</span><br><span class="line"><span class="comment">// for 循环遍历</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; testArray.count; i ++) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"testArray[%d] = %@"</span>, i, testArray[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSEnumerator遍历法</span></span><br><span class="line"><span class="built_in">NSEnumerator</span> *enumerator = [testArray objectEnumerator];</span><br><span class="line"><span class="keyword">id</span> object;</span><br><span class="line"><span class="keyword">while</span> ((object = [enumerator nextObject]) != <span class="literal">nil</span>) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"object = %@"</span>, object);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 快速遍历</span></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">NSObject</span> *obj <span class="keyword">in</span> testArray) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"obj = %@"</span>, obj);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 块枚举遍历数组</span></span><br><span class="line">[testArray enumerateObjectsUsingBlock:^(<span class="keyword">id</span>  _Nonnull obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> * _Nonnull stop) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"idx = %zd, obj = %@"</span>, idx, obj);</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 块枚举遍历字典</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *testDic = @&#123;<span class="string">@"name"</span>:<span class="string">@"liu zhong ning"</span>,<span class="string">@"age"</span>:<span class="string">@"25"</span>&#125;;</span><br><span class="line">[testDic enumerateKeysAndObjectsUsingBlock:^(<span class="built_in">NSString</span> * key,<span class="keyword">id</span> object,<span class="built_in">BOOL</span> * stop)&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"testDic[%@] = %@"</span>, key, object);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>块枚举法拥有其他遍历方式都具备的优势，而且还能带来更多好处，在遍历字典的时候，还可以同时提供键和值，而且还有选项可以开启并发迭代功能，所以多写点代码还是值的。</p>
+<h3 id="第-47-条：对自定义其内存管理语义的collection使用无缝桥接"><a href="#第-47-条：对自定义其内存管理语义的collection使用无缝桥接" class="headerlink" title="第 47 条：对自定义其内存管理语义的collection使用无缝桥接"></a>第 47 条：对自定义其内存管理语义的<code>collection</code>使用无缝桥接</h3><p>通过无缝桥接技术，可以在<code>Foundation</code>框架中的<code>OC</code>对象与<code>CoreFoundation</code>框架中的<code>C</code>语言数据结构之间来回转换。</p>
+<ul>
+<li>简单的无缝桥接示例：</li>
+</ul>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSArray *testNSArray = @[@1, @2, @3, @4, @5];</span><br><span class="line">CFArrayRef testCFArray = (__bridge CFArrayRef)testNSArray;</span><br><span class="line">NSLog(@<span class="string">"Size of array = %li"</span>, CFArrayGetCount(testCFArray));</span><br><span class="line">// Output：Size of<span class="built_in"> array </span>= 5</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__bridge：ARC仍然具备这个Objective对象的所有权。</li>
+<li>__bridge_retained:ARC将交出对象的所有权。</li>
+<li>__bridge_transfer：C转化为OC</li>
+</ul>
+<p>想深入了解无缝桥接技术的童鞋可以点击这里：<a href="https://developer.apple.com/library/content/documentation/CoreFoundation/Conceptual/CFDesignConcepts/Articles/tollFreeBridgedTypes.html" target="_blank" rel="noopener">iOS无缝桥接官方文档</a></p>
+<h3 id="第-48-条：构建缓存时选用-NSCache-而非-NSDictionary"><a href="#第-48-条：构建缓存时选用-NSCache-而非-NSDictionary" class="headerlink" title="第 48 条：构建缓存时选用 NSCache 而非 NSDictionary"></a>第 48 条：构建缓存时选用 NSCache 而非 NSDictionary</h3><ul>
+<li>实现缓存时应选用<code>NSCache</code>而非<code>NSDictionary</code>对象。因为<code>NSCache</code>可以提供优雅的自动删减功能，而且是“线程安全的”，此外，它与字典不同，并不会拷贝键。</li>
+<li>可以给<code>NSCache</code>对象设置上限，用以限制缓存中的对象总个数及“总成本”，而这些尺度则定义了缓存删减其中对象的时机。但是绝对不要把这些尺度当成可靠的“硬限制”，他们仅对<code>NSCache</code>起指导作用。</li>
+<li>将<code>NSPurgeableData</code>与<code>NSCache</code>搭配使用，可实现自动清除数据的功能，也就是说，当<code>NSPurgeableData</code>对象所占内存为系统所丢弃时，该对象自身也会从缓存中移除。</li>
+<li>如果缓存使用得当，那么应用程序的相应速度就能提高。只有那种“重新计算起来很费事的”数据，才值得放入缓存，比如那些需要从网络获取或从磁盘读取的数据。</li>
+</ul>
+<h3 id="第-49-条：精简-initialize-与-load-的实现代码"><a href="#第-49-条：精简-initialize-与-load-的实现代码" class="headerlink" title="第 49 条：精简 initialize 与 load 的实现代码"></a>第 49 条：精简 initialize 与 load 的实现代码</h3><ul>
+<li>当程序启动的时候，类和分类，必定会调动且仅调用一次<code>load</code>方法。先调用类的<code>load</code>方法，再调用分类的<code>load</code>方法。先调用超类的<code>load</code>方法，再调用子类的<code>load</code>方法。<code>load</code>方法需要实现得精简一些，因为整个应用程序会在执行<code>load</code>方法时都会阻塞。</li>
+<li><code>initialize</code>方法会在程序首次用该类之前调用，且只调用一次。<code>initialize</code>是“懒加载”的，如果某个类一直都没有使用，就不会执行该类的<code>initialize</code>方法。<code>initialize</code>方法可以安全使用并调用任意类中的任意方法。<code>initialize</code>方法只应该用来设置内部数据，不应该在其中调用其他方法。</li>
+<li>在加载阶段，如果类实现了<code>load</code>方法，那么系统就会调用它。分类里也可以定义此方法，类的<code>load</code>方法要比分类中的先调用。与其他方法不同，<code>load</code>方法不参与覆写机制。</li>
+<li>首次使用某个类之前，系统会向其发送<code>initialize</code>消息。由于此方法遵从普通的覆写规则，所以通常应该在里面判断当前要初始化的是哪个类。</li>
+<li><code>load</code>与<code>initialize</code> 方法都应该实现的精简一点，这样有助于保持应用程序的响应能力，也可以减少引入依赖环的几率。</li>
+<li>无法在编译器设定的全局变量，可以放在<code>initialize</code>方法里初始化。</li>
+</ul>
+<h3 id="第-50-条：别忘了-NSTimer-会保留其目标对象"><a href="#第-50-条：别忘了-NSTimer-会保留其目标对象" class="headerlink" title="第 50 条：别忘了 NSTimer 会保留其目标对象"></a>第 50 条：别忘了 NSTimer 会保留其目标对象</h3><p>开发中经常会用到NSTimer，由于定时器NSTimer会保留其目标对象，所以反复执行任务通常会导致应用程序出问题，也就是说很容易造成循环引用。请看以下代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NNTimer</span>: <span class="title">NSObject</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)startPolling;</span><br><span class="line">- (<span class="keyword">void</span>)stopPolling;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NNTimer</span> </span>&#123;</span><br><span class="line"><span class="built_in">NSTimer</span> *_pollTimer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)init &#123;</span><br><span class="line"><span class="keyword">return</span> [<span class="keyword">super</span> init];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">[_pollTimer invalidate];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)stopPolling &#123;</span><br><span class="line"></span><br><span class="line">[_pollTimer invalidate];</span><br><span class="line">_pollTimer = <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)startPolling &#123;</span><br><span class="line">_pollTimer = [<span class="built_in">NSTimer</span> scheduledTimerWithTimeInterval:<span class="number">5.0</span></span><br><span class="line">target:<span class="keyword">self</span></span><br><span class="line">selector:<span class="keyword">@selector</span>(p_doPoll)</span><br><span class="line">userInfo:<span class="literal">nil</span></span><br><span class="line">repeats:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)p_doPoll &#123;</span><br><span class="line"><span class="comment">// Poll the resource</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>上面这段代码是存在问题的。如果创建了本类的实例，并调用其startPolling方法，那么会如何呢？创建计时器的时候，由于目标对象是self，所以要保留此实例。然而，因为计时器是用实例变量存放的，所以实例也保留了计时器，于是就产生了保留环。</p>
+<p>单从计时器本身入手，你会发现很难解决这个问题，那么如何解决这个问题呢？我们可以通过“块”来解决。虽然计时器当前不直接支持块，但是可以用下面这段代码为其添加此功能：<br>.h文件：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSTimer</span> (<span class="title">NNBlocksSupport</span>)</span></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)nn_scheduledTimerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">block:(<span class="keyword">void</span>(^)(<span class="keyword">void</span>))block</span><br><span class="line">repeats:(<span class="built_in">BOOL</span>)repeats;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>.m文件：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"NSTimer+NNBlocksSupport.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSTimer</span> (<span class="title">NNBlocksSupport</span>)</span></span><br><span class="line"></span><br><span class="line">+ (<span class="built_in">NSTimer</span> *)nn_scheduledTimerWithTimeInterval:(<span class="built_in">NSTimeInterval</span>)interval</span><br><span class="line">block:(<span class="keyword">void</span>(^)(<span class="keyword">void</span>))block</span><br><span class="line">repeats:(<span class="built_in">BOOL</span>)repeats &#123;</span><br><span class="line"><span class="keyword">return</span> [<span class="keyword">self</span> scheduledTimerWithTimeInterval:interval</span><br><span class="line">target:<span class="keyword">self</span></span><br><span class="line">selector:<span class="keyword">@selector</span>(nn_blockInvoke:)</span><br><span class="line">userInfo:[block <span class="keyword">copy</span>]</span><br><span class="line">repeats:repeats];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">+ (<span class="keyword">void</span>)nn_blockInvoke:(<span class="built_in">NSTimer</span> *)timer &#123;</span><br><span class="line"><span class="keyword">void</span> (^block)(<span class="keyword">void</span>) = timer.userInfo;</span><br><span class="line"><span class="keyword">if</span> (block) &#123;</span><br><span class="line">block();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>结束语：由于个人能力有限，这三篇读书笔记难免有错误或不足之处，还望各位道友能不吝赐教，谢谢。</p>
+<p>最后安利一下这本书：<a href="https://pan.baidu.com/s/1eT3gfzs" target="_blank" rel="noopener">PDF版</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/iOS 获取设备的各种信息/" rel="next" title="iOS 获取设备的各种信息">
+                <i class="fa fa-chevron-left"></i> iOS 获取设备的各种信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/" rel="prev" title="iOS 开发中导航栏渐变的两种方法">
+                iOS 开发中导航栏渐变的两种方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">刘朋坤</p>
+              <p class="site-description motion-element" itemprop="description">iOS 修炼中...</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#文章共分为三篇："><span class="nav-number">1.</span> <span class="nav-text">文章共分为三篇：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-6-章-块与大中枢派发"><span class="nav-number"></span> <span class="nav-text">第 6 章 块与大中枢派发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第-35-条：理解-“块”这一概念"><span class="nav-number"></span> <span class="nav-text">第 35 条：理解 “块”这一概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-36-条：为常用的块类型创建-typedef"><span class="nav-number"></span> <span class="nav-text">第 36 条：为常用的块类型创建 typedef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-37-条：用-handler-块降低代码分散程度"><span class="nav-number"></span> <span class="nav-text">第 37 条：用 handler 块降低代码分散程度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-38-条：用块引用其所属对象时不要出现保留环"><span class="nav-number"></span> <span class="nav-text">第 38 条：用块引用其所属对象时不要出现保留环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-39-条：多用派发队列，少用同步锁"><span class="nav-number"></span> <span class="nav-text">第 39 条：多用派发队列，少用同步锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-40-条：多用-GCD，少用-performSelector-系列方法"><span class="nav-number"></span> <span class="nav-text">第 40 条：多用 GCD，少用 performSelector 系列方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-41-条：掌握-GCD-及操作队列的使用时机"><span class="nav-number"></span> <span class="nav-text">第 41 条：掌握 GCD 及操作队列的使用时机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-42-条：通过-Dispatch-Group-机制，根据系统资源状况来执行任务"><span class="nav-number"></span> <span class="nav-text">第 42 条：通过 Dispatch Group 机制，根据系统资源状况来执行任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-43-条：使用-dispatch-once-来执行只需运行一次的线程安全代码"><span class="nav-number"></span> <span class="nav-text">第 43 条：使用 dispatch_once 来执行只需运行一次的线程安全代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-44-条：不要使用-dispatch-get-current-queue"><span class="nav-number"></span> <span class="nav-text">第 44 条：不要使用 dispatch_get_current_queue</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-7-章-系统框架"><span class="nav-number"></span> <span class="nav-text">第 7 章 系统框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第-45-条：熟悉系统框架"><span class="nav-number"></span> <span class="nav-text">第 45 条：熟悉系统框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-46-条：多用块枚举，少用-for-循环"><span class="nav-number"></span> <span class="nav-text">第 46 条：多用块枚举，少用 for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-47-条：对自定义其内存管理语义的collection使用无缝桥接"><span class="nav-number"></span> <span class="nav-text">第 47 条：对自定义其内存管理语义的collection使用无缝桥接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-48-条：构建缓存时选用-NSCache-而非-NSDictionary"><span class="nav-number"></span> <span class="nav-text">第 48 条：构建缓存时选用 NSCache 而非 NSDictionary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-49-条：精简-initialize-与-load-的实现代码"><span class="nav-number"></span> <span class="nav-text">第 49 条：精简 initialize 与 load 的实现代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第-50-条：别忘了-NSTimer-会保留其目标对象"><span class="nav-number"></span> <span class="nav-text">第 50 条：别忘了 NSTimer 会保留其目标对象</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘朋坤</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
