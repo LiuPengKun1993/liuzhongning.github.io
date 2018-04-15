@@ -99,23 +99,26 @@
 
 
 
-  <meta name="description" content="iOS 修炼中...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="以梦为马">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="&amp;gt; 想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！ ##一、Runtime简介Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之 - Runtime">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS开发之 - Runtime/index.html">
 <meta property="og:site_name" content="以梦为马">
-<meta property="og:description" content="iOS 修炼中...">
+<meta property="og:description" content="&amp;gt; 想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！ ##一、Runtime简介Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-15T09:45:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="以梦为马">
-<meta name="twitter:description" content="iOS 修炼中...">
+<meta name="twitter:title" content="iOS开发之 - Runtime">
+<meta name="twitter:description" content="&amp;gt; 想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！ ##一、Runtime简介Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS开发之 - Runtime/"/>
 
 
 
@@ -125,7 +128,7 @@
   };
 </script>
 
-  <title>以梦为马</title>
+  <title>iOS开发之 - Runtime | 以梦为马</title>
   
 
 
@@ -172,8 +175,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,7 +215,7 @@
         
         
           
-          <li class="menu-item menu-item-主页 menu-item-active">
+          <li class="menu-item menu-item-主页">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />主页</a>
   </li>
@@ -257,469 +259,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - MD5加密/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - MD5加密/" itemprop="url">
-                  iOS开发之 - MD5加密
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>MD5（消息摘要算法第五版）是计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。</p>
-</blockquote>
-<ul>
-<li><p>MD5特点：<br>1、压缩性：任意长度的数据，算出的MD5值长度都是固定的。<br>2、容易计算：从原数据计算出MD5值很容易。<br>3、抗修改性：对原数据进行任何改动，哪怕只修改1个字节，所得到的MD5值都有很大区别。<br>4、强抗碰撞：已知原数据和其MD5值，想找到一个具有相同MD5值的数据（即伪造数据）是非常困难的。</p>
-</li>
-<li><p>事先介绍一个概念，因为下边有用到👇<br>加盐：所谓加盐， 就是在原本需要加密的信息基础上，糅入其它内容salt。</p>
-</li>
-<li><p>接下来是一些代码的实现，方便起见，这里创建了一个分类NSString+MD5。</p>
-</li>
-</ul>
-<p>分类 NSString+MD5.h 中的代码如下：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">MD5</span>)</span></span><br><span class="line"><span class="comment">/** 直接加密 */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_32BIT;</span><br><span class="line"><span class="comment">/** 加盐 */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_saltStr:(<span class="built_in">NSString</span> *)saltStr;</span><br><span class="line"><span class="comment">/** 多次加密 */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_againStr:(<span class="built_in">NSString</span> *)againStr;</span><br><span class="line"><span class="comment">/** 乱序加密 */</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_Chaos:(<span class="built_in">NSString</span> *)chaosStr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>这里是分类 NSString+MD5.m 中的代码，需要导入头文件 #import &lt;CommonCrypto/CommonDigest.h&gt;：</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"NSString+MD5.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;CommonCrypto/CommonDigest.h&gt;</span></span></span><br><span class="line"><span class="meta">#define salt @<span class="meta-string">"qwertyuiop"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">MD5</span>)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接加密</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_32BIT &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *cStr = [<span class="keyword">self</span> UTF8String];</span><br><span class="line"></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">char</span> digest[CC_MD5_DIGEST_LENGTH];</span><br><span class="line"></span><br><span class="line">CC_MD5( cStr, (CC_LONG)<span class="keyword">self</span>.length, digest );</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSMutableString</span> *result = [<span class="built_in">NSMutableString</span> stringWithCapacity:CC_MD5_DIGEST_LENGTH * <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; CC_MD5_DIGEST_LENGTH; i++)</span><br><span class="line">[result appendFormat:<span class="string">@"%02X"</span>, digest[i]];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加盐</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_saltStr:(<span class="built_in">NSString</span> *)saltStr &#123;</span><br><span class="line"></span><br><span class="line">saltStr = [saltStr stringByAppendingString:salt];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *result =[saltStr MD5_32BIT];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多次加密</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_againStr:(<span class="built_in">NSString</span> *)againStr &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *result = [againStr MD5_32BIT];</span><br><span class="line"></span><br><span class="line">result = [result MD5_32BIT];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 乱序加密</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)MD5_Chaos:(<span class="built_in">NSString</span> *)chaosStr &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *result =[chaosStr MD5_32BIT];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *header =[result substringFromIndex:<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *footer=[result substringFromIndex:<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">result =[footer stringByAppendingString:header];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>接着在控制器中调用：<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#<span class="keyword">import</span> <span class="string">"ViewController.h"</span></span><br><span class="line">#<span class="keyword">import</span> <span class="string">"NSString+MD5.h"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@implementation</span> ViewController</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">[<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">NSString *<span class="built_in">string</span> = @<span class="string">"10.24"</span>;</span><br><span class="line"><span class="comment">// 调用 MD5 加密并打印结果</span></span><br><span class="line">NSLog(@<span class="string">"MD5Result = %@"</span>, [<span class="built_in">string</span> MD5_32BIT]);</span><br><span class="line">NSLog(@<span class="string">"MD5_saltResult = %@"</span>, [<span class="built_in">string</span> MD5_saltStr:<span class="built_in">string</span>]);</span><br><span class="line">NSLog(@<span class="string">"MD5_againResult = %@"</span>, [<span class="built_in">string</span> MD5_againStr:<span class="built_in">string</span>]);</span><br><span class="line">NSLog(@<span class="string">"chaosResult = %@"</span>, [<span class="built_in">string</span> MD5_Chaos:<span class="built_in">string</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里是打印结果：<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016-10-26</span> <span class="number">08</span>:<span class="number">15:49.616</span> md<span class="number">5[92278</span>:<span class="number">6185546</span>] MD5Result = F7F942B87C2D0B62FC27AD465CF0D05B</span><br><span class="line"><span class="number">2016-10-26</span> <span class="number">08</span>:<span class="number">15:49.616</span> md<span class="number">5[92278</span>:<span class="number">6185546</span>] MD5_saltResult = <span class="number">1</span>C2140C07ADD1E334896D499E8C4968C</span><br><span class="line"><span class="number">2016-10-26</span> <span class="number">08</span>:<span class="number">15:49.617</span> md<span class="number">5[92278</span>:<span class="number">6185546</span>] MD5_againResult = <span class="number">01</span>AE5309B5A8E672AE4D427FE987E06A</span><br><span class="line"><span class="number">2016-10-26</span> <span class="number">08</span>:<span class="number">15:49.617</span> md<span class="number">5[92278</span>:<span class="number">6185546</span>] chaosResult = F942B87C2D0B62FC27AD465CF0D05BF942B87C2D0B62FC27AD465CF0D05B</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>总结：大家应该都知道有一个MD5破解网站，名字叫做 <a href="http://www.cmd5.com" target="_blank" rel="noopener">md5在线解密加密</a>，因此我们在使用MD5加密的时候，最好使用多次加密，加盐，乱序加密等，不然会很容易被破解。至于其它加密，等以后用到了会继续整理出来，如果文章有什么不足之处，还请朋友们能过指出来，谢谢大家！</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 微信支付/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 微信支付/" itemprop="url">
-                  iOS开发之 - 微信支付
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="http://upload-images.jianshu.io/upload_images/2665449-0d0a74ab4c5830ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - 微信支付"></p>
-<blockquote>
-<p>作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank" rel="noopener">文档</a>。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。</p>
-</blockquote>
-<ul>
-<li><strong>第一步：创建应用</strong></li>
-</ul>
-<p><em>通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～</em></p>
-<p>在 <a href="https://open.weixin.qq.com/cgi-bin/index?t=home/index&amp;lang=zh_CN&amp;token=0ebf4697e5671e8567a5c5f4682a4c6cb0fcaa92" target="_blank" rel="noopener">微信开放平台</a> 的管理中心 <a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN" target="_blank" rel="noopener">创建一个应用。</a>此应用官方称七日内审核通过，一般都是三四天！而关于填写经营信息、填写商户信息、填写对公帐号信息在这里就忽略不写了。有兴趣的朋友可以了解下<a href="http://494075592.blog.51cto.com/10682677/1701260" target="_blank" rel="noopener">这篇文章</a>。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-723d6f42f6b41ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建应用"></p>
-<ul>
-<li><strong>第二步：了解支付的流程</strong></li>
-</ul>
-<p>如果做过其它支付，就会发现这些流程其实都差不多，就像我们平时用手机支付买东西一样。下边的流程两分钟大概就能读完，很容易理解！</p>
-<p>1&gt; 用户使用 APP 客户端，选择商品下单。<br>2&gt; APP 客户端将用户的商品数据传给商户服务器，请求生成支付订单。<br>3&gt; 商户后台调用统一下单 API 向微信的服务器发送请求，微信服务器生成预付单，并生成一个 prepay_id 返回给商户后台。<br>4&gt; 商户后台将这个 prepay_id 返回给商户客户端。<br>5&gt; 用户点击确认支付，这时候商户客户端调用 SDK 打开微信客户端，进行微信支付。<br>6&gt; 微信客户端向微信服务器发起支付请求并返回支付结果（他们之间交互用的就是prepay_id这个参数，微信的服务器要验证微信客户端传过去的参数是否跟第三步中生成的那个id一致）。<br>7&gt; 用户输入支付密码后，微信客户端提交支付授权，跟微信服务器交互，完成支付<br>8&gt; 微信服务器给微信客户端发送支付结果提示，并异步给商户服务器发送支付结果通知。<br>9&gt; 商户客户端通过支付结果回调接口查询支付结果，并向后台检查支付结果是否正确，后台返回支付结果。<br>10&gt; 商户客户端显示支付结果，完成订单，发货。</p>
-<ul>
-<li><strong>第三步：集成SDK</strong></li>
-</ul>
-<p>其实严格来说，这一步才是微信支付的真正开始。首先我们应该下载 <a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319164&amp;lang=zh_CN" target="_blank" rel="noopener">微信SDK</a>，如有需要，还可把<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=11_1_" target="_blank" rel="noopener">【微信支付】APP支付示例</a>下载下来看看。下面是集成 SDK 的具体步骤：</p>
-<p>1.把下载好的 SDK 导入工程（如下图）（我下的是OpenSDK1.7.4版本）</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a0dfa21d98e8d045.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="把下载好的 SDK 导入工程"></p>
-<p>2.导入微信支付SDK依赖库（如下图）</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-f4bd0524a4a2d18f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入微信支付SDK依赖库"></p>
-<p>3.设置URL Scheme<br>在注册微信平台APP的时候，会给一个唯一识别标识符（APPID）,需要填写在工程中。（如下图）</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-8c7b570a18293fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置URL Scheme"></p>
-<hr>
-<p><em>配置好上述参数后就可以写代码了～～～</em></p>
-<ul>
-<li><strong>第四部：代码</strong></li>
-</ul>
-<p>代码分为以下步骤：</p>
-<p>1.在 Appdelegate 中注册微信 APPID<br>这是首先要做的事情。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)<span class="string">application:</span>(UIApplication *)application <span class="string">didFinishLaunchingWithOptions:</span>(NSDictionary *)launchOptions &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向微信终端注册ID</span></span><br><span class="line">[WXApi <span class="string">registerApp:</span>@<span class="string">"wx0f8d5e0eadd2d4b7"</span> <span class="string">withDescription:</span>@<span class="string">"demo test"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>2.获取微信支付所必要的参数<br>接着，在微信支付的.m文件中获取微信支付所必要的参数。为了提高数据安全性，下单、签名等操作一般都是在后台完成的，因此以下这些参数后台会给我们。我们主要得知道这些参数如何设置：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发起微信支付，设置参数</span></span><br><span class="line">PayReq *request   = [[PayReq alloc] init];  <span class="comment">// 创建支付对象</span></span><br><span class="line">request.openID = <span class="string">@""</span>; <span class="comment">// 由用户微信号和AppID组成的唯一标识</span></span><br><span class="line">request.partnerId = <span class="string">@""</span>; <span class="comment">// 商家ID</span></span><br><span class="line">request.prepayId  = <span class="string">@""</span>; <span class="comment">// 预支付订单ID</span></span><br><span class="line">request.package   = <span class="string">@"Sign=WXPay"</span>; <span class="comment">// 数据和签名</span></span><br><span class="line">request.nonceStr  = <span class="string">@""</span>; <span class="comment">// 随机编码</span></span><br><span class="line"><span class="built_in">NSDate</span> *date = [<span class="built_in">NSDate</span> date];</span><br><span class="line"><span class="built_in">NSString</span> * timeSp = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>, (<span class="keyword">long</span>)[date timeIntervalSince1970]];</span><br><span class="line"><span class="built_in">UInt32</span> timeStamp = [timeSp intValue];</span><br><span class="line">request.timeStamp = timeStamp; <span class="comment">// 时间戳</span></span><br><span class="line">request.sign = <span class="string">@""</span>; <span class="comment">// 签名，签名一般都会加密</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//发送请求到微信，等待微信返回 onResp</span></span><br><span class="line">[WXApi sendReq:request];</span><br></pre></td></tr></table></figure></p>
-<p>3.微信支付回调<br>最后要在Appdelegate.m文件中添加微信支付结果 onResp 回调方法<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断发起的请求是否为微信支付，如果是就回调</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)app openURL:(<span class="built_in">NSURL</span> *)url options:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)options &#123;</span><br><span class="line"><span class="keyword">return</span> [WXApi handleOpenURL:url delegate:<span class="keyword">self</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - WXApiDelegate</span></span><br><span class="line"><span class="comment">// 微信支付结果回调方法</span></span><br><span class="line">- (<span class="keyword">void</span>)onResp:(BaseResp *)resp &#123;</span><br><span class="line"><span class="built_in">NSString</span> *payResoult = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, resp.errCode];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>([resp isKindOfClass:[PayResp <span class="keyword">class</span>]])&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">WXSuccess           = 0,    成功</span></span><br><span class="line"><span class="comment">WXErrCodeCommon     = -1,    普通错误类型</span></span><br><span class="line"><span class="comment">WXErrCodeUserCancel = -2,    用户点击取消并返回</span></span><br><span class="line"><span class="comment">WXErrCodeSentFail   = -3,    发送失败</span></span><br><span class="line"><span class="comment">WXErrCodeAuthDeny   = -4,    授权失败</span></span><br><span class="line"><span class="comment">WXErrCodeUnsupport  = -5,    微信不支持</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//支付返回结果，实际支付结果需要去微信服务器端查询</span></span><br><span class="line"><span class="keyword">switch</span> (resp.errCode) &#123;</span><br><span class="line"><span class="keyword">case</span> WXSuccess:</span><br><span class="line">payResoult = <span class="string">@"支付成功"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> WXErrCodeCommon:</span><br><span class="line">payResoult = <span class="string">@"支付失败"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> WXErrCodeUserCancel:</span><br><span class="line">payResoult = <span class="string">@"用户点击取消并返回"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line"><span class="comment">// 错误码 以及 错误提示字符串</span></span><br><span class="line">payResoult = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"支付结果：失败！retcode = %d, retstr = %@"</span>, resp.errCode,resp.errStr];</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>结束语：在开发中，微信支付常常与其它技术配合使用，比如MD5加密，AFN等等。有空闲的话会一一整理出来与大家分享！另外文章写的如果有什么错误，还请大家指出来，谢谢大家！</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -751,11 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - Runtime/" itemprop="url">
-                  iOS开发之 - Runtime
-                </a>
+          <h1 class="post-title" itemprop="name headline">iOS开发之 - Runtime
               
             
           </h1>
@@ -811,9 +349,7 @@
       
 
       
-        
-          
-            <p><img src="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - Runtime">&gt; 想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！</p>
+        <p><img src="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - Runtime">&gt; 想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！</p>
 <p>##一、Runtime简介<br>Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属于一个 C 语言库，包含了很多底层的 C 语言 API。我们平时编写的 OC 代码，在程序运行过程时，其实最终都是转成了 Runtime 的 C 语言代码。如下所示:</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// OC代码:</span></span><br><span class="line">[Person coding];</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行时 runtime 会将它转化成 C 语言的代码:</span></span><br><span class="line">objc_msgSend(Person, <span class="keyword">@selector</span>(coding));</span><br></pre></td></tr></table></figure>
 <p>##二、相关函数</p>
@@ -863,8 +399,6 @@
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          **结束语：Runtime 相关的知识就整理了这么些，希望对看到的朋友们有用！另外如果 demo 有什么问题，还烦请大家告知，一起进步！谢谢O(∩_∩)O~! 另祝大家周末愉快哈！**
 </code></pre>
-          
-        
       
     </div>
 
@@ -884,12 +418,28 @@
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发之 - 微信支付/" rel="prev" title="iOS开发之 - 微信支付">
+                iOS开发之 - 微信支付 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -899,14 +449,19 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1100,6 +655,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
 
   
 

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下文档。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。   第一步：创建应用  通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～ 在 微信开放平台 的管理中心 创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之 - 微信支付">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS开发之 - 微信支付/index.html">
+<meta property="og:site_name" content="以梦为马">
+<meta property="og:description" content="作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下文档。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。   第一步：创建应用  通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～ 在 微信开放平台 的管理中心 创建">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-0d0a74ab4c5830ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-723d6f42f6b41ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-a0dfa21d98e8d045.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-f4bd0524a4a2d18f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-8c7b570a18293fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-15T09:40:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之 - 微信支付">
+<meta name="twitter:description" content="作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下文档。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。   第一步：创建应用  通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～ 在 微信开放平台 的管理中心 创建">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-0d0a74ab4c5830ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS开发之 - 微信支付/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之 - 微信支付 | 以梦为马</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">以梦为马</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">谨以此纪念岁月</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />主页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 微信支付/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之 - 微信支付
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/2665449-0d0a74ab4c5830ac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - 微信支付"></p>
+<blockquote>
+<p>作为 iOS 开发者，支付无疑是很重要的，特别是这两年几乎到处都是微信支付、支付宝支付。相比支付宝支付，觉得微信支付还算简单，但还是建议预先看下<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=9_1" target="_blank" rel="noopener">文档</a>。开始说文章的内容吧，这篇文章主要分为四个部分：创建应用、了解支付的流程、集成微信SDK，最后是实现支付的demo。</p>
+</blockquote>
+<ul>
+<li><strong>第一步：创建应用</strong></li>
+</ul>
+<p><em>通常来说注册APP这样的事情是部门经理做的，所以这一步也可以忽略～～～</em></p>
+<p>在 <a href="https://open.weixin.qq.com/cgi-bin/index?t=home/index&amp;lang=zh_CN&amp;token=0ebf4697e5671e8567a5c5f4682a4c6cb0fcaa92" target="_blank" rel="noopener">微信开放平台</a> 的管理中心 <a href="https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&amp;lang=zh_CN" target="_blank" rel="noopener">创建一个应用。</a>此应用官方称七日内审核通过，一般都是三四天！而关于填写经营信息、填写商户信息、填写对公帐号信息在这里就忽略不写了。有兴趣的朋友可以了解下<a href="http://494075592.blog.51cto.com/10682677/1701260" target="_blank" rel="noopener">这篇文章</a>。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-723d6f42f6b41ba2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="创建应用"></p>
+<ul>
+<li><strong>第二步：了解支付的流程</strong></li>
+</ul>
+<p>如果做过其它支付，就会发现这些流程其实都差不多，就像我们平时用手机支付买东西一样。下边的流程两分钟大概就能读完，很容易理解！</p>
+<p>1&gt; 用户使用 APP 客户端，选择商品下单。<br>2&gt; APP 客户端将用户的商品数据传给商户服务器，请求生成支付订单。<br>3&gt; 商户后台调用统一下单 API 向微信的服务器发送请求，微信服务器生成预付单，并生成一个 prepay_id 返回给商户后台。<br>4&gt; 商户后台将这个 prepay_id 返回给商户客户端。<br>5&gt; 用户点击确认支付，这时候商户客户端调用 SDK 打开微信客户端，进行微信支付。<br>6&gt; 微信客户端向微信服务器发起支付请求并返回支付结果（他们之间交互用的就是prepay_id这个参数，微信的服务器要验证微信客户端传过去的参数是否跟第三步中生成的那个id一致）。<br>7&gt; 用户输入支付密码后，微信客户端提交支付授权，跟微信服务器交互，完成支付<br>8&gt; 微信服务器给微信客户端发送支付结果提示，并异步给商户服务器发送支付结果通知。<br>9&gt; 商户客户端通过支付结果回调接口查询支付结果，并向后台检查支付结果是否正确，后台返回支付结果。<br>10&gt; 商户客户端显示支付结果，完成订单，发货。</p>
+<ul>
+<li><strong>第三步：集成SDK</strong></li>
+</ul>
+<p>其实严格来说，这一步才是微信支付的真正开始。首先我们应该下载 <a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319164&amp;lang=zh_CN" target="_blank" rel="noopener">微信SDK</a>，如有需要，还可把<a href="https://pay.weixin.qq.com/wiki/doc/api/app/app.php?chapter=11_1_" target="_blank" rel="noopener">【微信支付】APP支付示例</a>下载下来看看。下面是集成 SDK 的具体步骤：</p>
+<p>1.把下载好的 SDK 导入工程（如下图）（我下的是OpenSDK1.7.4版本）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a0dfa21d98e8d045.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="把下载好的 SDK 导入工程"></p>
+<p>2.导入微信支付SDK依赖库（如下图）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-f4bd0524a4a2d18f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入微信支付SDK依赖库"></p>
+<p>3.设置URL Scheme<br>在注册微信平台APP的时候，会给一个唯一识别标识符（APPID）,需要填写在工程中。（如下图）</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-8c7b570a18293fc3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置URL Scheme"></p>
+<hr>
+<p><em>配置好上述参数后就可以写代码了～～～</em></p>
+<ul>
+<li><strong>第四部：代码</strong></li>
+</ul>
+<p>代码分为以下步骤：</p>
+<p>1.在 Appdelegate 中注册微信 APPID<br>这是首先要做的事情。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (BOOL)<span class="string">application:</span>(UIApplication *)application <span class="string">didFinishLaunchingWithOptions:</span>(NSDictionary *)launchOptions &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 向微信终端注册ID</span></span><br><span class="line">[WXApi <span class="string">registerApp:</span>@<span class="string">"wx0f8d5e0eadd2d4b7"</span> <span class="string">withDescription:</span>@<span class="string">"demo test"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>2.获取微信支付所必要的参数<br>接着，在微信支付的.m文件中获取微信支付所必要的参数。为了提高数据安全性，下单、签名等操作一般都是在后台完成的，因此以下这些参数后台会给我们。我们主要得知道这些参数如何设置：<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发起微信支付，设置参数</span></span><br><span class="line">PayReq *request   = [[PayReq alloc] init];  <span class="comment">// 创建支付对象</span></span><br><span class="line">request.openID = <span class="string">@""</span>; <span class="comment">// 由用户微信号和AppID组成的唯一标识</span></span><br><span class="line">request.partnerId = <span class="string">@""</span>; <span class="comment">// 商家ID</span></span><br><span class="line">request.prepayId  = <span class="string">@""</span>; <span class="comment">// 预支付订单ID</span></span><br><span class="line">request.package   = <span class="string">@"Sign=WXPay"</span>; <span class="comment">// 数据和签名</span></span><br><span class="line">request.nonceStr  = <span class="string">@""</span>; <span class="comment">// 随机编码</span></span><br><span class="line"><span class="built_in">NSDate</span> *date = [<span class="built_in">NSDate</span> date];</span><br><span class="line"><span class="built_in">NSString</span> * timeSp = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%ld"</span>, (<span class="keyword">long</span>)[date timeIntervalSince1970]];</span><br><span class="line"><span class="built_in">UInt32</span> timeStamp = [timeSp intValue];</span><br><span class="line">request.timeStamp = timeStamp; <span class="comment">// 时间戳</span></span><br><span class="line">request.sign = <span class="string">@""</span>; <span class="comment">// 签名，签名一般都会加密</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//发送请求到微信，等待微信返回 onResp</span></span><br><span class="line">[WXApi sendReq:request];</span><br></pre></td></tr></table></figure></p>
+<p>3.微信支付回调<br>最后要在Appdelegate.m文件中添加微信支付结果 onResp 回调方法<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断发起的请求是否为微信支付，如果是就回调</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)app openURL:(<span class="built_in">NSURL</span> *)url options:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)options &#123;</span><br><span class="line"><span class="keyword">return</span> [WXApi handleOpenURL:url delegate:<span class="keyword">self</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - WXApiDelegate</span></span><br><span class="line"><span class="comment">// 微信支付结果回调方法</span></span><br><span class="line">- (<span class="keyword">void</span>)onResp:(BaseResp *)resp &#123;</span><br><span class="line"><span class="built_in">NSString</span> *payResoult = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%d"</span>, resp.errCode];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>([resp isKindOfClass:[PayResp <span class="keyword">class</span>]])&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">WXSuccess           = 0,    成功</span></span><br><span class="line"><span class="comment">WXErrCodeCommon     = -1,    普通错误类型</span></span><br><span class="line"><span class="comment">WXErrCodeUserCancel = -2,    用户点击取消并返回</span></span><br><span class="line"><span class="comment">WXErrCodeSentFail   = -3,    发送失败</span></span><br><span class="line"><span class="comment">WXErrCodeAuthDeny   = -4,    授权失败</span></span><br><span class="line"><span class="comment">WXErrCodeUnsupport  = -5,    微信不支持</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//支付返回结果，实际支付结果需要去微信服务器端查询</span></span><br><span class="line"><span class="keyword">switch</span> (resp.errCode) &#123;</span><br><span class="line"><span class="keyword">case</span> WXSuccess:</span><br><span class="line">payResoult = <span class="string">@"支付成功"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> WXErrCodeCommon:</span><br><span class="line">payResoult = <span class="string">@"支付失败"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> WXErrCodeUserCancel:</span><br><span class="line">payResoult = <span class="string">@"用户点击取消并返回"</span>;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line"><span class="comment">// 错误码 以及 错误提示字符串</span></span><br><span class="line">payResoult = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"支付结果：失败！retcode = %d, retstr = %@"</span>, resp.errCode,resp.errStr];</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>结束语：在开发中，微信支付常常与其它技术配合使用，比如MD5加密，AFN等等。有空闲的话会一一整理出来与大家分享！另外文章写的如果有什么错误，还请大家指出来，谢谢大家！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发之 - Runtime/" rel="next" title="iOS开发之 - Runtime">
+                <i class="fa fa-chevron-left"></i> iOS开发之 - Runtime
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发之 - MD5加密/" rel="prev" title="iOS开发之 - MD5加密">
+                iOS开发之 - MD5加密 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">刘朋坤</p>
+              <p class="site-description motion-element" itemprop="description">iOS 修炼中...</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘朋坤</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
