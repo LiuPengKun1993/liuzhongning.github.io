@@ -1010,7 +1010,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 支付宝支付/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 小冷易忘知识点总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -1029,8 +1029,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 支付宝支付/" itemprop="url">
-                  iOS开发之 - 支付宝支付
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 小冷易忘知识点总结/" itemprop="url">
+                  iOS开发之 - 小冷易忘知识点总结
                 </a>
               
             
@@ -1089,13 +1089,15 @@
       
         
           <blockquote>
-<p>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过<a href="http://www.jianshu.com/p/a17b37cb8fe3" target="_blank" rel="noopener">微信支付流程</a>，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：</p>
+<p>看网上有人整理 iOS 开发中常用的易忘知识点，<a href="http://www.jianshu.com/p/b3ea66bffc68" target="_blank" rel="noopener">iOS 开发小冷易忘知识点总结</a>，觉得不错，于是自己也想着整理一些易忘的知识点。会持续更新……</p>
 </blockquote>
-<h3 id="一、支付流程理解"><a href="#一、支付流程理解" class="headerlink" title="一、支付流程理解"></a>一、支付流程理解</h3><p>先看个图<br><img src="http://upload-images.jianshu.io/upload_images/2665449-111551cb2f5ba892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="支付流程"></p>
-<p>流程和咱们平时在手机上买东西是一样的：<br>1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。<br>2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。<br>3.后台的服务器将各种数据拼接签名后生成一个签名后的字符串，回传到客户端APP上。<br>4.用户点击确认支付按钮，调用手机支付宝客户端，利用后台传过来的那个参数调起支付宝，让支付宝客户端传给他们服务器交互，进行付款。(这一步是支付宝自己完成的，安全性高)<br>5.支付宝的服务器将支付的结果（可能成功也可能不成功）返回给手机支付宝客户端和你们公司的后台服务器。<br>6.你们公司后台服务器收到后一般是更新下数据信息，手机支付宝客户端会显示一下支付成功。<br>
+<ul>
+<li>iOS 控制器的基类，搭建框架之初一般都会设计一个 ViewController 基类，这里设置的基类是 NNBaseViewController，继承自 UIViewController。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NNBaseViewController.h&quot;</span><br><span class="line"></span><br><span class="line">@interface NNBaseViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation NNBaseViewController</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 支付宝支付/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 小冷易忘知识点总结/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1299,7 +1301,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 银联支付/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -1318,8 +1320,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 银联支付/" itemprop="url">
-                  iOS开发之 - 银联支付
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/" itemprop="url">
+                  iOS开发之 - 键盘处理神器 IQKeyboardManager
                 </a>
               
             
@@ -1378,22 +1380,24 @@
       
         
           <blockquote>
-<p>前阵子看了很多篇博客，有很多朋友吐槽说银联支付怎么怎么坑，所以集成的时候小心翼翼，但集成完银联支付之后，觉得相对于支付宝支付微信支付而言，银联支付还可以说的过去。下面就来介绍一下怎样快速的集成银联支付。</p>
+<p>  年后上班第一天，比较闲，上午的时候抽空整理了<code>iOS</code>开发中常用的易忘知识点：<a href="http://www.jianshu.com/p/328a4c65dc5c" target="_blank" rel="noopener">iOS开发之 - 小冷易忘知识点总结</a>，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  <code>IQKeyboardManager</code>。</p>
+</blockquote>
+<blockquote>
+<p>平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… <code>IQKeyboardManager</code> 可以很简单快捷的解决键盘遮盖输入框的问题，接下来就一起来学习一下吧。</p>
 </blockquote>
 <ul>
-<li>首先，下载<a href="https://open.unionpay.com/ajweb/help/search?category=aj&amp;keyword=开发包" target="_blank" rel="noopener">银联支付SDK</a>（这个有点不好找），里面包含需要的库文件和详细的文档；下载好开发包之后，进行解压，解压成下面这样的文件</li>
+<li><p>先简单认识下 IQKeyboardManager<br>GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">GitHub 地址</a></p>
+</li>
+<li><p>官方示意效果图如下：</p>
+</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-02336a46b0ff2407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付SDK"></p>
-<ul>
-<li>官方文档也在这个目录下：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-0602bf8cbd8aea0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付官方文档"></p>
-<ul>
-<li>下面开始集成SDK</li>
-</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip" alt="官方示意效果图"></p>
+<hr>
+<p>再贴一下自己做的简单效果图☺️<br>先说下我的 Xcode 版本是：Version 8.1 (8B62)，简单起见直接在 Main.storyboard 中拖入 7 个UITextField， 每个 UITextField 都设有占位文字。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip" alt="简单效果图☺️"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 银联支付/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
