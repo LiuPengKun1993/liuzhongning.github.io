@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以到这里。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了 AFNetworking 的三个很广泛的应用：上传、下载以及网络监听。如果有朋友想了解苹果自带的 NSURLSession 相关的上传与下载，可以到这里。接下来是使用 AFNetworking 上传、下载以及网络监听的 demo. 一、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之 - AFNetworking - 上传、下载、网络监听">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/index.html">
+<meta property="og:site_name" content="以梦为马">
+<meta property="og:description" content="这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以到这里。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了 AFNetworking 的三个很广泛的应用：上传、下载以及网络监听。如果有朋友想了解苹果自带的 NSURLSession 相关的上传与下载，可以到这里。接下来是使用 AFNetworking 上传、下载以及网络监听的 demo. 一、">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-15T10:25:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之 - AFNetworking - 上传、下载、网络监听">
+<meta name="twitter:description" content="这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以到这里。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了 AFNetworking 的三个很广泛的应用：上传、下载以及网络监听。如果有朋友想了解苹果自带的 NSURLSession 相关的上传与下载，可以到这里。接下来是使用 AFNetworking 上传、下载以及网络监听的 demo. 一、">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之 - AFNetworking - 上传、下载、网络监听 | 以梦为马</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">以梦为马</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">谨以此纪念岁月</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />主页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之 - AFNetworking - 上传、下载、网络监听
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以<a href="http://www.jianshu.com/p/d23f4f913af1" target="_blank" rel="noopener">到这里</a>。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了 AFNetworking 的三个很广泛的应用：上传、下载以及网络监听。如果有朋友想了解苹果自带的 NSURLSession 相关的上传与下载，可以<a href="http://www.jianshu.com/p/be94889824d9" target="_blank" rel="noopener">到这里</a>。接下来是使用 AFNetworking 上传、下载以及网络监听的 demo.</p>
+<h2 id="一、上传："><a href="#一、上传：" class="headerlink" title="一、上传："></a>一、上传：</h2><p>这里介绍了 AFN 的两种上传方式：</p>
+<p>1.通过工程中的文件上传<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建管理者对象</span></span><br><span class="line">AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求参数</span></span><br><span class="line"><span class="built_in">NSString</span> *urlStr = <span class="string">@" "</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dic = @&#123;<span class="string">@" "</span> : <span class="string">@" "</span>,<span class="string">@" "</span> : <span class="string">@" "</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送 post 请求，上传一张图片</span></span><br><span class="line">[sessionManager POST:urlStr parameters:dic constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt;  _Nonnull formData) &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [[<span class="built_in">NSBundle</span> mainBundle] pathForResource:<span class="string">@"a.jpg"</span> ofType:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSData</span> *imgData = [<span class="built_in">NSData</span> dataWithContentsOfFile:filePath];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将图片数据拼接，进行上传</span></span><br><span class="line">[formData appendPartWithFileData:imgData name:<span class="string">@"pic"</span> fileName:<span class="string">@"filename"</span> mimeType:<span class="string">@"image/jpg"</span>];</span><br><span class="line"></span><br><span class="line">&#125; progress:^(<span class="built_in">NSProgress</span> * _Nonnull uploadProgress) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取上传的进度</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%.2f"</span>,uploadProgress.fractionCompleted);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]); <span class="comment">//子线程</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125; success:^(<span class="built_in">NSURLSessionDataTask</span> * _Nonnull task, <span class="keyword">id</span>  _Nullable responseObject) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求成功</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"请求成功：%@"</span>,responseObject);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="built_in">NSThread</span> currentThread]); <span class="comment">//主线程</span></span><br><span class="line"></span><br><span class="line">&#125; failure:^(<span class="built_in">NSURLSessionDataTask</span> * _Nullable task, <span class="built_in">NSError</span> * _Nonnull error) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求失败</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"请求失败：%@"</span>,error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<p>2.根据URL路径上传<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建管理者对象</span></span><br><span class="line">AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];</span><br><span class="line"></span><br><span class="line">[sessionManager <span class="string">POST:</span>@<span class="string">" "</span> <span class="string">parameters:</span>@&#123;@<span class="string">" "</span> : @<span class="string">" "</span>&#125; <span class="string">constructingBodyWithBlock:</span>^(id&lt;AFMultipartFormData&gt; formData) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在block中设置需要上传的文件</span></span><br><span class="line">[formData <span class="string">appendPartWithFileURL:</span>[NSURL <span class="string">fileURLWithPath:</span>@<span class="string">"文件路径"</span>] <span class="string">name:</span>@<span class="string">"file"</span> <span class="string">error:</span>nil];</span><br><span class="line"></span><br><span class="line">&#125; <span class="string">success:</span>^(NSURLSessionDataTask *task, id responseObject) &#123;</span><br><span class="line"></span><br><span class="line">NSLog(@<span class="string">"成功：%@"</span>, responseObject);</span><br><span class="line"></span><br><span class="line">&#125; <span class="string">failure:</span>^(NSURLSessionDataTask *task, NSError *error) &#123;</span><br><span class="line">NSLog(@<span class="string">"失败：%@"</span>, error);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、下载"><a href="#二、下载" class="headerlink" title="二、下载"></a>二、下载</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建管理者对象</span></span><br><span class="line">AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 确定请求的URL地址</span></span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@" "</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建请求对象</span></span><br><span class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载文件</span></span><br><span class="line"><span class="built_in">NSURLSessionDownloadTask</span> *task = [manager downloadTaskWithRequest:request progress:^(<span class="built_in">NSProgress</span> * _Nonnull downloadProgress) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// block会实时调用</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%.2f"</span>,downloadProgress.fractionCompleted);</span><br><span class="line"></span><br><span class="line">&#125; destination:^<span class="built_in">NSURL</span> * _Nonnull(<span class="built_in">NSURL</span> * _Nonnull targetPath, <span class="built_in">NSURLResponse</span> * _Nonnull response) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// NSHomeDirectory()可以得到应用程序目录的路径</span></span><br><span class="line"><span class="comment">// 返回一个URL存储文件</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [<span class="built_in">NSHomeDirectory</span>() stringByAppendingPathComponent:<span class="string">@"Documents/***.mp3"</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> fileURLWithPath:filePath];</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> url;</span><br><span class="line"></span><br><span class="line">&#125; completionHandler:^(<span class="built_in">NSURLResponse</span> * _Nonnull response, <span class="built_in">NSURL</span> * _Nullable filePath, <span class="built_in">NSError</span> * _Nullable error) &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (error) &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"下载失败 ~~~ %@"</span>,error);</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"下载成功"</span>);</span><br><span class="line">&#125;</span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始下载任务</span></span><br><span class="line">[task resume];</span><br></pre></td></tr></table></figure>
+<h2 id="三、网络监听（监听手机网络的不同状态）"><a href="#三、网络监听（监听手机网络的不同状态）" class="headerlink" title="三、网络监听（监听手机网络的不同状态）"></a>三、网络监听（监听手机网络的不同状态）</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获得网络监控的管理者</span></span><br><span class="line">AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager manager];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只要网络环境发生变化，就会调用此 block</span></span><br><span class="line">[manager <span class="string">setReachabilityStatusChangeBlock:</span>^(AFNetworkReachabilityStatus status) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 枚举里面的四个状态</span></span><br><span class="line"><span class="comment">AFNetworkReachabilityStatusUnknown          = -1,  未知</span></span><br><span class="line"><span class="comment">AFNetworkReachabilityStatusNotReachable     = 0,   不可用</span></span><br><span class="line"><span class="comment">AFNetworkReachabilityStatusReachableViaWWAN = 1,   手机自带网络</span></span><br><span class="line"><span class="comment">AFNetworkReachabilityStatusReachableViaWiFi = 2,   wifi</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (status) &#123;</span><br><span class="line"><span class="keyword">case</span> <span class="string">AFNetworkReachabilityStatusUnknown:</span></span><br><span class="line">NSLog(@<span class="string">"未知"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">AFNetworkReachabilityStatusNotReachable:</span></span><br><span class="line">NSLog(@<span class="string">"不可用"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">AFNetworkReachabilityStatusReachableViaWWAN:</span></span><br><span class="line">NSLog(@<span class="string">"手机自带网络"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">AFNetworkReachabilityStatusReachableViaWiFi:</span></span><br><span class="line">NSLog(@<span class="string">"Wifi"</span>);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="string">default:</span></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开始监听</span></span><br><span class="line">[manager startMonitoring];</span><br></pre></td></tr></table></figure>
+<p>这是今天做的一些关于 AFNetworking 的总结，如果有错误或疏忽的地方，希望大家能够指出！谢谢大家！！！</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发之 - AFNetworking - 网络请求/" rel="next" title="iOS开发之 - AFNetworking - 网络请求">
+                <i class="fa fa-chevron-left"></i> iOS开发之 - AFNetworking - 网络请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">刘朋坤</p>
+              <p class="site-description motion-element" itemprop="description">iOS 修炼中...</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、上传："><span class="nav-number">1.</span> <span class="nav-text">一、上传：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、下载"><span class="nav-number">2.</span> <span class="nav-text">二、下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、网络监听（监听手机网络的不同状态）"><span class="nav-number">3.</span> <span class="nav-text">三、网络监听（监听手机网络的不同状态）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘朋坤</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
