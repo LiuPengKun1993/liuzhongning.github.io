@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="项目中用到了 极光推送，这里记录下极光推送中生产证书和开发证书的生成过程。  推送设置中需要配置生产证书以及开发证书~~ 1.开发证书生成步骤 登录 苹果开发者中心，点击 Certificates, IDs &amp;amp; Profiles    点击 Development，并选择 Apple Push Notification service SSL (Sandbox)，接着点击下边的 Cont">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发 - 极光推送中生产证书和开发证书的生成">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="项目中用到了 极光推送，这里记录下极光推送中生产证书和开发证书的生成过程。  推送设置中需要配置生产证书以及开发证书~~ 1.开发证书生成步骤 登录 苹果开发者中心，点击 Certificates, IDs &amp;amp; Profiles    点击 Development，并选择 Apple Push Notification service SSL (Sandbox)，接着点击下边的 Cont">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-b6de1efe8a9bc32d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-69cf10ec6fcb88c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-c02bbf6bb568e09f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-1bc222f798021465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-0bb19655f5e19139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-153b4345af65eb1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-b6141e6c50613449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-a8554f4b0b579a2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-721072f3f4f498bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-7dda501137bad5df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-7b1b25481edad0e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-cf0e2374a4886415.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-8c590c020fed9efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-d8d78f18c48bcf0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-04-15T12:13:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发 - 极光推送中生产证书和开发证书的生成">
+<meta name="twitter:description" content="项目中用到了 极光推送，这里记录下极光推送中生产证书和开发证书的生成过程。  推送设置中需要配置生产证书以及开发证书~~ 1.开发证书生成步骤 登录 苹果开发者中心，点击 Certificates, IDs &amp;amp; Profiles    点击 Development，并选择 Apple Push Notification service SSL (Sandbox)，接着点击下边的 Cont">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发 - 极光推送中生产证书和开发证书的生成 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发 - 极光推送中生产证书和开发证书的生成
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>项目中用到了 <a href="https://www.jiguang.cn/push?source=bdjj#B_vid=1350498826687775136" target="_blank" rel="noopener">极光推送</a>，这里记录下极光推送中生产证书和开发证书的生成过程。</p>
+</blockquote>
+<p>推送设置中需要配置生产证书以及开发证书~~<br><img src="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
+<h3 id="1-开发证书生成步骤"><a href="#1-开发证书生成步骤" class="headerlink" title="1.开发证书生成步骤"></a>1.开发证书生成步骤</h3><ul>
+<li>登录 <a href="https://developer.apple.com/account/#/overview/82W2K9C6T2" target="_blank" rel="noopener">苹果开发者中心</a>，点击 <strong>Certificates, IDs &amp; Profiles</strong></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6de1efe8a9bc32d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤1"></p>
+<ul>
+<li>点击 <strong>Development</strong>，并选择 <strong>Apple Push Notification service SSL (Sandbox)</strong>，接着点击下边的 <strong>Continue</strong> 按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤2"></p>
+<a id="more"></a>
+<ul>
+<li>来到 <strong>App ID</strong> 这个界面之后，继续点击下边的 <strong>Continue</strong> 按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-69cf10ec6fcb88c3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤3"></p>
+<ul>
+<li>这里的说明是让我们生成一个 <strong>CSR 文件</strong>，继续点击 <strong>Continue</strong> 按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-c02bbf6bb568e09f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤4"></p>
+<ul>
+<li><p>这个界面需要上传 CSR 文件，上传 CSR 证书之后继续点击 <strong>Continue</strong> 按钮（ <strong>CSR 文件</strong> 生成很简单，后面会提一下）<br><img src="http://upload-images.jianshu.io/upload_images/2665449-1bc222f798021465.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤5"></p>
+</li>
+<li><p>点击 <strong>Continue</strong> 按钮之后，就会出现下面这个界面，直接点击 <strong>Download</strong> ，然后双击下载的证书，安装到钥匙串里。<br><img src="http://upload-images.jianshu.io/upload_images/2665449-0bb19655f5e19139.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤6"></p>
+</li>
+</ul>
+<h5 id="1-1-CSR-文件生成步骤"><a href="#1-1-CSR-文件生成步骤" class="headerlink" title="1.1 CSR 文件生成步骤"></a>1.1 CSR 文件生成步骤</h5><ul>
+<li>首先打开电脑上的钥匙串，点击 <strong>从证书颁发机构请求证书</strong>，如下图所示：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-153b4345af65eb1a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成 CSR 文件步骤1"></p>
+<ul>
+<li>填写用户邮箱地址以及 CA 电子邮件地址，将请求改为“存储到磁盘”，点击 <strong>继续</strong>，接着点击 <strong>存储</strong> 即可。<br><img src="http://upload-images.jianshu.io/upload_images/2665449-b6141e6c50613449.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生成 CSR 文件步骤2"></li>
+</ul>
+<h3 id="2-生产证书生成步骤"><a href="#2-生产证书生成步骤" class="headerlink" title="2.生产证书生成步骤"></a>2.生产证书生成步骤</h3><ul>
+<li>生产证书的生成和开发证书的生成类似，先选择 <strong>Production</strong> ，点击“加号”后选择 <strong>Production</strong> 中的 <strong> Apple Push Notification service SSL (Sandbox &amp; Production)</strong> 这一栏，接着点击 <strong>Continue</strong> 按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a8554f4b0b579a2a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生产证书生成步骤1"></p>
+<ul>
+<li>来到 <strong>App ID</strong> 这个界面之后，继续点击下边的 <strong>Continue</strong> 按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-721072f3f4f498bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生产证书生成步骤2"></p>
+<ul>
+<li>然后依然会让上传一个 <strong>CSR 文件</strong>， 不再累述。生产证书生成后，下载安装到钥匙串中即可。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7dda501137bad5df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="生产证书生成步骤3"></p>
+<h3 id="3-导出-p12-文件"><a href="#3-导出-p12-文件" class="headerlink" title="3. 导出 p12 文件"></a>3. 导出 <strong>p12</strong> 文件</h3><ul>
+<li><p>选中刚刚安装的生产证书和开发证书，然后导出~<br><img src="http://upload-images.jianshu.io/upload_images/2665449-7b1b25481edad0e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出 **p12** 文件步骤1"></p>
+</li>
+<li><p>文件格式为 <strong>个人信息交换(.p12)</strong><br><img src="http://upload-images.jianshu.io/upload_images/2665449-cf0e2374a4886415.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出 **p12** 文件步骤2"></p>
+</li>
+<li><p>接着设置下密码<br><img src="http://upload-images.jianshu.io/upload_images/2665449-8c590c020fed9efe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导出 **p12** 文件步骤3"></p>
+</li>
+</ul>
+<h5 id="最后将两个p12文件上传到极光推送上，就OK了！"><a href="#最后将两个p12文件上传到极光推送上，就OK了！" class="headerlink" title="最后将两个p12文件上传到极光推送上，就OK了！"></a>最后将两个p12文件上传到极光推送上，就OK了！</h5><p><img src="http://upload-images.jianshu.io/upload_images/2665449-d8d78f18c48bcf0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/" rel="next" title="iOS开发之 - CADisplayLink 实现酷炫动画">
+                <i class="fa fa-chevron-left"></i> iOS开发之 - CADisplayLink 实现酷炫动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发 - 链式编程思想/" rel="prev" title="iOS开发 - 链式编程思想">
+                iOS开发 - 链式编程思想 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-开发证书生成步骤"><span class="nav-number">1.</span> <span class="nav-text">1.开发证书生成步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-1-CSR-文件生成步骤"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1 CSR 文件生成步骤</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-生产证书生成步骤"><span class="nav-number">2.</span> <span class="nav-text">2.生产证书生成步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-导出-p12-文件"><span class="nav-number">3.</span> <span class="nav-text">3. 导出 p12 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最后将两个p12文件上传到极光推送上，就OK了！"><span class="nav-number">3.0.1.</span> <span class="nav-text">最后将两个p12文件上传到极光推送上，就OK了！</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

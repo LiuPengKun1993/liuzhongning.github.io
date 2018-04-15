@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="iOS 获取设备的各种信息一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一识别码UUID 获取当前设备IP 获取总内存大小 获取当前可用内存 获取精准电池电量 获取电池当前的状态（共有4种状态） 获取设备当前的语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 获取设备的各种信息">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="iOS 获取设备的各种信息一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一识别码UUID 获取当前设备IP 获取总内存大小 获取当前可用内存 获取精准电池电量 获取电池当前的状态（共有4种状态） 获取设备当前的语言">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-04-15T12:11:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 获取设备的各种信息">
+<meta name="twitter:description" content="iOS 获取设备的各种信息一、目录结构: 获取屏幕宽度与高度 获取设备版本号 获取iPhone名称 获取app版本号 获取电池电量 获取当前系统名称 获取当前系统版本号 获取通用的唯一识别码UUID 获取当前设备IP 获取总内存大小 获取当前可用内存 获取精准电池电量 获取电池当前的状态（共有4种状态） 获取设备当前的语言">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS 获取设备的各种信息 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 获取设备的各种信息
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="iOS-获取设备的各种信息"><a href="#iOS-获取设备的各种信息" class="headerlink" title="iOS 获取设备的各种信息"></a><a href="https://github.com/liuzhongning/NNDeviceInformation" target="_blank" rel="noopener">iOS 获取设备的各种信息</a></h5><h3 id="一、目录结构"><a href="#一、目录结构" class="headerlink" title="一、目录结构:"></a>一、目录结构:</h3><ol>
+<li>获取屏幕宽度与高度</li>
+<li>获取设备版本号</li>
+<li>获取iPhone名称</li>
+<li>获取app版本号</li>
+<li>获取电池电量</li>
+<li>获取当前系统名称</li>
+<li>获取当前系统版本号</li>
+<li>获取通用的唯一识别码UUID</li>
+<li>获取当前设备IP</li>
+<li>获取总内存大小</li>
+<li>获取当前可用内存</li>
+<li>获取精准电池电量</li>
+<li>获取电池当前的状态（共有4种状态）</li>
+<li>获取设备当前的语言</li>
+</ol>
+<a id="more"></a>
+<h3 id="二、具体内容"><a href="#二、具体内容" class="headerlink" title="二、具体内容"></a>二、具体内容</h3><h5 id="1-获取屏幕宽度与高度"><a href="#1-获取屏幕宽度与高度" class="headerlink" title="1. 获取屏幕宽度与高度"></a>1. 获取屏幕宽度与高度</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/// 屏幕宽度</span><br><span class="line">+ (CGFloat)getDeviceScreenWidth &#123;</span><br><span class="line">return [UIScreen mainScreen].bounds.size.width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// 屏幕高度</span><br><span class="line">+ (CGFloat)getDeviceScreenHeight &#123;</span><br><span class="line">return [UIScreen mainScreen].bounds.size.height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>[UIScreen mainScreen].bounds.size.width</code>用的很普遍，一般来说定义成宏更好，然后根据屏幕宽高进行尺寸的适配。</p>
+<h5 id="2-获取设备版本号"><a href="#2-获取设备版本号" class="headerlink" title="2. 获取设备版本号"></a>2. 获取设备版本号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)getDeviceName &#123;</span><br><span class="line">// 需要#import &quot;sys/utsname.h&quot;</span><br><span class="line">struct utsname systemInfo;</span><br><span class="line">uname(&amp;systemInfo);</span><br><span class="line">NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];</span><br><span class="line"></span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone3,1&quot;])    return @&quot;iPhone 4&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone3,2&quot;])    return @&quot;iPhone 4&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone3,3&quot;])    return @&quot;iPhone 4&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone4,1&quot;])    return @&quot;iPhone 4S&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone5,1&quot;])    return @&quot;iPhone 5&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone5,2&quot;])    return @&quot;iPhone 5 (GSM+CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone5,3&quot;])    return @&quot;iPhone 5c (GSM)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone5,4&quot;])    return @&quot;iPhone 5c (GSM+CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone6,1&quot;])    return @&quot;iPhone 5s (GSM)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone6,2&quot;])    return @&quot;iPhone 5s (GSM+CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone7,1&quot;])    return @&quot;iPhone 6 Plus&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone7,2&quot;])    return @&quot;iPhone 6&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone8,1&quot;])    return @&quot;iPhone 6s&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone8,2&quot;])    return @&quot;iPhone 6s Plus&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPhone8,4&quot;])    return @&quot;iPhone SE&quot;;</span><br><span class="line"></span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPod1,1&quot;])      return @&quot;iPod Touch 1G&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPod2,1&quot;])      return @&quot;iPod Touch 2G&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPod3,1&quot;])      return @&quot;iPod Touch 3G&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPod4,1&quot;])      return @&quot;iPod Touch 4G&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPod5,1&quot;])      return @&quot;iPod Touch (5 Gen)&quot;;</span><br><span class="line"></span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad1,1&quot;])      return @&quot;iPad&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad1,2&quot;])      return @&quot;iPad 3G&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,1&quot;])      return @&quot;iPad 2 (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,2&quot;])      return @&quot;iPad 2&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,3&quot;])      return @&quot;iPad 2 (CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,4&quot;])      return @&quot;iPad 2&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,5&quot;])      return @&quot;iPad Mini (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,6&quot;])      return @&quot;iPad Mini&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad2,7&quot;])      return @&quot;iPad Mini (GSM+CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad3,1&quot;])      return @&quot;iPad 3 (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad3,2&quot;])      return @&quot;iPad 3 (GSM+CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad3,3&quot;])      return @&quot;iPad 3&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad3,4&quot;])      return @&quot;iPad 4 (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad3,5&quot;])      return @&quot;iPad 4&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad3,6&quot;])      return @&quot;iPad 4 (GSM+CDMA)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,1&quot;])      return @&quot;iPad Air (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,2&quot;])      return @&quot;iPad Air (Cellular)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,4&quot;])      return @&quot;iPad Mini 2 (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,5&quot;])      return @&quot;iPad Mini 2 (Cellular)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,6&quot;])      return @&quot;iPad Mini 2&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,7&quot;])      return @&quot;iPad Mini 3&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,8&quot;])      return @&quot;iPad Mini 3&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad4,9&quot;])      return @&quot;iPad Mini 3&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad5,1&quot;])      return @&quot;iPad Mini 4 (WiFi)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad5,2&quot;])      return @&quot;iPad Mini 4 (LTE)&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad5,3&quot;])      return @&quot;iPad Air 2&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad5,4&quot;])      return @&quot;iPad Air 2&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad6,3&quot;])      return @&quot;iPad Pro 9.7&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad6,4&quot;])      return @&quot;iPad Pro 9.7&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad6,7&quot;])      return @&quot;iPad Pro 12.9&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;iPad6,8&quot;])      return @&quot;iPad Pro 12.9&quot;;</span><br><span class="line"></span><br><span class="line">if ([deviceString isEqualToString:@&quot;i386&quot;])         return @&quot;Simulator&quot;;</span><br><span class="line">if ([deviceString isEqualToString:@&quot;x86_64&quot;])       return @&quot;Simulator&quot;;</span><br><span class="line"></span><br><span class="line">return deviceString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="3-获取iPhone名称"><a href="#3-获取iPhone名称" class="headerlink" title="3. 获取iPhone名称"></a>3. 获取iPhone名称</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 获取iPhone名称</span><br><span class="line">+ (NSString *)getiPhoneName &#123;</span><br><span class="line">return [UIDevice currentDevice].name;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>获取的是你 iPhone 的名字。</p>
+<h5 id="4-获取app版本号"><a href="#4-获取app版本号" class="headerlink" title="4. 获取app版本号"></a>4. 获取app版本号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 获取app版本号</span><br><span class="line">+ (NSString *)getAPPVerion &#123;</span><br><span class="line">return [[[NSBundle mainBundle] infoDictionary] objectForKey:@&quot;CFBundleShortVersionString&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="5-获取电池电量"><a href="#5-获取电池电量" class="headerlink" title="5. 获取电池电量"></a>5. 获取电池电量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 获取电池电量</span><br><span class="line">+ (CGFloat)getBatteryLevel &#123;</span><br><span class="line">return [UIDevice currentDevice].batteryLevel;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法获取电池电量不是很精确，下边会介绍一个获取精确电池电量的。</p>
+<h5 id="6-获取当前系统名称"><a href="#6-获取当前系统名称" class="headerlink" title="6. 获取当前系统名称"></a>6. 获取当前系统名称</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 当前系统名称</span><br><span class="line">+ (NSString *)getSystemName &#123;</span><br><span class="line">return [UIDevice currentDevice].systemName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="7-获取当前系统版本号"><a href="#7-获取当前系统版本号" class="headerlink" title="7. 获取当前系统版本号"></a>7. 获取当前系统版本号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 当前系统版本号</span><br><span class="line">+ (NSString *)getSystemVersion &#123;</span><br><span class="line">return [UIDevice currentDevice].systemVersion;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="8-获取通用的唯一识别码UUID"><a href="#8-获取通用的唯一识别码UUID" class="headerlink" title="8. 获取通用的唯一识别码UUID"></a>8. 获取通用的唯一识别码UUID</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 通用唯一识别码UUID</span><br><span class="line">+ (NSString *)getUUID &#123;</span><br><span class="line">return [[UIDevice currentDevice] identifierForVendor].UUIDString;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="9-获取当前设备IP"><a href="#9-获取当前设备IP" class="headerlink" title="9. 获取当前设备IP"></a>9. 获取当前设备IP</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 获取当前设备IP</span><br><span class="line">+ (NSString *)getDeviceIPAdress &#123;</span><br><span class="line">NSString *address = @&quot;an error occurred when obtaining ip address&quot;;</span><br><span class="line">struct ifaddrs *interfaces = NULL;</span><br><span class="line">struct ifaddrs *temp_addr = NULL;</span><br><span class="line">int success = 0;</span><br><span class="line"></span><br><span class="line">success = getifaddrs(&amp;interfaces);</span><br><span class="line"></span><br><span class="line">if (success == 0) &#123; // 0 表示获取成功</span><br><span class="line"></span><br><span class="line">temp_addr = interfaces;</span><br><span class="line">while (temp_addr != NULL) &#123;</span><br><span class="line">if( temp_addr-&gt;ifa_addr-&gt;sa_family == AF_INET) &#123;</span><br><span class="line">// Check if interface is en0 which is the wifi connection on the iPhone</span><br><span class="line">if ([[NSString stringWithUTF8String:temp_addr-&gt;ifa_name] isEqualToString:@&quot;en0&quot;]) &#123;</span><br><span class="line">// Get NSString from C String</span><br><span class="line">address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr-&gt;ifa_addr)-&gt;sin_addr)];</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">temp_addr = temp_addr-&gt;ifa_next;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">freeifaddrs(interfaces);</span><br><span class="line">return address;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="10-获取总内存大小"><a href="#10-获取总内存大小" class="headerlink" title="10. 获取总内存大小"></a>10. 获取总内存大小</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/// 获取总内存大小</span><br><span class="line">+ (long long)getTotalMemorySize &#123;</span><br><span class="line">return [NSProcessInfo processInfo].physicalMemory;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="11-获取当前可用内存"><a href="#11-获取当前可用内存" class="headerlink" title="11. 获取当前可用内存"></a>11. 获取当前可用内存</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/// 获取当前可用内存</span><br><span class="line">+ (long long)getAvailableMemorySize &#123;</span><br><span class="line">vm_statistics_data_t vmStats;</span><br><span class="line">mach_msg_type_number_t infoCount = HOST_VM_INFO_COUNT;</span><br><span class="line">kern_return_t kernReturn = host_statistics(mach_host_self(), HOST_VM_INFO, (host_info_t)&amp;vmStats, &amp;infoCount);</span><br><span class="line">if (kernReturn != KERN_SUCCESS)</span><br><span class="line">&#123;</span><br><span class="line">return NSNotFound;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return ((vm_page_size * vmStats.free_count + vm_page_size * vmStats.inactive_count));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="12-获取精准电池电量"><a href="#12-获取精准电池电量" class="headerlink" title="12. 获取精准电池电量"></a>12. 获取精准电池电量</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/// 获取精准电池电量</span><br><span class="line">+ (CGFloat)getCurrentBatteryLevel &#123;</span><br><span class="line">UIApplication *app = [UIApplication sharedApplication];</span><br><span class="line">if (app.applicationState == UIApplicationStateActive||app.applicationState==UIApplicationStateInactive) &#123;</span><br><span class="line">Ivar ivar=  class_getInstanceVariable([app class],&quot;_statusBar&quot;);</span><br><span class="line">id status  = object_getIvar(app, ivar);</span><br><span class="line">for (id aview in [status subviews]) &#123;</span><br><span class="line">int batteryLevel = 0;</span><br><span class="line">for (id bview in [aview subviews]) &#123;</span><br><span class="line">if ([NSStringFromClass([bview class]) caseInsensitiveCompare:@&quot;UIStatusBarBatteryItemView&quot;] == NSOrderedSame&amp;&amp;[[[UIDevice currentDevice] systemVersion] floatValue] &gt;=6.0) &#123;</span><br><span class="line"></span><br><span class="line">Ivar ivar=  class_getInstanceVariable([bview class],&quot;_capacity&quot;);</span><br><span class="line">if(ivar) &#123;</span><br><span class="line">batteryLevel = ((int (*)(id, Ivar))object_getIvar)(bview, ivar);</span><br><span class="line">if (batteryLevel &gt; 0 &amp;&amp; batteryLevel &lt;= 100) &#123;</span><br><span class="line">return batteryLevel;</span><br><span class="line"></span><br><span class="line">&#125; else &#123;</span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个方法是通过 runtime 获取电池电量控件类私有变量的值，较为精确。</p>
+<h5 id="13-获取电池当前的状态（共有4种状态）"><a href="#13-获取电池当前的状态（共有4种状态）" class="headerlink" title="13. 获取电池当前的状态（共有4种状态）"></a>13. 获取电池当前的状态（共有4种状态）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/// 获取电池当前的状态，共有4种状态</span><br><span class="line">+ (NSString *) getBatteryState &#123;</span><br><span class="line">UIDevice *device = [UIDevice currentDevice];</span><br><span class="line">if (device.batteryState == UIDeviceBatteryStateUnknown) &#123;</span><br><span class="line">return @&quot;UnKnow&quot;;</span><br><span class="line">&#125; else if (device.batteryState == UIDeviceBatteryStateUnplugged)&#123;</span><br><span class="line">return @&quot;Unplugged&quot;;</span><br><span class="line">&#125; else if (device.batteryState == UIDeviceBatteryStateCharging)&#123;</span><br><span class="line">return @&quot;Charging&quot;;</span><br><span class="line">&#125; else if (device.batteryState == UIDeviceBatteryStateFull)&#123;</span><br><span class="line">return @&quot;Full&quot;;</span><br><span class="line">&#125;</span><br><span class="line">return nil;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="14-获取设备当前的语言"><a href="#14-获取设备当前的语言" class="headerlink" title="14. 获取设备当前的语言"></a>14. 获取设备当前的语言</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/// 获取当前语言</span><br><span class="line">+ (NSString *)getDeviceLanguage &#123;</span><br><span class="line">NSArray *languageArray = [NSLocale preferredLanguages];</span><br><span class="line">return [languageArray objectAtIndex:0];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击-iOS-获取设备的各种信息。"><a href="#提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击-iOS-获取设备的各种信息。" class="headerlink" title="提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击 iOS 获取设备的各种信息。"></a>提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击 <a href="https://github.com/liuzhongning/NNDeviceInformation" target="_blank" rel="noopener">iOS 获取设备的各种信息</a>。</h4>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(2)/" rel="next" title="iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)">
+                <i class="fa fa-chevron-left"></i> iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/" rel="prev" title="iOS 开发中导航栏渐变的两种方法">
+                iOS 开发中导航栏渐变的两种方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS-获取设备的各种信息"><span class="nav-number">1.</span> <span class="nav-text">iOS 获取设备的各种信息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、目录结构"><span class="nav-number"></span> <span class="nav-text">一、目录结构:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、具体内容"><span class="nav-number"></span> <span class="nav-text">二、具体内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-获取屏幕宽度与高度"><span class="nav-number">1.</span> <span class="nav-text">1. 获取屏幕宽度与高度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-获取设备版本号"><span class="nav-number">2.</span> <span class="nav-text">2. 获取设备版本号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-获取iPhone名称"><span class="nav-number">3.</span> <span class="nav-text">3. 获取iPhone名称</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-获取app版本号"><span class="nav-number">4.</span> <span class="nav-text">4. 获取app版本号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-获取电池电量"><span class="nav-number">5.</span> <span class="nav-text">5. 获取电池电量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-获取当前系统名称"><span class="nav-number">6.</span> <span class="nav-text">6. 获取当前系统名称</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-获取当前系统版本号"><span class="nav-number">7.</span> <span class="nav-text">7. 获取当前系统版本号</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-获取通用的唯一识别码UUID"><span class="nav-number">8.</span> <span class="nav-text">8. 获取通用的唯一识别码UUID</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-获取当前设备IP"><span class="nav-number">9.</span> <span class="nav-text">9. 获取当前设备IP</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-获取总内存大小"><span class="nav-number">10.</span> <span class="nav-text">10. 获取总内存大小</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-获取当前可用内存"><span class="nav-number">11.</span> <span class="nav-text">11. 获取当前可用内存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-获取精准电池电量"><span class="nav-number">12.</span> <span class="nav-text">12. 获取精准电池电量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-获取电池当前的状态（共有4种状态）"><span class="nav-number">13.</span> <span class="nav-text">13. 获取电池当前的状态（共有4种状态）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-获取设备当前的语言"><span class="nav-number">14.</span> <span class="nav-text">14. 获取设备当前的语言</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击-iOS-获取设备的各种信息。"><span class="nav-number"></span> <span class="nav-text">提示：上面代码如果直接复制的话有些会报错，这是因为需要导入头文件，详细代码请点击 iOS 获取设备的各种信息。</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
