@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="年后上班第一天，比较闲，上午的时候抽空整理了iOS开发中常用的易忘知识点：iOS开发之 - 小冷易忘知识点总结，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  IQKeyboardManager。   平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… IQKeyboardManage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之 - 键盘处理神器 IQKeyboardManager">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/index.html">
+<meta property="og:site_name" content="以梦为马">
+<meta property="og:description" content="年后上班第一天，比较闲，上午的时候抽空整理了iOS开发中常用的易忘知识点：iOS开发之 - 小冷易忘知识点总结，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  IQKeyboardManager。   平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… IQKeyboardManage">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip">
+<meta property="og:updated_time" content="2018-04-15T10:43:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之 - 键盘处理神器 IQKeyboardManager">
+<meta name="twitter:description" content="年后上班第一天，比较闲，上午的时候抽空整理了iOS开发中常用的易忘知识点：iOS开发之 - 小冷易忘知识点总结，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  IQKeyboardManager。   平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… IQKeyboardManage">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS开发之 - 键盘处理神器 IQKeyboardManager | 以梦为马</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">以梦为马</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">谨以此纪念岁月</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />主页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发之 - 键盘处理神器 IQKeyboardManager
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>  年后上班第一天，比较闲，上午的时候抽空整理了<code>iOS</code>开发中常用的易忘知识点：<a href="http://www.jianshu.com/p/328a4c65dc5c" target="_blank" rel="noopener">iOS开发之 - 小冷易忘知识点总结</a>，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  <code>IQKeyboardManager</code>。</p>
+</blockquote>
+<blockquote>
+<p>平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… <code>IQKeyboardManager</code> 可以很简单快捷的解决键盘遮盖输入框的问题，接下来就一起来学习一下吧。</p>
+</blockquote>
+<ul>
+<li><p>先简单认识下 IQKeyboardManager<br>GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">GitHub 地址</a></p>
+</li>
+<li><p>官方示意效果图如下：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip" alt="官方示意效果图"></p>
+<hr>
+<p>再贴一下自己做的简单效果图☺️<br>先说下我的 Xcode 版本是：Version 8.1 (8B62)，简单起见直接在 Main.storyboard 中拖入 7 个UITextField， 每个 UITextField 都设有占位文字。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip" alt="简单效果图☺️"></p>
+<hr>
+<h3 id="以下是-IQKeyboardManager-的一些具体使用"><a href="#以下是-IQKeyboardManager-的一些具体使用" class="headerlink" title="以下是 IQKeyboardManager 的一些具体使用"></a>以下是 IQKeyboardManager 的一些具体使用</h3><h4 id="1-用-Cocoapod-导入或直接下载拖进去，这里方便起见直接用-Cocoapod-导入。"><a href="#1-用-Cocoapod-导入或直接下载拖进去，这里方便起见直接用-Cocoapod-导入。" class="headerlink" title="1. 用 Cocoapod  导入或直接下载拖进去，这里方便起见直接用 Cocoapod 导入。"></a>1. 用 Cocoapod  导入或直接下载拖进去，这里方便起见直接用 Cocoapod 导入。</h4><p>IQKeyboardManager 的 GitHub地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">IQKeyboardManager 的 GitHub 地址</a></p>
+<h4 id="2-在-AppDelegate-m-中导入头文件"><a href="#2-在-AppDelegate-m-中导入头文件" class="headerlink" title="2. 在 AppDelegate.m 中导入头文件"></a>2. 在 AppDelegate.m 中导入头文件</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;IQKeyboardManager/IQKeyboardManager.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="3-在-AppDelegate-中设置全局属性"><a href="#3-在-AppDelegate-中设置全局属性" class="headerlink" title="3. 在 AppDelegate 中设置全局属性"></a>3. 在 AppDelegate 中设置全局属性</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line"></span><br><span class="line">IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager]; <span class="comment">// 获取类库的单例变量</span></span><br><span class="line"></span><br><span class="line">keyboardManager.enable = <span class="literal">YES</span>; <span class="comment">// 控制整个功能是否启用</span></span><br><span class="line"></span><br><span class="line">keyboardManager.shouldResignOnTouchOutside = <span class="literal">YES</span>; <span class="comment">// 控制点击背景是否收起键盘</span></span><br><span class="line"></span><br><span class="line">keyboardManager.shouldToolbarUsesTextFieldTintColor = <span class="literal">YES</span>; <span class="comment">// 控制键盘上的工具条文字颜色是否用户自定义</span></span><br><span class="line"></span><br><span class="line">keyboardManager.toolbarManageBehaviour = IQAutoToolbarBySubviews; <span class="comment">// 有多个输入框时，可以通过点击Toolbar 上的“前一个”“后一个”按钮来实现移动到不同的输入框</span></span><br><span class="line"></span><br><span class="line">keyboardManager.enableAutoToolbar = <span class="literal">YES</span>; <span class="comment">// 控制是否显示键盘上的工具条</span></span><br><span class="line"></span><br><span class="line">keyboardManager.shouldShowTextFieldPlaceholder = <span class="literal">YES</span>; <span class="comment">// 是否显示占位文字</span></span><br><span class="line"></span><br><span class="line">keyboardManager.placeholderFont = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">17</span>]; <span class="comment">// 设置占位文字的字体</span></span><br><span class="line"></span><br><span class="line">keyboardManager.keyboardDistanceFromTextField = <span class="number">10.0</span>f; <span class="comment">// 输入框距离键盘的距离</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-若某个类不需要使用-IQKeyboardManager，可以在这个类中这样设置"><a href="#4-若某个类不需要使用-IQKeyboardManager，可以在这个类中这样设置" class="headerlink" title="4. 若某个类不需要使用 IQKeyboardManager，可以在这个类中这样设置"></a>4. 若某个类不需要使用 IQKeyboardManager，可以在这个类中这样设置</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)<span class="string">viewWillAppear:</span>(BOOL)animated &#123;</span><br><span class="line">[<span class="keyword">super</span> <span class="string">viewWillAppear:</span>animated];</span><br><span class="line">[IQKeyboardManager sharedManager].enable = NO;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)<span class="string">viewWillDisappear:</span>(BOOL)animated &#123;</span><br><span class="line">[<span class="keyword">super</span> <span class="string">viewWillDisappear:</span>animated];</span><br><span class="line">[IQKeyboardManager sharedManager].enable = YES;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-常用属性介绍"><a href="#5-常用属性介绍" class="headerlink" title="5. 常用属性介绍"></a>5. 常用属性介绍</h4><ul>
+<li><code>sharedManager</code>：获取类库的单例变量</li>
+<li><code>enable</code>：项目使用不使用 IQKeyboardManager 这个类库，当然，某些页面可以根据需要单独设置</li>
+<li><code>shouldResignOnTouchOutside</code>：点击背景页面时是否收起键盘</li>
+<li><code>shouldToolbarUsesTextFieldTintColor</code>：控制键盘上的工具条文字颜色是否用户自定义，默认为 NO</li>
+<li><code>toolbarManageBehaviour</code>：有多个输入框时，可以通过点击Toolbar 上的“前一个” “后一个”按钮来实现移动到不同的输入框</li>
+<li><code>enableAutoToolbar</code>：是否显示键盘上的工具条</li>
+<li><code>shouldShowTextFieldPlaceholder</code>：是否显示占位文字（如果输入框有占位文字，那么在 Toolbar 中默认会显示出来）</li>
+<li><code>placeholderFont</code>：占位文字的字体大小</li>
+<li><code>keyboardDistanceFromTextField</code>：输入框距离键盘的距离</li>
+</ul>
+<h4 id="6-再推荐几篇不错的相关文章"><a href="#6-再推荐几篇不错的相关文章" class="headerlink" title="6. 再推荐几篇不错的相关文章"></a>6. 再推荐几篇不错的相关文章</h4><ul>
+<li><p><a href="http://www.jianshu.com/p/01c0682003a9" target="_blank" rel="noopener">iOS开发第三方库一 IQKeyboardManager</a></p>
+</li>
+<li><p><a href="https://my.oschina.net/u/1418722/blog/384477" target="_blank" rel="noopener">自动处理键盘事件的第三方库 IQKeyboardManager</a></p>
+</li>
+<li><p><a href="http://www.jianshu.com/p/3ea3db5429f3" target="_blank" rel="noopener">iOS开发之处理键盘问题神器IQKeyboardManager</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/15/iOS开发之源码解析 - Masonry/" rel="next" title="iOS开发之源码解析 - Masonry">
+                <i class="fa fa-chevron-left"></i> iOS开发之源码解析 - Masonry
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/15/设计模式-《重构》读书笔记及 APP 重构心得/" rel="prev" title="设计模式-《重构》读书笔记及 APP 重构心得">
+                设计模式-《重构》读书笔记及 APP 重构心得 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">刘朋坤</p>
+              <p class="site-description motion-element" itemprop="description">iOS 修炼中...</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#以下是-IQKeyboardManager-的一些具体使用"><span class="nav-number">1.</span> <span class="nav-text">以下是 IQKeyboardManager 的一些具体使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-用-Cocoapod-导入或直接下载拖进去，这里方便起见直接用-Cocoapod-导入。"><span class="nav-number">1.1.</span> <span class="nav-text">1. 用 Cocoapod  导入或直接下载拖进去，这里方便起见直接用 Cocoapod 导入。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在-AppDelegate-m-中导入头文件"><span class="nav-number">1.2.</span> <span class="nav-text">2. 在 AppDelegate.m 中导入头文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-在-AppDelegate-中设置全局属性"><span class="nav-number">1.3.</span> <span class="nav-text">3. 在 AppDelegate 中设置全局属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-若某个类不需要使用-IQKeyboardManager，可以在这个类中这样设置"><span class="nav-number">1.4.</span> <span class="nav-text">4. 若某个类不需要使用 IQKeyboardManager，可以在这个类中这样设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-常用属性介绍"><span class="nav-number">1.5.</span> <span class="nav-text">5. 常用属性介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-再推荐几篇不错的相关文章"><span class="nav-number">1.6.</span> <span class="nav-text">6. 再推荐几篇不错的相关文章</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘朋坤</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
