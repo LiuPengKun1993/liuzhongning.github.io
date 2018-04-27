@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - WKWebView VS UIWebView/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 内购/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -293,8 +293,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - WKWebView VS UIWebView/" itemprop="url">
-                  iOS开发之 - WKWebView VS UIWebView
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 内购/" itemprop="url">
+                  iOS开发之 - 内购
                 </a>
               
             
@@ -353,13 +353,19 @@
       
         
           <blockquote>
-<p>WKWebView是苹果在 iOS 8 中推出的新框架，相比UIWebView来说，WKWebView 性能好，速度快，内存小，功能多，且支持了更多的 HTML5 特性……因此本小白禁不住“诱惑”利用了一晚上的时间，整理了一些关于 WKWebView 的资料，与大家分享下！在说 WKWebView 之前，我们先说说他的老大哥 UIWebView ！！！</p>
+<p>电商之类的 app 大多用的都是第三方支付（支付宝微信等支付），但是在某种特殊情况之下，我们却不得不使用内购。比如商品是在本 app 中使用和消耗的（游戏币游戏道具等），就一定要用内购，苹果强制的，否则会被拒绝上线。因此作为 iOS 开发者，不光要了解第三方支付，对内购也要有一定的认识！</p>
 </blockquote>
-<p>UIWebView 是苹果在 iOS 2 之后推出的，由于资格比较“老”，大家对 UIWebView 应该也不会陌生，这里直接上代码：</p>
-<h3 id="1-UIWebView-基本使用"><a href="#1-UIWebView-基本使用" class="headerlink" title="1.UIWebView 基本使用"></a>1.UIWebView 基本使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 创建webview</span><br><span class="line">UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, NNWidth, NNHeight - 20)];</span><br><span class="line">// 网络请求</span><br><span class="line">NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@&quot;http://www.baidu.com&quot;]];</span><br><span class="line">// 加载网页</span><br><span class="line">[webView loadRequest:request];</span><br><span class="line">// 添加到界面</span><br><span class="line">[self.view addSubview:webView];</span><br></pre></td></tr></table></figure>
+<h2 id="一、什么是内购？"><a href="#一、什么是内购？" class="headerlink" title="一、什么是内购？"></a>一、什么是内购？</h2><p>内购是苹果推出的一种支付方式。说白了内购就是苹果获取利润的方式之一。如果我们使用第三方支付，只会支付少量的💰，但使用内购却要支付很多💰💰💰💰💰💰💰💰，要和苹果三七分帐（以前是四六分😢）。</p>
+<h2 id="二、内购产品的类别"><a href="#二、内购产品的类别" class="headerlink" title="二、内购产品的类别"></a>二、内购产品的类别</h2><p>官方的注释写的很清楚了，内购有五种产品类别，简介如下：</p>
+<ul>
+<li>非消耗品（Nonconsumable）<br>指的是在游戏中一次性购买并拥有永久访问权的物品或服务。非消耗品物品可以被用户再次下载，并且能够在用户的所有设备上使用。</li>
+<li>消耗品（Consumable）<br>消耗品购买不可被再次下载,根据其特点,消耗品不能在用户的设备之间跨设备使用,除非自定义服务在用户的账号之间共享这些信息。<br><strong>以下三种类别在iBooks中使用，目前iBooks不支持大陆市场</strong></li>
+<li>免费订阅（Free subscriptions）</li>
+<li>自动续费订阅（Auto-renewing subscriptions）</li>
+<li>非自动续费订阅（Nonrenewing subscriptions）
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - WKWebView VS UIWebView/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 内购/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -707,7 +713,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 开发 - Swift 全面系统的学习（持续更新...）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -726,8 +732,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS 开发 - Swift 全面系统的学习（持续更新...）/" itemprop="url">
-                  iOS 开发 - Swift 全面系统的学习（持续更新...）
+                <a class="post-title-link" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(1)/" itemprop="url">
+                  iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)
                 </a>
               
             
@@ -786,27 +792,12 @@
       
         
           <blockquote>
-<p>最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目<a href="https://github.com/hrscy/DanTang，" target="_blank" rel="noopener">https://github.com/hrscy/DanTang，</a> 很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。</p>
+<p><strong>《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总结和探讨了 OC 编程中的 52 个特性与陷阱，很值得读。</strong></p>
 </blockquote>
-<h5 id="先分享一些学习资料："><a href="#先分享一些学习资料：" class="headerlink" title="先分享一些学习资料："></a>先分享一些学习资料：</h5><ul>
-<li>学习网站：</li>
-<li><p>苹果官方为开发者提供的 Swift 学习资源: <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="noopener">https://developer.apple.com/swift/resources/</a></p>
-</li>
-<li><p>官方的 API Design: <a href="https://swift.org/documentation/api-design-guidelines/" target="_blank" rel="noopener">https://swift.org/documentation/api-design-guidelines/</a></p>
-</li>
-<li><p>学习书籍：</p>
-</li>
-<li><p>TheSwiftProgrammingLanguage(Swift3): 链接:<a href="http://pan.baidu.com/s/1jIopBwi" target="_blank" rel="noopener">http://pan.baidu.com/s/1jIopBwi</a>  密码:dqho</p>
-</li>
-<li><p>The Swift Programming Language 中文版: 链接:<a href="http://pan.baidu.com/s/1slpxtTj" target="_blank" rel="noopener">http://pan.baidu.com/s/1slpxtTj</a>  密码:xay1</p>
-</li>
-<li><p>其它学习资料</p>
-</li>
-<li><a href="https://github.com/Tim9Liu9/TimLiu-iOS/blob/master/Swift.md#swift" target="_blank" rel="noopener">https://github.com/Tim9Liu9/TimLiu-iOS/blob/master/Swift.md#swift</a></li>
-<li><a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="noopener">https://github.com/ipader/SwiftGuide</a>
+<p>第一篇：[iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)]<br>第二篇：[iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)]<br>第三篇：[iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)]</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS 开发 - Swift 全面系统的学习（持续更新...）/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(1)/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -940,289 +931,10 @@
 
       
         
-          <h5 id="文章共分为三篇："><a href="#文章共分为三篇：" class="headerlink" title="文章共分为三篇："></a>文章共分为三篇：</h5><p>第一篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(1" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a>)<br>第二篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(2" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a>)<br>第三篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(3" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a>)</p>
-<p>接上篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(1" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a>)<br>
+          <h5 id="文章共分为三篇："><a href="#文章共分为三篇：" class="headerlink" title="文章共分为三篇："></a>文章共分为三篇：</h5><p>第一篇：[iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)]<br>第二篇：[iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)]<br>第三篇：[iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)]</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(2)/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(1)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(1)/" itemprop="url">
-                  iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><strong>《Effective Objective-C 2.0: 编写高质量 iOS 与 OS X 代码的 52 个有效方法》是一本非常经典的 OC 书籍。这本书从语法、接口与 API 设计、内存管理、框架等 7 大方面总结和探讨了 OC 编程中的 52 个特性与陷阱，很值得读。</strong></p>
-</blockquote>
-<p>第一篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(1" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a>/)<br>第二篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(2" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a>/)<br>第三篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(3" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a>/)</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(1)/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(3)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(3)/" itemprop="url">
-                  iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h5 id="文章共分为三篇："><a href="#文章共分为三篇：" class="headerlink" title="文章共分为三篇："></a>文章共分为三篇：</h5><p>第一篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(1" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(1)</a>/)<br>第二篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(2" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a>/)<br>第三篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(3" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(3)</a>/)</p>
-<p>接上篇：<a href="https://liuzhongning.github.io/2018/04/15/iOS%20开发%20-《52%20个有效方法》读书笔记(2" target="_blank" rel="noopener">iOS 开发 -《Effective Objective-C 2.0:编写高质量 iOS 与 OS X 代码的 52 个有效方法》读书笔记(2)</a>/)<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS 开发 -《52 个有效方法》读书笔记(3)/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1364,6 +1076,308 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS 获取设备的各种信息/" itemprop="url">
+                  iOS 获取设备的各种信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="iOS-获取设备的各种信息"><a href="#iOS-获取设备的各种信息" class="headerlink" title="iOS 获取设备的各种信息"></a><a href="https://github.com/liuzhongning/NNDeviceInformation" target="_blank" rel="noopener">iOS 获取设备的各种信息</a></h5><h3 id="一、目录结构"><a href="#一、目录结构" class="headerlink" title="一、目录结构:"></a>一、目录结构:</h3><ol>
+<li>获取屏幕宽度与高度</li>
+<li>获取设备版本号</li>
+<li>获取iPhone名称</li>
+<li>获取app版本号</li>
+<li>获取电池电量</li>
+<li>获取当前系统名称</li>
+<li>获取当前系统版本号</li>
+<li>获取通用的唯一识别码UUID</li>
+<li>获取当前设备IP</li>
+<li>获取总内存大小</li>
+<li>获取当前可用内存</li>
+<li>获取精准电池电量</li>
+<li>获取电池当前的状态（共有4种状态）</li>
+<li>获取设备当前的语言</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS 获取设备的各种信息/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/" itemprop="url">
+                  iOS开发 - 仿简书个人主页多页面滑动视图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>之前项目中很多地方用到了滑动视图，三个界面五个界面或界面个数不定的情况都有，这里以简书 APP 的个人主页为例，总结一下，一则对自己也有好处，二则希望对看到的朋友有所帮助。</p>
+</blockquote>
+<ul>
+<li><p>简书APP个人主页：<br><img src="http://upload-images.jianshu.io/upload_images/2665449-5b13d9033bba3752.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简书APP个人主页"></p>
+</li>
+<li><p>demo 效果图：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-64f7bc0e3b50267d.gif?imageMogr2/auto-orient/strip" alt="demo 效果图"></p>
+<ul>
+<li>demo 地址：<a href="https://github.com/liuzhongning/NNJaneBookView" target="_blank" rel="noopener">https://github.com/liuzhongning/NNJaneBookView</a></li>
+</ul>
+<h4 id="简单说下思路及核心代码："><a href="#简单说下思路及核心代码：" class="headerlink" title="简单说下思路及核心代码："></a>简单说下思路及核心代码：</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
