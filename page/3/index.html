@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -293,8 +293,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/" itemprop="url">
-                  iOS开发 - 极光推送中生产证书和开发证书的生成
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/" itemprop="url">
+                  iOS开发之 - CADisplayLink 实现酷炫动画
                 </a>
               
             
@@ -353,20 +353,16 @@
       
         
           <blockquote>
-<p>项目中用到了 <a href="https://www.jiguang.cn/push?source=bdjj#B_vid=1350498826687775136" target="_blank" rel="noopener">极光推送</a>，这里记录下极光推送中生产证书和开发证书的生成过程。</p>
+<p>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。由于对 CADisplayLink 的认识还比较浅，如果哪里写的不正确，还请各位大大能够指出来！看效果图先，<del>就是有点丑</del>，😂</p>
 </blockquote>
-<p>推送设置中需要配置生产证书以及开发证书~~<br><img src="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
-<h3 id="1-开发证书生成步骤"><a href="#1-开发证书生成步骤" class="headerlink" title="1.开发证书生成步骤"></a>1.开发证书生成步骤</h3><ul>
-<li>登录 <a href="https://developer.apple.com/account/#/overview/82W2K9C6T2" target="_blank" rel="noopener">苹果开发者中心</a>，点击 <strong>Certificates, IDs &amp; Profiles</strong></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6de1efe8a9bc32d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤1"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-da509b22ab7071c0.gif?imageMogr2/auto-orient/strip" alt="ning.gif"></p>
 <ul>
-<li>点击 <strong>Development</strong>，并选择 <strong>Apple Push Notification service SSL (Sandbox)</strong>，接着点击下边的 <strong>Continue</strong> 按钮</li>
+<li>核心代码如下：</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤2"></p>
+<h4 id="一、创建-CADisplayLink，添加事件，绑定-Runloop。"><a href="#一、创建-CADisplayLink，添加事件，绑定-Runloop。" class="headerlink" title="一、创建 CADisplayLink，添加事件，绑定 Runloop。"></a>一、创建 CADisplayLink，添加事件，绑定 Runloop。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 创建 CADisplayLink</span><br><span class="line">- (CADisplayLink *)displayLink &#123;</span><br><span class="line">if (!_displayLink) &#123;</span><br><span class="line">_displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(makeCloud)];</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -422,7 +418,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - MD5加密/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - DZNEmptyDataSet 空白页占位图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -441,8 +437,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - MD5加密/" itemprop="url">
-                  iOS开发之 - MD5加密
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - DZNEmptyDataSet 空白页占位图/" itemprop="url">
+                  iOS开发之 - DZNEmptyDataSet 空白页占位图
                 </a>
               
             
@@ -501,17 +497,301 @@
       
         
           <blockquote>
-<p>MD5（消息摘要算法第五版）是计算机安全领域广泛使用的一种散列函数，用以提供消息的完整性保护。</p>
+<p>发现了一个很有用的第三方，<a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="noopener">DZNEmptyDataSet</a>，用起来也极其方便，这里给大家分享下！先说下其用途：<code>DZNEmptyDataSet</code> 主要用于 <code>UITableView</code> 以及 <code>UICollectionView</code> 页面空白时展示（据说也可以用于 <code>UIScrollView</code>， 有兴趣的童鞋可以试试）。开发中之所以用占位图，是为了提高用户体验；而为什么选 <code>DZNEmptyDataSet</code> 而不自行设计占位图（做过占位图的童鞋应该会觉得做占位图并不难，但没有对比就没有伤害，你如果试用了 <code>DZNEmptyDataSet</code> ，就会顿悟自己做占位图是多么地繁琐）。坦白说，<code>DZNEmptyDataSet</code> 是一个为了让开发人员“变懒”的第三方（貌似每个第三方都是这样的“宗旨”），接下来我们就一起看下 <code>DZNEmptyDataSet</code> 吧！</p>
 </blockquote>
-<ul>
-<li><p>MD5特点：<br>1、压缩性：任意长度的数据，算出的MD5值长度都是固定的。<br>2、容易计算：从原数据计算出MD5值很容易。<br>3、抗修改性：对原数据进行任何改动，哪怕只修改1个字节，所得到的MD5值都有很大区别。<br>4、强抗碰撞：已知原数据和其MD5值，想找到一个具有相同MD5值的数据（即伪造数据）是非常困难的。</p>
-</li>
-<li><p>事先介绍一个概念，因为下边有用到👇<br>加盐：所谓加盐， 就是在原本需要加密的信息基础上，糅入其它内容salt。</p>
-</li>
-<li><p>接下来是一些代码的实现，方便起见，这里创建了一个分类NSString+MD5。</p>
+<h3 id="一、先来认识一下-DZNEmptyDataSet"><a href="#一、先来认识一下-DZNEmptyDataSet" class="headerlink" title="一、先来认识一下 DZNEmptyDataSet"></a>一、先来认识一下 DZNEmptyDataSet</h3><ul>
+<li>GitHub 地址：<a href="https://github.com/dzenbot/DZNEmptyDataSet" target="_blank" rel="noopener">DZNEmptyDataSet</a></li>
+<li>DZNEmptyDataSet 效果图</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-a0171c63c0ebeaa1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DZNEmptyDataSet效果图1"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-9b7b23c881b34deb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="DZNEmptyDataSet效果图2"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - MD5加密/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - DZNEmptyDataSet 空白页占位图/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - RunLoop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - RunLoop/" itemprop="url">
+                  iOS开发之 - RunLoop
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-4d7042ab55fbe301.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RunLoop"></p>
+<blockquote>
+<p>以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。</p>
+</blockquote>
+<h2 id="一、RunLoop-基础知识"><a href="#一、RunLoop-基础知识" class="headerlink" title="一、RunLoop 基础知识"></a>一、RunLoop 基础知识</h2><h3 id="1-1-RunLoop-简介"><a href="#1-1-RunLoop-简介" class="headerlink" title="1.1 RunLoop  简介"></a>1.1 RunLoop  简介</h3><p>一般来说，一个线程只能执行一个任务，执行完就会退出，如果我们需要一种机制，让线程能随时处理时间但并不退出，那么 RunLoop 就是这样的一个机制。Runloop是事件接收和分发机制的一个实现。所以它实际上是一个对象，这个对象管理了其需要处理的事件和消息。在iOS 系统中，有这样两个对象： NSRunLoop 和 CFRunLoopRef。 NSRunLoop 和 CFRunLoopRef都代表着 RunLoop 对象。</p>
+<h3 id="1-2-RunLoop的基本作用"><a href="#1-2-RunLoop的基本作用" class="headerlink" title="1.2 RunLoop的基本作用"></a>1.2 RunLoop的基本作用</h3><p>(1)保持程序的持续运行；<br>(2)处理 App 中的各种事件(比如触摸事件、定时器事件、Selector 事件)；<br>(3)节省 CPU 资源, 提高程序性能。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - RunLoop/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - Runtime/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - Runtime/" itemprop="url">
+                  iOS开发之 - Runtime
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - Runtime"></p>
+<blockquote>
+<p>想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！</p>
+</blockquote>
+<h2 id="一、Runtime简介"><a href="#一、Runtime简介" class="headerlink" title="一、Runtime简介"></a>一、Runtime简介</h2><p>Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属于一个 C 语言库，包含了很多底层的 C 语言 API。我们平时编写的 OC 代码，在程序运行过程时，其实最终都是转成了 Runtime 的 C 语言代码。如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// OC代码:</span><br><span class="line">[Person coding];</span><br><span class="line"></span><br><span class="line">//运行时 runtime 会将它转化成 C 语言的代码:</span><br><span class="line">objc_msgSend(Person, @selector(coding));</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - Runtime/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -712,148 +992,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - RunLoop/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - RunLoop/" itemprop="url">
-                  iOS开发之 - RunLoop
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-4d7042ab55fbe301.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RunLoop"></p>
-<blockquote>
-<p>以下是 RunLoop 相关的内容，前半部分是理论知识，后半部分是代码。。。</p>
-</blockquote>
-<h2 id="一、RunLoop-基础知识"><a href="#一、RunLoop-基础知识" class="headerlink" title="一、RunLoop 基础知识"></a>一、RunLoop 基础知识</h2><h3 id="1-1-RunLoop-简介"><a href="#1-1-RunLoop-简介" class="headerlink" title="1.1 RunLoop  简介"></a>1.1 RunLoop  简介</h3><p>一般来说，一个线程只能执行一个任务，执行完就会退出，如果我们需要一种机制，让线程能随时处理时间但并不退出，那么 RunLoop 就是这样的一个机制。Runloop是事件接收和分发机制的一个实现。所以它实际上是一个对象，这个对象管理了其需要处理的事件和消息。在iOS 系统中，有这样两个对象： NSRunLoop 和 CFRunLoopRef。 NSRunLoop 和 CFRunLoopRef都代表着 RunLoop 对象。</p>
-<h3 id="1-2-RunLoop的基本作用"><a href="#1-2-RunLoop的基本作用" class="headerlink" title="1.2 RunLoop的基本作用"></a>1.2 RunLoop的基本作用</h3><p>(1)保持程序的持续运行；<br>(2)处理 App 中的各种事件(比如触摸事件、定时器事件、Selector 事件)；<br>(3)节省 CPU 资源, 提高程序性能。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - RunLoop/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - WKWebView VS UIWebView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -940,151 +1078,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发之 - WKWebView VS UIWebView/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 二维码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 二维码/" itemprop="url">
-                  iOS开发之 - 二维码
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>在我们的日常生活中，二维码扫描越来越常见，比如支付宝支付扫描、微信支付扫描、信息获取等等，所以简单的整理了二维码相关的知识，总共分为两部分：生成二维码；扫描二维码。</p>
-</blockquote>
-<h4 id="一、生成二维码"><a href="#一、生成二维码" class="headerlink" title="一、生成二维码"></a>一、生成二维码</h4><ul>
-<li><p>简单的生成二维码，先看效果图<br>如图所示，这个效果不太好，有些模糊<br><img src="http://upload-images.jianshu.io/upload_images/2665449-a0c118e13587ec11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单生成二维码"></p>
-</li>
-<li><p>生成简单二维码的代码如下：</p>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 二维码/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1292,7 +1285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 刷新框架 MJRefresh 的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 二维码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -1311,8 +1304,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 刷新框架 MJRefresh 的使用/" itemprop="url">
-                  iOS开发之 - 刷新框架 MJRefresh 的使用
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 二维码/" itemprop="url">
+                  iOS开发之 - 二维码
                 </a>
               
             
@@ -1370,19 +1363,18 @@
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-9e9c86ec592c3c2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MJRefresh"></p>
-<blockquote>
-<p>下拉刷新控件目前比较火的有好几种，此前用过<a href="https://github.com/CoderMJLee/MJRefresh/blob/master/README.md" target="_blank" rel="noopener">MJRefresh</a> 和<a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="noopener"> SVPullToRefresh</a>，相对而言，还是觉得 MJRefresh 更好用！因此抽了些时间整理了 MJRefresh 的用法。以下是文章内容。。。</p>
+          <blockquote>
+<p>在我们的日常生活中，二维码扫描越来越常见，比如支付宝支付扫描、微信支付扫描、信息获取等等，所以简单的整理了二维码相关的知识，总共分为两部分：生成二维码；扫描二维码。</p>
 </blockquote>
-<h1 id="【文章目录】"><a href="#【文章目录】" class="headerlink" title="【文章目录】"></a>【文章目录】</h1><h2 id="一、类结构图"><a href="#一、类结构图" class="headerlink" title="一、类结构图"></a>一、类结构图</h2><ul>
-<li>MJRefreshComponent.h</li>
-<li>MJRefreshHeader.h</li>
-<li>MJRefreshFooter.h</li>
-<li>MJRefreshAutoFooter.h</li>
+<h4 id="一、生成二维码"><a href="#一、生成二维码" class="headerlink" title="一、生成二维码"></a>一、生成二维码</h4><ul>
+<li><p>简单的生成二维码，先看效果图<br>如图所示，这个效果不太好，有些模糊<br><img src="http://upload-images.jianshu.io/upload_images/2665449-a0c118e13587ec11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="简单生成二维码"></p>
+</li>
+<li><p>生成简单二维码的代码如下：</p>
+</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 刷新框架 MJRefresh 的使用/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 二维码/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
