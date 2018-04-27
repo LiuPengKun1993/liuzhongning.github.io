@@ -422,7 +422,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发技巧 - UIViewController 基类设计/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 银联支付/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -441,8 +441,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/" itemprop="url">
-                  iOS开发技巧 - UIViewController 基类设计
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 银联支付/" itemprop="url">
+                  iOS开发之 - 银联支付
                 </a>
               
             
@@ -501,18 +501,22 @@
       
         
           <blockquote>
-<p>在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 <strong><code>UIViewController</code></strong> 的基类，通常叫做 <strong><code>baseViewController</code></strong>或<strong><code>rootViewController</code></strong>，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。</p>
+<p>前阵子看了很多篇博客，有很多朋友吐槽说银联支付怎么怎么坑，所以集成的时候小心翼翼，但集成完银联支付之后，觉得相对于支付宝支付微信支付而言，银联支付还可以说的过去。下面就来介绍一下怎样快速的集成银联支付。</p>
 </blockquote>
-<h5 id="一般来说这种基类控制器里面需要做的操作有以下几个："><a href="#一般来说这种基类控制器里面需要做的操作有以下几个：" class="headerlink" title="一般来说这种基类控制器里面需要做的操作有以下几个："></a>一般来说这种基类控制器里面需要做的操作有以下几个：</h5><ul>
-<li>为 APP 设置统一的背景色</li>
-<li>设置是否允许控制器自动调整高度（一般是 NO）</li>
-<li>自定义导航栏返回按钮</li>
-<li>重新布局视图大小，及时更新视图的 frame</li>
+<ul>
+<li>首先，下载<a href="https://open.unionpay.com/ajweb/help/search?category=aj&amp;keyword=开发包" target="_blank" rel="noopener">银联支付SDK</a>（这个有点不好找），里面包含需要的库文件和详细的文档；下载好开发包之后，进行解压，解压成下面这样的文件</li>
 </ul>
-<p>当然还有其它的一些，毕竟这和项目的具体需求息息相关，因此还要因项目而异。我这里主要就列出基类控制器中基本的常用的一些需求，和大家分享下，希望能帮到需要的人，少走弯路；另外文章如果有不足之处，也希望各位同行能多多的交流指点。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-02336a46b0ff2407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付SDK"></p>
+<ul>
+<li>官方文档也在这个目录下：</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-0602bf8cbd8aea0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付官方文档"></p>
+<ul>
+<li>下面开始集成SDK</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 银联支付/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -568,7 +572,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 支付宝支付/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -587,8 +591,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 支付宝支付/" itemprop="url">
-                  iOS开发之 - 支付宝支付
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/" itemprop="url">
+                  iOS开发之 - 键盘处理神器 IQKeyboardManager
                 </a>
               
             
@@ -647,13 +651,169 @@
       
         
           <blockquote>
-<p>在开发中，很多时候我们都会用到支付宝支付和微信支付，前段时间已经总结过<a href="http://www.jianshu.com/p/a17b37cb8fe3" target="_blank" rel="noopener">微信支付流程</a>，这里再说下支付宝支付（相对来说觉得支付宝有点坑），先说下支付宝支付的流程，如下图：</p>
+<p>  年后上班第一天，比较闲，上午的时候抽空整理了<code>iOS</code>开发中常用的易忘知识点：<a href="http://www.jianshu.com/p/328a4c65dc5c" target="_blank" rel="noopener">iOS开发之 - 小冷易忘知识点总结</a>，有兴趣的朋友们可以去看看。下午整理了之前用过的一个第三方库——键盘处理神器  <code>IQKeyboardManager</code>。</p>
 </blockquote>
-<h3 id="一、支付流程理解"><a href="#一、支付流程理解" class="headerlink" title="一、支付流程理解"></a>一、支付流程理解</h3><p>先看个图<br><img src="http://upload-images.jianshu.io/upload_images/2665449-111551cb2f5ba892.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="支付流程"></p>
-<p>流程和咱们平时在手机上买东西是一样的：<br>1.用户选好商品后，点击提交订单（一般是这样），选择使用支付宝付款。<br>2.手机客户端（你做的APP）把用户选择的商品的信息传给你们后台服务器。<br>3.后台的服务器将各种数据拼接签名后生成一个签名后的字符串，回传到客户端APP上。<br>4.用户点击确认支付按钮，调用手机支付宝客户端，利用后台传过来的那个参数调起支付宝，让支付宝客户端传给他们服务器交互，进行付款。(这一步是支付宝自己完成的，安全性高)<br>5.支付宝的服务器将支付的结果（可能成功也可能不成功）返回给手机支付宝客户端和你们公司的后台服务器。<br>6.你们公司后台服务器收到后一般是更新下数据信息，手机支付宝客户端会显示一下支付成功。<br>
+<blockquote>
+<p>平常在开发中，用到输入框的地方不胜其数，当输入框位于屏幕底部时，弹起的键盘很可能覆盖输入框，导致用户看不到输入结果，体验较差…… <code>IQKeyboardManager</code> 可以很简单快捷的解决键盘遮盖输入框的问题，接下来就一起来学习一下吧。</p>
+</blockquote>
+<ul>
+<li><p>先简单认识下 IQKeyboardManager<br>GitHub 地址：<a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="noopener">GitHub 地址</a></p>
+</li>
+<li><p>官方示意效果图如下：</p>
+</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-85b8ad91640b23c3.gif?imageMogr2/auto-orient/strip" alt="官方示意效果图"></p>
+<hr>
+<p>再贴一下自己做的简单效果图☺️<br>先说下我的 Xcode 版本是：Version 8.1 (8B62)，简单起见直接在 Main.storyboard 中拖入 7 个UITextField， 每个 UITextField 都设有占位文字。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-1cabc35287b06995.gif?imageMogr2/auto-orient/strip" alt="简单效果图☺️"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 支付宝支付/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之源码解析 - MBProgressHUD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" itemprop="url">
+                  iOS开发之源码解析 - MBProgressHUD
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 是一个为 <code>APP</code> 添加 <code>HUD</code> 窗口的第三方框架，使用起来极其简单方便，关于 <code>MBProgressHUD</code> 的使用方法，<code>GitHub</code> 上有详细的说明，这里就不多加介绍了，本文主要是从源码的角度分析 <code>MBProgressHUD</code>的具体实现。</p>
+</blockquote>
+<ul>
+<li>先来对 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 有个大体的认识，这是刚从 <code>GitHub</code> 上拉下来的代码，如下图，MBProgressHUD 的主要文件只有两个：<br><br><br></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-3cbf54d2915cfc84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MBProgressHUD 源码解析"></p>
+<hr>
+<p>下面我们就开始分析 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 的具体实现。在此之前先了解下文章的目录，本文主要有三个部分：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -853,6 +1013,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发技巧 - UIViewController 基类设计/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/" itemprop="url">
+                  iOS开发技巧 - UIViewController 基类设计
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 <strong><code>UIViewController</code></strong> 的基类，通常叫做 <strong><code>baseViewController</code></strong>或<strong><code>rootViewController</code></strong>，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。</p>
+</blockquote>
+<h5 id="一般来说这种基类控制器里面需要做的操作有以下几个："><a href="#一般来说这种基类控制器里面需要做的操作有以下几个：" class="headerlink" title="一般来说这种基类控制器里面需要做的操作有以下几个："></a>一般来说这种基类控制器里面需要做的操作有以下几个：</h5><ul>
+<li>为 APP 设置统一的背景色</li>
+<li>设置是否允许控制器自动调整高度（一般是 NO）</li>
+<li>自定义导航栏返回按钮</li>
+<li>重新布局视图大小，及时更新视图的 frame</li>
+</ul>
+<p>当然还有其它的一些，毕竟这和项目的具体需求息息相关，因此还要因项目而异。我这里主要就列出基类控制器中基本的常用的一些需求，和大家分享下，希望能帮到需要的人，少走弯路；另外文章如果有不足之处，也希望各位同行能多多的交流指点。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/数据结构 -《大话数据结构》读书笔记(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -939,301 +1245,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(1)/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 银联支付/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 银联支付/" itemprop="url">
-                  iOS开发之 - 银联支付
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>前阵子看了很多篇博客，有很多朋友吐槽说银联支付怎么怎么坑，所以集成的时候小心翼翼，但集成完银联支付之后，觉得相对于支付宝支付微信支付而言，银联支付还可以说的过去。下面就来介绍一下怎样快速的集成银联支付。</p>
-</blockquote>
-<ul>
-<li>首先，下载<a href="https://open.unionpay.com/ajweb/help/search?category=aj&amp;keyword=开发包" target="_blank" rel="noopener">银联支付SDK</a>（这个有点不好找），里面包含需要的库文件和详细的文档；下载好开发包之后，进行解压，解压成下面这样的文件</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-02336a46b0ff2407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付SDK"></p>
-<ul>
-<li>官方文档也在这个目录下：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-0602bf8cbd8aea0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付官方文档"></p>
-<ul>
-<li>下面开始集成SDK</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 银联支付/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之源码解析 - MBProgressHUD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" itemprop="url">
-                  iOS开发之源码解析 - MBProgressHUD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 是一个为 <code>APP</code> 添加 <code>HUD</code> 窗口的第三方框架，使用起来极其简单方便，关于 <code>MBProgressHUD</code> 的使用方法，<code>GitHub</code> 上有详细的说明，这里就不多加介绍了，本文主要是从源码的角度分析 <code>MBProgressHUD</code>的具体实现。</p>
-</blockquote>
-<ul>
-<li>先来对 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 有个大体的认识，这是刚从 <code>GitHub</code> 上拉下来的代码，如下图，MBProgressHUD 的主要文件只有两个：<br><br><br></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-3cbf54d2915cfc84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MBProgressHUD 源码解析"></p>
-<hr>
-<p>下面我们就开始分析 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 的具体实现。在此之前先了解下文章的目录，本文主要有三个部分：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
