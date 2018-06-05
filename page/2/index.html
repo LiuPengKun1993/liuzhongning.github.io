@@ -431,7 +431,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -450,8 +450,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/" itemprop="url">
-                  iOS开发 - 圆形验证码(或密码)输入框的封装
+                <a class="post-title-link" href="/2018/04/15/iOS 获取设备的各种信息/" itemprop="url">
+                  iOS 获取设备的各种信息
                 </a>
               
             
@@ -509,22 +509,25 @@
 
       
         
-          <blockquote>
-<p>项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7b41dd80189fc084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UI图"></p>
-<ul>
-<li>上面的UI图主要有以下几个要求：</li>
-<li>输入框为圆形</li>
-<li>输入框之间有适当距离</li>
-<li>输入框颜色在输入文本时有变化</li>
-</ul>
-<p>刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：</p>
-<ul>
-<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。
+          <h5 id="iOS-获取设备的各种信息"><a href="#iOS-获取设备的各种信息" class="headerlink" title="iOS 获取设备的各种信息"></a><a href="https://github.com/liuzhongning/NNDeviceInformation" target="_blank" rel="noopener">iOS 获取设备的各种信息</a></h5><h3 id="一、目录结构"><a href="#一、目录结构" class="headerlink" title="一、目录结构:"></a>一、目录结构:</h3><ol>
+<li>获取屏幕宽度与高度</li>
+<li>获取设备版本号</li>
+<li>获取iPhone名称</li>
+<li>获取app版本号</li>
+<li>获取电池电量</li>
+<li>获取当前系统名称</li>
+<li>获取当前系统版本号</li>
+<li>获取通用的唯一识别码UUID</li>
+<li>获取当前设备IP</li>
+<li>获取总内存大小</li>
+<li>获取当前可用内存</li>
+<li>获取精准电池电量</li>
+<li>获取电池当前的状态（共有4种状态）</li>
+<li>获取设备当前的语言</li>
+</ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS 获取设备的各种信息/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -738,7 +741,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 链式编程思想/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -757,8 +760,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 链式编程思想/" itemprop="url">
-                  iOS开发 - 链式编程思想
+                <a class="post-title-link" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/" itemprop="url">
+                  iOS开发 - 圆形验证码(或密码)输入框的封装
                 </a>
               
             
@@ -817,174 +820,21 @@
       
         
           <blockquote>
-<p>因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码：</p>
+<p>项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[imageView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(250, 100, 250, 100));</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>这句代码就属于链式编程，而且 Masonry 框架本身也是通过链式语法对 NSLayoutConstraints 进行的封装。对 Masonry 感兴趣的童鞋可以读读这篇文章 <a href="http://www.jianshu.com/p/2fe9568fd3f5" target="_blank" rel="noopener">iOS开发之源码解析 - Masonry</a>。</p>
-<h4 id="链式编程思想："><a href="#链式编程思想：" class="headerlink" title="链式编程思想："></a>链式编程思想：</h4><p>所谓链式编程就是通过点（.）将多个操作链接在一起成为一句代码，使代码更加紧凑，也提高了代码的可读性（如上面那句代码）。</p>
-<h4 id="链式编程特点："><a href="#链式编程特点：" class="headerlink" title="链式编程特点："></a>链式编程特点：</h4><ul>
-<li>方法的返回值是 block，block 中必须有一个返回值，通常返回它本身，也可以是处理后的数据或对象。</li>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7b41dd80189fc084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UI图"></p>
+<ul>
+<li>上面的UI图主要有以下几个要求：</li>
+<li>输入框为圆形</li>
+<li>输入框之间有适当距离</li>
+<li>输入框颜色在输入文本时有变化</li>
 </ul>
+<p>刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：</p>
+<ul>
+<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 链式编程思想/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/ 前端笔记 - HTML 特殊标签实现文字滚动/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/ 前端笔记 - HTML 特殊标签实现文字滚动/" itemprop="url">
-                  前端笔记 - HTML 特殊标签实现文字滚动
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>想用 HTML 做个文字滚动效果，可以用特殊标签 marquee 实现，当然也可以用 JS 实现， 今天试了下用特殊标签 marquee 实现文字滚动。先声明下本人从事于 iOS 开发，之前零零星星的学过 HTML ，但目前尚处于小白阶段😂，因此文章如果有不当之处还请各位大神不吝指出！</p>
-</blockquote>
-<h3 id="先一起看下-marquee-标签存在哪些属性："><a href="#先一起看下-marquee-标签存在哪些属性：" class="headerlink" title="先一起看下 marquee 标签存在哪些属性："></a>先一起看下 marquee 标签存在哪些属性：</h3><ul>
-<li>behavior：滚动方式，三种：scroll（循环滚动） slide（单次滚动）、alternate（来回滚动）</li>
-<li>bgcolor：滚动文本框的背景颜色</li>
-<li>direction：滚动方向，四种：left（从右到左）、right（从左到右）、up（从下到上）、down（从上到下）</li>
-<li>scrolldelay：每轮滚动之间的延迟时间，数字越大滚动越慢</li>
-<li>scrollamount：一次滚动总的时间量，数字越小滚动越慢</li>
-<li>align：文字的对齐方式，三种： middle(居中)、bottom(居下)、top(居上)</li>
-<li>width：滚动文本框的宽度</li>
-<li>height：滚动文本框的高度</li>
-<li>loop：滚动次数，默认为 infinite（无限）</li>
-<li>hspace：水平方向的空白距离</li>
-<li>vspace：垂直方向的空白距离</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/ 前端笔记 - HTML 特殊标签实现文字滚动/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1200,6 +1050,300 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/" itemprop="url">
+                  iOS开发之 - AFNetworking - 上传、下载、网络监听
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以<a href="http://www.jianshu.com/p/d23f4f913af1" target="_blank" rel="noopener">到这里</a>。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了 AFNetworking 的三个很广泛的应用：上传、下载以及网络监听。如果有朋友想了解苹果自带的 NSURLSession 相关的上传与下载，可以<a href="http://www.jianshu.com/p/be94889824d9" target="_blank" rel="noopener">到这里</a>。接下来是使用 AFNetworking 上传、下载以及网络监听的 demo.</p>
+<h2 id="一、上传："><a href="#一、上传：" class="headerlink" title="一、上传："></a>一、上传：</h2><p>这里介绍了 AFN 的两种上传方式：</p>
+<p>1.通过工程中的文件上传<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 创建管理者对象</span><br><span class="line">AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];</span><br><span class="line"></span><br><span class="line">// 请求参数</span><br><span class="line">NSString *urlStr = @&quot; &quot;;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 链式编程思想/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发 - 链式编程思想/" itemprop="url">
+                  iOS开发 - 链式编程思想
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[imageView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(250, 100, 250, 100));</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p>这句代码就属于链式编程，而且 Masonry 框架本身也是通过链式语法对 NSLayoutConstraints 进行的封装。对 Masonry 感兴趣的童鞋可以读读这篇文章 <a href="http://www.jianshu.com/p/2fe9568fd3f5" target="_blank" rel="noopener">iOS开发之源码解析 - Masonry</a>。</p>
+<h4 id="链式编程思想："><a href="#链式编程思想：" class="headerlink" title="链式编程思想："></a>链式编程思想：</h4><p>所谓链式编程就是通过点（.）将多个操作链接在一起成为一句代码，使代码更加紧凑，也提高了代码的可读性（如上面那句代码）。</p>
+<h4 id="链式编程特点："><a href="#链式编程特点：" class="headerlink" title="链式编程特点："></a>链式编程特点：</h4><ul>
+<li>方法的返回值是 block，block 中必须有一个返回值，通常返回它本身，也可以是处理后的数据或对象。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发 - 链式编程思想/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 网络请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1287,150 +1431,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发之 - AFNetworking - 网络请求/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/" itemprop="url">
-                  iOS开发之 - AFNetworking - 上传、下载、网络监听
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这一篇是接着上一篇总结的，如果有朋友需要了解网络请求的内容，可以<a href="http://www.jianshu.com/p/d23f4f913af1" target="_blank" rel="noopener">到这里</a>。和上篇一样，先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了 AFNetworking 的三个很广泛的应用：上传、下载以及网络监听。如果有朋友想了解苹果自带的 NSURLSession 相关的上传与下载，可以<a href="http://www.jianshu.com/p/be94889824d9" target="_blank" rel="noopener">到这里</a>。接下来是使用 AFNetworking 上传、下载以及网络监听的 demo.</p>
-<h2 id="一、上传："><a href="#一、上传：" class="headerlink" title="一、上传："></a>一、上传：</h2><p>这里介绍了 AFN 的两种上传方式：</p>
-<p>1.通过工程中的文件上传<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 创建管理者对象</span><br><span class="line">AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];</span><br><span class="line"></span><br><span class="line">// 请求参数</span><br><span class="line">NSString *urlStr = @&quot; &quot;;</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - AFNetworking - 上传、下载、网络监听/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1567,7 +1567,8 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
@@ -1580,6 +1581,14 @@
 
 
 
+
+
+    <div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_pv">
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+</span>
+    </div>
 
   <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
