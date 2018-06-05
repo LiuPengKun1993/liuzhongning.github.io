@@ -426,7 +426,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 开发中导航栏渐变的两种方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -445,8 +445,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/" itemprop="url">
-                  iOS 开发中导航栏渐变的两种方法
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/" itemprop="url">
+                  iOS开发之 - CADisplayLink 实现酷炫动画
                 </a>
               
             
@@ -505,13 +505,16 @@
       
         
           <blockquote>
-<p>很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：<strong>第一种是通过设置 navigationBar 的 alpha；第二种是在 navigationBar 上加入一个 view，再设置 view 的 alpha。</strong></p>
+<p>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。由于对 CADisplayLink 的认识还比较浅，如果哪里写的不正确，还请各位大大能够指出来！看效果图先，<del>就是有点丑</del>，😂</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-d8f9e18b30189a3b.gif?imageMogr2/auto-orient/strip" alt="导航栏渐变"><br>两种方法的核心代码：</p>
-<h4 id="一、设置-navigationBar-的-alpha"><a href="#一、设置-navigationBar-的-alpha" class="headerlink" title="一、设置 navigationBar 的 alpha"></a>一、设置 navigationBar 的 alpha</h4><p>向上滑和向下滑时分别对 navigationBar 的透明度进行设置。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-da509b22ab7071c0.gif?imageMogr2/auto-orient/strip" alt="ning.gif"></p>
+<ul>
+<li>核心代码如下：</li>
+</ul>
+<h4 id="一、创建-CADisplayLink，添加事件，绑定-Runloop。"><a href="#一、创建-CADisplayLink，添加事件，绑定-Runloop。" class="headerlink" title="一、创建 CADisplayLink，添加事件，绑定 Runloop。"></a>一、创建 CADisplayLink，添加事件，绑定 Runloop。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 创建 CADisplayLink</span><br><span class="line">- (CADisplayLink *)displayLink &#123;</span><br><span class="line">if (!_displayLink) &#123;</span><br><span class="line">_displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(makeCloud)];</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS 开发中导航栏渐变的两种方法/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -722,7 +725,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - Runtime/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - SDWebImage 的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -741,8 +744,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - Runtime/" itemprop="url">
-                  iOS开发之 - Runtime
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - SDWebImage 的使用/" itemprop="url">
+                  iOS开发之 - SDWebImage 的使用
                 </a>
               
             
@@ -800,15 +803,18 @@
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - Runtime"></p>
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-6e9f0fccaeeca1e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SDWebImage"></p>
 <blockquote>
-<p>想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！</p>
+<p><a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a> 是一个开源的第三方库，在我们 iOS 开发中用到 SDWebImage 的地方有很多，比如在 tableView 中，在 collectionView 中……不然它也不会高达 16000+ 这么多的 Star 了😄。下面是总结的一些 SDWebImage 相关的具体用法。</p>
 </blockquote>
-<h2 id="一、Runtime简介"><a href="#一、Runtime简介" class="headerlink" title="一、Runtime简介"></a>一、Runtime简介</h2><p>Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属于一个 C 语言库，包含了很多底层的 C 语言 API。我们平时编写的 OC 代码，在程序运行过程时，其实最终都是转成了 Runtime 的 C 语言代码。如下所示:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// OC代码:</span><br><span class="line">[Person coding];</span><br><span class="line"></span><br><span class="line">//运行时 runtime 会将它转化成 C 语言的代码:</span><br><span class="line">objc_msgSend(Person, @selector(coding));</span><br></pre></td></tr></table></figure>
+<p>首先用 cocoapods 导入 SDWebImage 框架，网上有很多安装以及使用 cocoapods 的教程，在此就不累述了，这篇文章的内容是在导入 SDWebImage 基础之上的，主要是总结了一些 SDWebImage 的具体用法。</p>
+<ul>
+<li>简单下载图片<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">方式一：</span><br><span class="line">// 只下载图片</span><br><span class="line">[self.imageView sd_setImageWithURL:@&quot;URL地址&quot;]];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - Runtime/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - SDWebImage 的使用/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1016,7 +1022,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - SDWebImage 的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - Runtime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -1035,8 +1041,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - SDWebImage 的使用/" itemprop="url">
-                  iOS开发之 - SDWebImage 的使用
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - Runtime/" itemprop="url">
+                  iOS开发之 - Runtime
                 </a>
               
             
@@ -1094,18 +1100,15 @@
 
       
         
-          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-6e9f0fccaeeca1e8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="SDWebImage"></p>
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-59759f8fb21bb6a9.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 - Runtime"></p>
 <blockquote>
-<p><a href="https://github.com/rs/SDWebImage" target="_blank" rel="noopener">SDWebImage</a> 是一个开源的第三方库，在我们 iOS 开发中用到 SDWebImage 的地方有很多，比如在 tableView 中，在 collectionView 中……不然它也不会高达 16000+ 这么多的 Star 了😄。下面是总结的一些 SDWebImage 相关的具体用法。</p>
+<p>想总结 Runtime 不是一天两天了，前几天利用空闲时间已经打好文稿，但觉得还有需要改进的地方，现在已经改过来了，这里贴出来与大家分享下（如果还有什么小问题，还望各位朋友指出来哈）! 下面我们就开始进入运行时 Runtime 的世界吧！</p>
 </blockquote>
-<p>首先用 cocoapods 导入 SDWebImage 框架，网上有很多安装以及使用 cocoapods 的教程，在此就不累述了，这篇文章的内容是在导入 SDWebImage 基础之上的，主要是总结了一些 SDWebImage 的具体用法。</p>
-<ul>
-<li>简单下载图片<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">方式一：</span><br><span class="line">// 只下载图片</span><br><span class="line">[self.imageView sd_setImageWithURL:@&quot;URL地址&quot;]];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h2 id="一、Runtime简介"><a href="#一、Runtime简介" class="headerlink" title="一、Runtime简介"></a>一、Runtime简介</h2><p>Runtime简称运行时，是系统在运行的时候的一些机制，其中最主要的是消息机制。它是一套比较底层的纯 C 语言 API, 属于一个 C 语言库，包含了很多底层的 C 语言 API。我们平时编写的 OC 代码，在程序运行过程时，其实最终都是转成了 Runtime 的 C 语言代码。如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// OC代码:</span><br><span class="line">[Person coding];</span><br><span class="line"></span><br><span class="line">//运行时 runtime 会将它转化成 C 语言的代码:</span><br><span class="line">objc_msgSend(Person, @selector(coding));</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - SDWebImage 的使用/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - Runtime/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1166,7 +1169,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/ 前端笔记 - Webstorm常用快捷键/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/ 前端笔记 - HTML 特殊标签实现文字滚动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -1185,8 +1188,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/ 前端笔记 - Webstorm常用快捷键/" itemprop="url">
-                  前端笔记 - Webstorm常用快捷键
+                <a class="post-title-link" href="/2018/04/15/ 前端笔记 - HTML 特殊标签实现文字滚动/" itemprop="url">
+                  前端笔记 - HTML 特殊标签实现文字滚动
                 </a>
               
             
@@ -1245,24 +1248,24 @@
       
         
           <blockquote>
-<p>需要做一些前端的东西，……朋友推荐了 Webstorm 编辑器，据说很不错，在开始码代码之前，想着如果要提高效率，那掌握一些常用的快捷键应该是少不了的，于是就查了一下，整理出来。用的是 Mac 系统，而在 Windows 系统上，command 即 Ctrl。</p>
+<p>想用 HTML 做个文字滚动效果，可以用特殊标签 marquee 实现，当然也可以用 JS 实现， 今天试了下用特殊标签 marquee 实现文字滚动。先声明下本人从事于 iOS 开发，之前零零星星的学过 HTML ，但目前尚处于小白阶段😂，因此文章如果有不当之处还请各位大神不吝指出！</p>
 </blockquote>
-<h3 id="一、必备快捷键"><a href="#一、必备快捷键" class="headerlink" title="一、必备快捷键"></a>一、必备快捷键</h3><ul>
-<li>command+/：注释当前行</li>
-<li>command+Shift+/：当前位置插入注释</li>
-<li>command+Alt+/：块注释，并Focus到首行，写注释说明用的</li>
-<li>command+Shift+A：选择当前标签前后，修改标签用的</li>
-<li>F11：全屏</li>
-<li>Shift+F11：全屏免打扰模式，只编辑当前文件</li>
-<li>Alt+F3：选择所有相同的词</li>
-<li>Alt+.：闭合标签</li>
-<li>Alt+Shift+数字：分屏显示</li>
-<li>Alt+数字：切换打开第N个文件</li>
-<li>Shift+右键拖动：光标多不，用来更改或插入列内容</li>
+<h3 id="先一起看下-marquee-标签存在哪些属性："><a href="#先一起看下-marquee-标签存在哪些属性：" class="headerlink" title="先一起看下 marquee 标签存在哪些属性："></a>先一起看下 marquee 标签存在哪些属性：</h3><ul>
+<li>behavior：滚动方式，三种：scroll（循环滚动） slide（单次滚动）、alternate（来回滚动）</li>
+<li>bgcolor：滚动文本框的背景颜色</li>
+<li>direction：滚动方向，四种：left（从右到左）、right（从左到右）、up（从下到上）、down（从上到下）</li>
+<li>scrolldelay：每轮滚动之间的延迟时间，数字越大滚动越慢</li>
+<li>scrollamount：一次滚动总的时间量，数字越小滚动越慢</li>
+<li>align：文字的对齐方式，三种： middle(居中)、bottom(居下)、top(居上)</li>
+<li>width：滚动文本框的宽度</li>
+<li>height：滚动文本框的高度</li>
+<li>loop：滚动次数，默认为 infinite（无限）</li>
+<li>hspace：水平方向的空白距离</li>
+<li>vspace：垂直方向的空白距离</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/ 前端笔记 - Webstorm常用快捷键/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/ 前端笔记 - HTML 特殊标签实现文字滚动/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1584,6 +1587,11 @@
 
 
 
+
+<div class="theme-info">
+<div class="powered-by"></div>
+<span class="post-count">博客全站共90.9k字</span>
+</div>
 
         
 
