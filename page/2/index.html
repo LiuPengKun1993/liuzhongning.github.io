@@ -290,7 +290,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -309,8 +309,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS 获取设备的各种信息/" itemprop="url">
-                  iOS 获取设备的各种信息
+                <a class="post-title-link" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/" itemprop="url">
+                  iOS开发 - 圆形验证码(或密码)输入框的封装
                 </a>
               
             
@@ -368,25 +368,22 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
         
-          <h5 id="iOS-获取设备的各种信息"><a href="#iOS-获取设备的各种信息" class="headerlink" title="iOS 获取设备的各种信息"></a><a href="https://github.com/liuzhongning/NNDeviceInformation" target="_blank" rel="noopener">iOS 获取设备的各种信息</a></h5><h3 id="一、目录结构"><a href="#一、目录结构" class="headerlink" title="一、目录结构:"></a>一、目录结构:</h3><ol>
-<li>获取屏幕宽度与高度</li>
-<li>获取设备版本号</li>
-<li>获取iPhone名称</li>
-<li>获取app版本号</li>
-<li>获取电池电量</li>
-<li>获取当前系统名称</li>
-<li>获取当前系统版本号</li>
-<li>获取通用的唯一识别码UUID</li>
-<li>获取当前设备IP</li>
-<li>获取总内存大小</li>
-<li>获取当前可用内存</li>
-<li>获取精准电池电量</li>
-<li>获取电池当前的状态（共有4种状态）</li>
-<li>获取设备当前的语言</li>
-</ol>
+          <blockquote>
+<p>项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：</p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7b41dd80189fc084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UI图"></p>
+<ul>
+<li>上面的UI图主要有以下几个要求：</li>
+<li>输入框为圆形</li>
+<li>输入框之间有适当距离</li>
+<li>输入框颜色在输入文本时有变化</li>
+</ul>
+<p>刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：</p>
+<ul>
+<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS 获取设备的各种信息/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -610,7 +607,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -629,8 +626,169 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/" itemprop="url">
-                  iOS开发 - 圆形验证码(或密码)输入框的封装
+                <a class="post-title-link" href="/2018/04/15/iOS 获取设备的各种信息/" itemprop="url">
+                  iOS 获取设备的各种信息
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="iOS-获取设备的各种信息"><a href="#iOS-获取设备的各种信息" class="headerlink" title="iOS 获取设备的各种信息"></a><a href="https://github.com/liuzhongning/NNDeviceInformation" target="_blank" rel="noopener">iOS 获取设备的各种信息</a></h5><h3 id="一、目录结构"><a href="#一、目录结构" class="headerlink" title="一、目录结构:"></a>一、目录结构:</h3><ol>
+<li>获取屏幕宽度与高度</li>
+<li>获取设备版本号</li>
+<li>获取iPhone名称</li>
+<li>获取app版本号</li>
+<li>获取电池电量</li>
+<li>获取当前系统名称</li>
+<li>获取当前系统版本号</li>
+<li>获取通用的唯一识别码UUID</li>
+<li>获取当前设备IP</li>
+<li>获取总内存大小</li>
+<li>获取当前可用内存</li>
+<li>获取精准电池电量</li>
+<li>获取电池当前的状态（共有4种状态）</li>
+<li>获取设备当前的语言</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS 获取设备的各种信息/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/" itemprop="url">
+                  iOS开发 - 极光推送中生产证书和开发证书的生成
                 </a>
               
             
@@ -689,21 +847,20 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
         
           <blockquote>
-<p>项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：</p>
+<p>项目中用到了 <a href="https://www.jiguang.cn/push?source=bdjj#B_vid=1350498826687775136" target="_blank" rel="noopener">极光推送</a>，这里记录下极光推送中生产证书和开发证书的生成过程。</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7b41dd80189fc084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UI图"></p>
-<ul>
-<li>上面的UI图主要有以下几个要求：</li>
-<li>输入框为圆形</li>
-<li>输入框之间有适当距离</li>
-<li>输入框颜色在输入文本时有变化</li>
+<p>推送设置中需要配置生产证书以及开发证书~~<br><img src="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
+<h3 id="1-开发证书生成步骤"><a href="#1-开发证书生成步骤" class="headerlink" title="1.开发证书生成步骤"></a>1.开发证书生成步骤</h3><ul>
+<li>登录 <a href="https://developer.apple.com/account/#/overview/82W2K9C6T2" target="_blank" rel="noopener">苹果开发者中心</a>，点击 <strong>Certificates, IDs &amp; Profiles</strong></li>
 </ul>
-<p>刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6de1efe8a9bc32d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤1"></p>
 <ul>
-<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。
+<li>点击 <strong>Development</strong>，并选择 <strong>Apple Push Notification service SSL (Sandbox)</strong>，接着点击下边的 <strong>Continue</strong> 按钮</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤2"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -863,163 +1020,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发 - 随机图片验证码封装/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/" itemprop="url">
-                  iOS开发 - 极光推送中生产证书和开发证书的生成
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>项目中用到了 <a href="https://www.jiguang.cn/push?source=bdjj#B_vid=1350498826687775136" target="_blank" rel="noopener">极光推送</a>，这里记录下极光推送中生产证书和开发证书的生成过程。</p>
-</blockquote>
-<p>推送设置中需要配置生产证书以及开发证书~~<br><img src="http://upload-images.jianshu.io/upload_images/2665449-f6e129813e38c4b6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="极光推送中生产证书和开发证书的生成"></p>
-<h3 id="1-开发证书生成步骤"><a href="#1-开发证书生成步骤" class="headerlink" title="1.开发证书生成步骤"></a>1.开发证书生成步骤</h3><ul>
-<li>登录 <a href="https://developer.apple.com/account/#/overview/82W2K9C6T2" target="_blank" rel="noopener">苹果开发者中心</a>，点击 <strong>Certificates, IDs &amp; Profiles</strong></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6de1efe8a9bc32d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤1"></p>
-<ul>
-<li>点击 <strong>Development</strong>，并选择 <strong>Apple Push Notification service SSL (Sandbox)</strong>，接着点击下边的 <strong>Continue</strong> 按钮</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤2"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1616,7 +1616,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-apple"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">刘朋坤</span>
 
@@ -1632,7 +1632,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
     <div class="powered-by">
 <i class="fa fa-user-md"></i>
 <span id="busuanzi_container_site_uv">
-本站总访问量<span id="busuanzi_value_site_uv"></span>次
+本站总访问量 <span id="busuanzi_value_site_uv"></span> 次
 </span>
     </div>
 
@@ -1642,7 +1642,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 <div class="theme-info">
 <div class="powered-by"></div>
-<span class="post-count">博客全站共90.9k字</span>
+<span class="post-count">博客全站共 90.9k 字</span>
 </div>
 
         
