@@ -11,7 +11,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
-
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
 
 
 
@@ -260,159 +274,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 多线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 多线程/" itemprop="url">
-                  iOS开发之 - 多线程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-72633919539a5942.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 － 多线程"></p>
-<blockquote>
-<p>最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结在这里，只希望对看到的朋友们有所帮助！文章有些长，涵盖的知识点也比较多，希望朋友们能够耐心读完哈！我们这篇文章主要包括以下几个模块：</p>
-</blockquote>
-<ul>
-<li><strong>（一）iOS开发之多线程 基础知识</strong></li>
-<li><strong>（二）iOS开发之多线程 NSThread</strong></li>
-<li><strong>（三）iOS开发之多线程 NSOperation</strong></li>
-<li><strong>（四）iOS开发之多线程 GCD</strong></li>
-<li><strong>（五）iOS开发之多线程 线程间的通信</strong></li>
-</ul>
-<p><em>下面我们开始了解 iOS 多线程的基础知识，如果在此之前对多线程已经有所了解的朋友，大可跳过这一部分，直接看后边三种多线程编程的 demo 即可！</em><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 多线程/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
     
       
 
@@ -732,7 +593,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 小冷易忘知识点总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 多线程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -751,8 +612,8 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 小冷易忘知识点总结/" itemprop="url">
-                  iOS开发之 - 小冷易忘知识点总结
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 多线程/" itemprop="url">
+                  iOS开发之 - 多线程
                 </a>
               
             
@@ -810,16 +671,21 @@
 
       
         
-          <blockquote>
-<p>看网上有人整理 iOS 开发中常用的易忘知识点，<a href="http://www.jianshu.com/p/b3ea66bffc68" target="_blank" rel="noopener">iOS 开发小冷易忘知识点总结</a>，觉得不错，于是自己也想着整理一些易忘的知识点。会持续更新……</p>
+          <p><img src="http://upload-images.jianshu.io/upload_images/2665449-72633919539a5942.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iOS开发之 － 多线程"></p>
+<blockquote>
+<p>最近利用晚上的空闲时间，整理了一下多线程相关的知识，几经更改，就变成你现在看到的模样了（如有失误之处，还请不吝赐教）。把多线程相关的知识总结在这里，只希望对看到的朋友们有所帮助！文章有些长，涵盖的知识点也比较多，希望朋友们能够耐心读完哈！我们这篇文章主要包括以下几个模块：</p>
 </blockquote>
 <ul>
-<li>iOS 控制器的基类，搭建框架之初一般都会设计一个 ViewController 基类，这里设置的基类是 NNBaseViewController，继承自 UIViewController。</li>
+<li><strong>（一）iOS开发之多线程 基础知识</strong></li>
+<li><strong>（二）iOS开发之多线程 NSThread</strong></li>
+<li><strong>（三）iOS开发之多线程 NSOperation</strong></li>
+<li><strong>（四）iOS开发之多线程 GCD</strong></li>
+<li><strong>（五）iOS开发之多线程 线程间的通信</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NNBaseViewController.h&quot;</span><br><span class="line"></span><br><span class="line">@interface NNBaseViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation NNBaseViewController</span><br></pre></td></tr></table></figure>
+<p><em>下面我们开始了解 iOS 多线程的基础知识，如果在此之前对多线程已经有所了解的朋友，大可跳过这一部分，直接看后边三种多线程编程的 demo 即可！</em><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 小冷易忘知识点总结/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 多线程/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -973,6 +839,306 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发之 - 好玩的富文本/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 小冷易忘知识点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 小冷易忘知识点总结/" itemprop="url">
+                  iOS开发之 - 小冷易忘知识点总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>看网上有人整理 iOS 开发中常用的易忘知识点，<a href="http://www.jianshu.com/p/b3ea66bffc68" target="_blank" rel="noopener">iOS 开发小冷易忘知识点总结</a>，觉得不错，于是自己也想着整理一些易忘的知识点。会持续更新……</p>
+</blockquote>
+<ul>
+<li>iOS 控制器的基类，搭建框架之初一般都会设计一个 ViewController 基类，这里设置的基类是 NNBaseViewController，继承自 UIViewController。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;NNBaseViewController.h&quot;</span><br><span class="line"></span><br><span class="line">@interface NNBaseViewController ()</span><br><span class="line"></span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation NNBaseViewController</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 小冷易忘知识点总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 广告植入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 广告植入/" itemprop="url">
+                  iOS开发之 - 广告植入
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>应用中植入广告是iOS开发者获得收益的方式之一，其实有很多 app 的绝大部分盈利都来自于广告收入……下面就开始介绍两种主流的植入广告的方法：iAd 方式和 Admob方式。</p>
+</blockquote>
+<h2 id="一、iAd-方式"><a href="#一、iAd-方式" class="headerlink" title="一、iAd 方式"></a>一、iAd 方式</h2><ul>
+<li><p>iAd 方式简介<br>iAd 移动广告业务是乔布斯在2010年推出来的，怀念～～～<br><img src="http://upload-images.jianshu.io/upload_images/2665449-d2c8ede84e6f61e5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iAd"><br>刚开始的时候，iAd 的确有很大的发展，但是随着时间的推移，更是在老乔辞世😢之后，iAd 的使用人数便越来越少。以至于今年年初，苹果公司宣布将要放弃在 iAd 平台上直接出售广告，而是将其转交给出版商。。。但是作为 iOS 开发者的我们，还是有了解的必要， iAd 广告平台依在。</p>
+</li>
+<li><p>使用步骤如下：</p>
+</li>
+</ul>
+<p>1.1 导入iAd.framework 依赖库<br><img src="http://upload-images.jianshu.io/upload_images/2665449-636c983733641509.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iAd.framework"></p>
+<p>1.2 方便起见，我是在 Main.storyboard 中拉入ADBannerView<br><img src="http://upload-images.jianshu.io/upload_images/2665449-57e14a8fb97ab7c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ADBannerView"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之 - 广告植入/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1272,161 +1438,6 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发之 - 支付宝支付/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - 银联支付/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - 银联支付/" itemprop="url">
-                  iOS开发之 - 银联支付
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>前阵子看了很多篇博客，有很多朋友吐槽说银联支付怎么怎么坑，所以集成的时候小心翼翼，但集成完银联支付之后，觉得相对于支付宝支付微信支付而言，银联支付还可以说的过去。下面就来介绍一下怎样快速的集成银联支付。</p>
-</blockquote>
-<ul>
-<li>首先，下载<a href="https://open.unionpay.com/ajweb/help/search?category=aj&amp;keyword=开发包" target="_blank" rel="noopener">银联支付SDK</a>（这个有点不好找），里面包含需要的库文件和详细的文档；下载好开发包之后，进行解压，解压成下面这样的文件</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-02336a46b0ff2407.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付SDK"></p>
-<ul>
-<li>官方文档也在这个目录下：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-0602bf8cbd8aea0e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="银联支付官方文档"></p>
-<ul>
-<li>下面开始集成SDK</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - 银联支付/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
