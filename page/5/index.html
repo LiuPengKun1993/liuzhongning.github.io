@@ -373,17 +373,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - 银联支付/" class="leancloud_visitors" data-flag-title="iOS开发之 - 银联支付">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -543,17 +532,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - 毛玻璃&模糊视图&滤镜/" class="leancloud_visitors" data-flag-title="iOS开发之 - 毛玻璃&模糊视图&滤镜">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -590,337 +568,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发之 - 毛玻璃&模糊视图&滤镜/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发技巧 - UIViewController 基类设计/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/" itemprop="url">
-                  iOS开发技巧 - UIViewController 基类设计
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/" class="leancloud_visitors" data-flag-title="iOS开发技巧 - UIViewController 基类设计">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 <strong><code>UIViewController</code></strong> 的基类，通常叫做 <strong><code>baseViewController</code></strong>或<strong><code>rootViewController</code></strong>，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。</p>
-</blockquote>
-<h5 id="一般来说这种基类控制器里面需要做的操作有以下几个："><a href="#一般来说这种基类控制器里面需要做的操作有以下几个：" class="headerlink" title="一般来说这种基类控制器里面需要做的操作有以下几个："></a>一般来说这种基类控制器里面需要做的操作有以下几个：</h5><ul>
-<li>为 APP 设置统一的背景色</li>
-<li>设置是否允许控制器自动调整高度（一般是 NO）</li>
-<li>自定义导航栏返回按钮</li>
-<li>重新布局视图大小，及时更新视图的 frame</li>
-</ul>
-<p>当然还有其它的一些，毕竟这和项目的具体需求息息相关，因此还要因项目而异。我这里主要就列出基类控制器中基本的常用的一些需求，和大家分享下，希望能帮到需要的人，少走弯路；另外文章如果有不足之处，也希望各位同行能多多的交流指点。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之源码解析 - MBProgressHUD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" itemprop="url">
-                  iOS开发之源码解析 - MBProgressHUD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" class="leancloud_visitors" data-flag-title="iOS开发之源码解析 - MBProgressHUD">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 是一个为 <code>APP</code> 添加 <code>HUD</code> 窗口的第三方框架，使用起来极其简单方便，关于 <code>MBProgressHUD</code> 的使用方法，<code>GitHub</code> 上有详细的说明，这里就不多加介绍了，本文主要是从源码的角度分析 <code>MBProgressHUD</code>的具体实现。</p>
-</blockquote>
-<ul>
-<li>先来对 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 有个大体的认识，这是刚从 <code>GitHub</code> 上拉下来的代码，如下图，MBProgressHUD 的主要文件只有两个：<br><br><br></li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-3cbf54d2915cfc84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MBProgressHUD 源码解析"></p>
-<hr>
-<p>下面我们就开始分析 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 的具体实现。在此之前先了解下文章的目录，本文主要有三个部分：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1042,17 +689,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - 键盘处理神器 IQKeyboardManager/" class="leancloud_visitors" data-flag-title="iOS开发之 - 键盘处理神器 IQKeyboardManager">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -1157,7 +793,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发技巧 - UIViewController 基类设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -1176,8 +812,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/" itemprop="url">
-                  用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色
+                <a class="post-title-link" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/" itemprop="url">
+                  iOS开发技巧 - UIViewController 基类设计
                 </a>
               
             
@@ -1214,17 +850,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/" class="leancloud_visitors" data-flag-title="用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -1247,16 +872,18 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
         
           <blockquote>
-<p><code>UITextView</code> 实现占位文本的方式有很多种，网上一搜一大把，，这里只介绍 <strong>最简单</strong> 的一种，如标题所述：<strong>用 <code>RunTime</code> 为 <code>UITextView</code> 设置占位文本并实时改变文本框占位文本的颜色。</strong></p>
+<p>在项目开发中，所有控制器里面大概都有共同的属性，比如背景色、导航栏、tarBar 的设置等等，这时我们一般都会设计出来一个 <strong><code>UIViewController</code></strong> 的基类，通常叫做 <strong><code>baseViewController</code></strong>或<strong><code>rootViewController</code></strong>，在这个类里面设置所有控制器的共同的属性，然后项目中所有的控制器再继承自这个类。</p>
 </blockquote>
-<blockquote>
-<p>对 <code>RunTime</code> 不太了解的童鞋可以简单看下这篇文章：<a href="http://www.jianshu.com/p/d92452217f68" target="_blank" rel="noopener">iOS开发之 - Runtime</a>，懒得点击鼠标的话我这里也简单的说下，<code>Runtime 简称运行时，是苹果官方的一套比较底层的纯 C 语言 API, 用它可以做很多底层操作（比如访问隐藏的成员变量和方法）。</code></p>
-</blockquote>
-<p>OK，足够了，接下来我们就抓紧时间来看看如何用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色。。。</p>
-<h5 id="首先我们利用-RunTime-获取一下-UITextView-中一些隐藏的成员变量"><a href="#首先我们利用-RunTime-获取一下-UITextView-中一些隐藏的成员变量" class="headerlink" title="首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量"></a>首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量</h5>
+<h5 id="一般来说这种基类控制器里面需要做的操作有以下几个："><a href="#一般来说这种基类控制器里面需要做的操作有以下几个：" class="headerlink" title="一般来说这种基类控制器里面需要做的操作有以下几个："></a>一般来说这种基类控制器里面需要做的操作有以下几个：</h5><ul>
+<li>为 APP 设置统一的背景色</li>
+<li>设置是否允许控制器自动调整高度（一般是 NO）</li>
+<li>自定义导航栏返回按钮</li>
+<li>重新布局视图大小，及时更新视图的 frame</li>
+</ul>
+<p>当然还有其它的一些，毕竟这和项目的具体需求息息相关，因此还要因项目而异。我这里主要就列出基类控制器中基本的常用的一些需求，和大家分享下，希望能帮到需要的人，少走弯路；另外文章如果有不足之处，也希望各位同行能多多的交流指点。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发技巧 - UIViewController 基类设计/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1378,17 +1005,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之源码解析 - Masonry/" class="leancloud_visitors" data-flag-title="iOS开发之源码解析 - Masonry">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -1421,6 +1037,308 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/iOS开发之源码解析 - Masonry/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之源码解析 - MBProgressHUD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/" itemprop="url">
+                  iOS开发之源码解析 - MBProgressHUD
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 是一个为 <code>APP</code> 添加 <code>HUD</code> 窗口的第三方框架，使用起来极其简单方便，关于 <code>MBProgressHUD</code> 的使用方法，<code>GitHub</code> 上有详细的说明，这里就不多加介绍了，本文主要是从源码的角度分析 <code>MBProgressHUD</code>的具体实现。</p>
+</blockquote>
+<ul>
+<li>先来对 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 有个大体的认识，这是刚从 <code>GitHub</code> 上拉下来的代码，如下图，MBProgressHUD 的主要文件只有两个：<br><br><br></li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-3cbf54d2915cfc84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MBProgressHUD 源码解析"></p>
+<hr>
+<p>下面我们就开始分析 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="noopener">MBProgressHUD</a> 的具体实现。在此之前先了解下文章的目录，本文主要有三个部分：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/iOS开发之源码解析 - MBProgressHUD/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/数据结构 -《大话数据结构》读书笔记(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(2)/" itemprop="url">
+                  数据结构 -《大话数据结构》读书笔记(2)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h5 id="文章共分为三篇"><a href="#文章共分为三篇" class="headerlink" title="文章共分为三篇"></a>文章共分为三篇</h5><h5 id="第一篇：数据结构-《大话数据结构》读书笔记-1"><a href="#第一篇：数据结构-《大话数据结构》读书笔记-1" class="headerlink" title="[第一篇：数据结构 -《大话数据结构》读书笔记(1)]"></a>[第一篇：数据结构 -《大话数据结构》读书笔记(1)]</h5><p><strong>一、数据结构绪论<br>二、算法<br>三、线性表</strong></p>
+<h5 id="第二篇：数据结构-《大话数据结构》读书笔记-2"><a href="#第二篇：数据结构-《大话数据结构》读书笔记-2" class="headerlink" title="[第二篇：数据结构 -《大话数据结构》读书笔记(2)]"></a>[第二篇：数据结构 -《大话数据结构》读书笔记(2)]</h5><p><strong>四、栈与队列<br>五、串<br>六、树<br>七、图</strong></p>
+<h5 id="第三篇：数据结构-《大话数据结构》读书笔记-3"><a href="#第三篇：数据结构-《大话数据结构》读书笔记-3" class="headerlink" title="[第三篇：数据结构 -《大话数据结构》读书笔记(3)]"></a>[第三篇：数据结构 -《大话数据结构》读书笔记(3)]</h5><p><strong>八、查找<br>九、排序</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/15/数据结构 -《大话数据结构》读书笔记(2)/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1541,17 +1459,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
 
           
-          
-             <span id="/2018/04/15/数据结构 -《大话数据结构》读书笔记(1)/" class="leancloud_visitors" data-flag-title="数据结构 -《大话数据结构》读书笔记(1)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1894,102 +1801,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("XF2za17JE6vI5rSwqG2lcK3y-gzGzoHsz", "gOFhSApzk8BAWeSuk1XUJ5dd");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            
-            counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
-            
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 

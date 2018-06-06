@@ -316,7 +316,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 网络请求/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -335,8 +335,8 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/" itemprop="url">
-                  iOS开发之 - CADisplayLink 实现酷炫动画
+                <a class="post-title-link" href="/2018/04/15/iOS开发之 - AFNetworking - 网络请求/" itemprop="url">
+                  iOS开发之 - AFNetworking - 网络请求
                 </a>
               
             
@@ -373,17 +373,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/" class="leancloud_visitors" data-flag-title="iOS开发之 - CADisplayLink 实现酷炫动画">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -406,16 +395,14 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       
         
           <blockquote>
-<p>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。由于对 CADisplayLink 的认识还比较浅，如果哪里写的不正确，还请各位大大能够指出来！看效果图先，<del>就是有点丑</del>，😂</p>
+<p>最近一直很忙也没有时间写博客，今天正好有点空闲时间，所以就对 <a href="https://github.com/AFNetworking/AFNetworking/" target="_blank" rel="noopener">AFNetworking</a> 做了一些简单的总结，特地记录下来，以便遇到的朋友们看看！！！</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-da509b22ab7071c0.gif?imageMogr2/auto-orient/strip" alt="ning.gif"></p>
-<ul>
-<li>核心代码如下：</li>
-</ul>
-<h4 id="一、创建-CADisplayLink，添加事件，绑定-Runloop。"><a href="#一、创建-CADisplayLink，添加事件，绑定-Runloop。" class="headerlink" title="一、创建 CADisplayLink，添加事件，绑定 Runloop。"></a>一、创建 CADisplayLink，添加事件，绑定 Runloop。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 创建 CADisplayLink</span><br><span class="line">- (CADisplayLink *)displayLink &#123;</span><br><span class="line">if (!_displayLink) &#123;</span><br><span class="line">_displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(makeCloud)];</span><br></pre></td></tr></table></figure>
+<p>先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了三种网络请求的渠道，第一种是通过苹果自带的 NSURLSession 请求网络；第二种是通过 AFNetworking2.x 请求网络；最后一种是通过 AFNetworking3.0 请求网络。下边是这三种网络请求渠道的 demo.</p>
+<h2 id="一、苹果自带的请求网络方法："><a href="#一、苹果自带的请求网络方法：" class="headerlink" title="一、苹果自带的请求网络方法："></a>一、苹果自带的请求网络方法：</h2><p>这里介绍了三种，GET 请求、POST 请求、代理方式请求。</p>
+<p>1.GET 请求:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 获得 NSURLSession 对象</span><br><span class="line">NSURLSession *session =  [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];</span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/#more" rel="contents">
+            <a class="btn" href="/2018/04/15/iOS开发之 - AFNetworking - 网络请求/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -536,17 +523,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
 
           
-          
-             <span id="/2018/04/15/iOS开发之 - DZNEmptyDataSet 空白页占位图/" class="leancloud_visitors" data-flag-title="iOS开发之 - DZNEmptyDataSet 空白页占位图">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -702,17 +678,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - MD5加密/" class="leancloud_visitors" data-flag-title="iOS开发之 - MD5加密">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -867,17 +832,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - RunLoop/" class="leancloud_visitors" data-flag-title="iOS开发之 - RunLoop">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -1029,17 +983,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
           
           
-             <span id="/2018/04/15/iOS开发之 - Runtime/" class="leancloud_visitors" data-flag-title="iOS开发之 - Runtime">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
@@ -1190,17 +1133,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
 
           
-          
-             <span id="/2018/04/15/iOS开发之 - SDWebImage 的使用/" class="leancloud_visitors" data-flag-title="iOS开发之 - SDWebImage 的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1355,17 +1287,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
 
           
-          
-             <span id="/2018/04/15/ 前端笔记 - Webstorm常用快捷键/" class="leancloud_visitors" data-flag-title="前端笔记 - Webstorm常用快捷键">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1527,17 +1448,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
           
 
           
-          
-             <span id="/2018/04/15/iOS开发之 - 二维码/" class="leancloud_visitors" data-flag-title="iOS开发之 - 二维码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Views:</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
           
 
           
@@ -1883,102 +1793,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 
   
-
-  
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("XF2za17JE6vI5rSwqG2lcK3y-gzGzoHsz", "gOFhSApzk8BAWeSuk1XUJ5dd");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            
-            counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            
-              var $element = $(document.getElementById(url));
-              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
-              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
-            
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
