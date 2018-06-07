@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -121,7 +121,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="以梦为马">
 <meta property="og:description" content="iOS 修炼中...">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="以梦为马">
 <meta name="twitter:description" content="iOS 修炼中...">
@@ -181,7 +181,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -207,7 +207,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
       </a>
     </div>
       
-        <p class="site-subtitle">谨以此纪念岁月</p>
+        <p class="site-subtitle">骐骥一跃, 不能十步; 驽马十驾, 功在不舍.</p>
       
   </div>
 
@@ -270,11 +270,42 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
       
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
     </ul>
   
 
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -316,7 +347,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS 获取设备的各种信息/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/18/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -335,7 +366,178 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS 获取设备的各种信息/" itemprop="url">
+                <a class="post-title-link" href="/2017/11/18/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/" itemprop="url">
+                  用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-18T23:47:44+08:00">2017-11-18</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><code>UITextView</code> 实现占位文本的方式有很多种，网上一搜一大把，，这里只介绍 <strong>最简单</strong> 的一种，如标题所述：<strong>用 <code>RunTime</code> 为 <code>UITextView</code> 设置占位文本并实时改变文本框占位文本的颜色。</strong></p>
+</blockquote>
+<blockquote>
+<p>对 <code>RunTime</code> 不太了解的童鞋可以简单看下这篇文章：<a href="http://www.jianshu.com/p/d92452217f68" target="_blank" rel="noopener">iOS开发之 - Runtime</a>，懒得点击鼠标的话我这里也简单的说下，<code>Runtime 简称运行时，是苹果官方的一套比较底层的纯 C 语言 API, 用它可以做很多底层操作（比如访问隐藏的成员变量和方法）。</code></p>
+</blockquote>
+<p>OK，足够了，接下来我们就抓紧时间来看看如何用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色。。。</p>
+<h5 id="首先我们利用-RunTime-获取一下-UITextView-中一些隐藏的成员变量"><a href="#首先我们利用-RunTime-获取一下-UITextView-中一些隐藏的成员变量" class="headerlink" title="首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量"></a>首先我们利用 RunTime 获取一下 UITextView 中一些隐藏的成员变量</h5>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/18/用 RunTime 为 UITextView 设置占位文本并实时改变文本框占位文本的颜色/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/21/iOS 获取设备的各种信息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/21/iOS 获取设备的各种信息/" itemprop="url">
                   iOS 获取设备的各种信息
                 </a>
               
@@ -356,7 +558,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-21T23:47:44+08:00">2017-10-21</time>
             
 
             
@@ -365,6 +567,24 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -412,7 +632,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 </ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS 获取设备的各种信息/#more" rel="contents">
+            <a class="btn" href="/2017/10/21/iOS 获取设备的各种信息/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -477,7 +697,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/iOS 开发 - Swift 全面系统的学习（持续更新...）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -496,7 +716,357 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/" itemprop="url">
+                <a class="post-title-link" href="/2017/09/29/iOS 开发 - Swift 全面系统的学习（持续更新...）/" itemprop="url">
+                  iOS 开发 - Swift 全面系统的学习（持续更新...）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-29T23:47:44+08:00">2017-09-29</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目<a href="https://github.com/hrscy/DanTang，" target="_blank" rel="noopener">https://github.com/hrscy/DanTang，</a> 很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。</p>
+</blockquote>
+<h5 id="先分享一些学习资料："><a href="#先分享一些学习资料：" class="headerlink" title="先分享一些学习资料："></a>先分享一些学习资料：</h5><ul>
+<li>学习网站：</li>
+<li><p>苹果官方为开发者提供的 Swift 学习资源: <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="noopener">https://developer.apple.com/swift/resources/</a></p>
+</li>
+<li><p>官方的 API Design: <a href="https://swift.org/documentation/api-design-guidelines/" target="_blank" rel="noopener">https://swift.org/documentation/api-design-guidelines/</a></p>
+</li>
+<li><p>学习书籍：</p>
+</li>
+<li><p>TheSwiftProgrammingLanguage(Swift3): 链接:<a href="http://pan.baidu.com/s/1jIopBwi" target="_blank" rel="noopener">http://pan.baidu.com/s/1jIopBwi</a>  密码:dqho</p>
+</li>
+<li><p>The Swift Programming Language 中文版: 链接:<a href="http://pan.baidu.com/s/1slpxtTj" target="_blank" rel="noopener">http://pan.baidu.com/s/1slpxtTj</a>  密码:xay1</p>
+</li>
+<li><p>其它学习资料</p>
+</li>
+<li><a href="https://github.com/Tim9Liu9/TimLiu-iOS/blob/master/Swift.md#swift" target="_blank" rel="noopener">https://github.com/Tim9Liu9/TimLiu-iOS/blob/master/Swift.md#swift</a></li>
+<li><a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="noopener">https://github.com/ipader/SwiftGuide</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/29/iOS 开发 - Swift 全面系统的学习（持续更新...）/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/29/iOS 开发中导航栏渐变的两种方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/29/iOS 开发中导航栏渐变的两种方法/" itemprop="url">
+                  iOS 开发中导航栏渐变的两种方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T23:47:44+08:00">2017-08-29</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>很多 APP 都有导航栏颜色渐变的效果，各位开发者也都八仙过海各显神通，各有各的方法，我这里提供两种思路：<strong>第一种是通过设置 navigationBar 的 alpha；第二种是在 navigationBar 上加入一个 view，再设置 view 的 alpha。</strong></p>
+</blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/2665449-d8f9e18b30189a3b.gif?imageMogr2/auto-orient/strip" alt="导航栏渐变"><br>两种方法的核心代码：</p>
+<h4 id="一、设置-navigationBar-的-alpha"><a href="#一、设置-navigationBar-的-alpha" class="headerlink" title="一、设置 navigationBar 的 alpha"></a>一、设置 navigationBar 的 alpha</h4><p>向上滑和向下滑时分别对 navigationBar 的透明度进行设置。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/29/iOS 开发中导航栏渐变的两种方法/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/22/iOS开发 - 仿简书个人主页多页面滑动视图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/22/iOS开发 - 仿简书个人主页多页面滑动视图/" itemprop="url">
                   iOS开发 - 仿简书个人主页多页面滑动视图
                 </a>
               
@@ -517,7 +1087,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-22T23:47:44+08:00">2017-08-22</time>
             
 
             
@@ -526,6 +1096,24 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -571,7 +1159,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <h4 id="简单说下思路及核心代码："><a href="#简单说下思路及核心代码：" class="headerlink" title="简单说下思路及核心代码："></a>简单说下思路及核心代码：</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 仿简书个人主页多页面滑动视图/#more" rel="contents">
+            <a class="btn" href="/2017/08/22/iOS开发 - 仿简书个人主页多页面滑动视图/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -636,7 +1224,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/12/iOS开发 - 极光推送中生产证书和开发证书的生成/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -655,165 +1243,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/" itemprop="url">
-                  iOS开发 - 圆形验证码(或密码)输入框的封装
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>项目中用到了圆形验证码输入框，输入框之间要求有一定的距离，UI图如下：</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-7b41dd80189fc084.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="UI图"></p>
-<ul>
-<li>上面的UI图主要有以下几个要求：</li>
-<li>输入框为圆形</li>
-<li>输入框之间有适当距离</li>
-<li>输入框颜色在输入文本时有变化</li>
-</ul>
-<p>刚开始想着用固定的几个 UITextField 实现，但转念一想，用 UITextField 实现有点麻烦（输入框多的话，它们之间的响应事件不太容易控制，需要来回变换），于是开始想其它办法，最后用了以下的思路：</p>
-<ul>
-<li>创建一个 UITextField，用  UILabel 显示 UITextField 上输入的数字，需要监听文本的输入，同时对 UILabel 进行一些操作，再用 block 将输入的文本传出来。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 圆形验证码(或密码)输入框的封装/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/" itemprop="url">
+                <a class="post-title-link" href="/2017/08/12/iOS开发 - 极光推送中生产证书和开发证书的生成/" itemprop="url">
                   iOS开发 - 极光推送中生产证书和开发证书的生成
                 </a>
               
@@ -834,7 +1264,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-12T23:47:44+08:00">2017-08-12</time>
             
 
             
@@ -843,6 +1273,24 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -886,7 +1334,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-140d40d381467beb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开发证书生成步骤2"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 极光推送中生产证书和开发证书的生成/#more" rel="contents">
+            <a class="btn" href="/2017/08/12/iOS开发 - 极光推送中生产证书和开发证书的生成/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -951,7 +1399,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 随机图片验证码封装/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/08/iOS开发 - 链式编程思想/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="刘朋坤">
@@ -970,7 +1418,179 @@ border-left-color: #1E92FB;    /*左边框颜色*/
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 随机图片验证码封装/" itemprop="url">
+                <a class="post-title-link" href="/2017/08/08/iOS开发 - 链式编程思想/" itemprop="url">
+                  iOS开发 - 链式编程思想
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-08T23:47:44+08:00">2017-08-08</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[imageView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(250, 100, 250, 100));</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<p>这句代码就属于链式编程，而且 Masonry 框架本身也是通过链式语法对 NSLayoutConstraints 进行的封装。对 Masonry 感兴趣的童鞋可以读读这篇文章 <a href="http://www.jianshu.com/p/2fe9568fd3f5" target="_blank" rel="noopener">iOS开发之源码解析 - Masonry</a>。</p>
+<h4 id="链式编程思想："><a href="#链式编程思想：" class="headerlink" title="链式编程思想："></a>链式编程思想：</h4><p>所谓链式编程就是通过点（.）将多个操作链接在一起成为一句代码，使代码更加紧凑，也提高了代码的可读性（如上面那句代码）。</p>
+<h4 id="链式编程特点："><a href="#链式编程特点：" class="headerlink" title="链式编程特点："></a>链式编程特点：</h4><ul>
+<li>方法的返回值是 block，block 中必须有一个返回值，通常返回它本身，也可以是处理后的数据或对象。</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/08/iOS开发 - 链式编程思想/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    </div>
+
+    <div>
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/27/iOS开发 - 随机图片验证码封装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/27/iOS开发 - 随机图片验证码封装/" itemprop="url">
                   iOS开发 - 随机图片验证码封装
                 </a>
               
@@ -991,7 +1611,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T23:47:44+08:00">2017-07-27</time>
             
 
             
@@ -1000,6 +1620,24 @@ border-left-color: #1E92FB;    /*左边框颜色*/
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1045,465 +1683,7 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 <p><img src="http://upload-images.jianshu.io/upload_images/2665449-c0eae594816bb189.gif?imageMogr2/auto-orient/strip" alt="图片验证码效果图"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 随机图片验证码封装/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发 - 链式编程思想/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发 - 链式编程思想/" itemprop="url">
-                  iOS开发 - 链式编程思想
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>因为有 Masory 以及 Snapkit 这些知名开源库的存在，相信很多 iOS 开发者对链式编程都不会太陌生，先来看下面这句代码：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[imageView mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">make.top.bottom.left.right.equalTo(self.view).insets(UIEdgeInsetsMake(250, 100, 250, 100));</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<p>这句代码就属于链式编程，而且 Masonry 框架本身也是通过链式语法对 NSLayoutConstraints 进行的封装。对 Masonry 感兴趣的童鞋可以读读这篇文章 <a href="http://www.jianshu.com/p/2fe9568fd3f5" target="_blank" rel="noopener">iOS开发之源码解析 - Masonry</a>。</p>
-<h4 id="链式编程思想："><a href="#链式编程思想：" class="headerlink" title="链式编程思想："></a>链式编程思想：</h4><p>所谓链式编程就是通过点（.）将多个操作链接在一起成为一句代码，使代码更加紧凑，也提高了代码的可读性（如上面那句代码）。</p>
-<h4 id="链式编程特点："><a href="#链式编程特点：" class="headerlink" title="链式编程特点："></a>链式编程特点：</h4><ul>
-<li>方法的返回值是 block，block 中必须有一个返回值，通常返回它本身，也可以是处理后的数据或对象。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发 - 链式编程思想/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/" itemprop="url">
-                  iOS开发之 - CADisplayLink 实现酷炫动画
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>偶然发现了一个好玩的类， CADisplayLink，出于好奇所以就尝试了一下，用 CADisplayLink 做了个类似云飘的效果。由于对 CADisplayLink 的认识还比较浅，如果哪里写的不正确，还请各位大大能够指出来！看效果图先，<del>就是有点丑</del>，😂</p>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/2665449-da509b22ab7071c0.gif?imageMogr2/auto-orient/strip" alt="ning.gif"></p>
-<ul>
-<li>核心代码如下：</li>
-</ul>
-<h4 id="一、创建-CADisplayLink，添加事件，绑定-Runloop。"><a href="#一、创建-CADisplayLink，添加事件，绑定-Runloop。" class="headerlink" title="一、创建 CADisplayLink，添加事件，绑定 Runloop。"></a>一、创建 CADisplayLink，添加事件，绑定 Runloop。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 创建 CADisplayLink</span><br><span class="line">- (CADisplayLink *)displayLink &#123;</span><br><span class="line">if (!_displayLink) &#123;</span><br><span class="line">_displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(makeCloud)];</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - CADisplayLink 实现酷炫动画/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-
-    <div>
-    
-    </div>
-
-    <div>
-    
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/15/iOS开发之 - AFNetworking - 网络请求/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="刘朋坤">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="以梦为马">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/15/iOS开发之 - AFNetworking - 网络请求/" itemprop="url">
-                  iOS开发之 - AFNetworking - 网络请求
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-                
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-15T12:30:20+08:00">2018-04-15</time>
-            
-
-            
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>最近一直很忙也没有时间写博客，今天正好有点空闲时间，所以就对 <a href="https://github.com/AFNetworking/AFNetworking/" target="_blank" rel="noopener">AFNetworking</a> 做了一些简单的总结，特地记录下来，以便遇到的朋友们看看！！！</p>
-</blockquote>
-<p>先说下这篇文章的大概内容，以便朋友们能够快速找到自己需要的。这篇文章主要介绍了三种网络请求的渠道，第一种是通过苹果自带的 NSURLSession 请求网络；第二种是通过 AFNetworking2.x 请求网络；最后一种是通过 AFNetworking3.0 请求网络。下边是这三种网络请求渠道的 demo.</p>
-<h2 id="一、苹果自带的请求网络方法："><a href="#一、苹果自带的请求网络方法：" class="headerlink" title="一、苹果自带的请求网络方法："></a>一、苹果自带的请求网络方法：</h2><p>这里介绍了三种，GET 请求、POST 请求、代理方式请求。</p>
-<p>1.GET 请求:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 获得 NSURLSession 对象</span><br><span class="line">NSURLSession *session =  [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil delegateQueue:[NSOperationQueue mainQueue]];</span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/15/iOS开发之 - AFNetworking - 网络请求/#more" rel="contents">
+            <a class="btn" href="/2017/07/27/iOS开发 - 随机图片验证码封装/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1611,7 +1791,101 @@ border-left-color: #1E92FB;    /*左边框颜色*/
               
 
               
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
 
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
             </nav>
           
@@ -1834,6 +2108,326 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
   
 
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
 
 
 
@@ -1857,6 +2451,6 @@ border-left-color: #1E92FB;    /*左边框颜色*/
 
   
 
-undefined
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body>
+
+</body>
 </html>

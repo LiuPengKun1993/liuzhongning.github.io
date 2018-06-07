@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+.pace .pace-progress {
+background: #1E92FB; /*进度条颜色*/
+height: 3px;
+}
+.pace .pace-progress-inner {
+box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+}
+.pace .pace-activity {
+border-top-color: #1E92FB;    /*上边框颜色*/
+border-left-color: #1E92FB;    /*左边框颜色*/
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.1.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.1.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+<link href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" rel="stylesheet">
+
+  <meta name="description" content="最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang， 很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。  先分享一些学习资料： 学习网站： 苹果官方为开发者提供的 Swift 学习资源: https://developer.apple.com/swif">
+<meta name="keywords" content="iOS 开发,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 开发 - Swift 全面系统的学习（持续更新...）">
+<meta property="og:url" content="http://yoursite.com/2017/09/29/iOS 开发 - Swift 全面系统的学习（持续更新...）/index.html">
+<meta property="og:site_name" content="以梦为马">
+<meta property="og:description" content="最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang， 很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。  先分享一些学习资料： 学习网站： 苹果官方为开发者提供的 Swift 学习资源: https://developer.apple.com/swif">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-32882dd38dd1bc87.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-0e923b9e52af87c1.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-b6506cb5fab324c0.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-c47f2e1053e05065.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-f96ca085518cc164.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-eedef65d59cce265.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-2bdb11d7ef7db000.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-7660d135f12c9d38.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-47ebc91140d2ea1c.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2665449-5e2952f51add8ded.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-06-06T12:25:58.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 开发 - Swift 全面系统的学习（持续更新...）">
+<meta name="twitter:description" content="最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目https://github.com/hrscy/DanTang， 很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。  先分享一些学习资料： 学习网站： 苹果官方为开发者提供的 Swift 学习资源: https://developer.apple.com/swif">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2665449-32882dd38dd1bc87.gif?imageMogr2/auto-orient/strip">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/29/iOS 开发 - Swift 全面系统的学习（持续更新...）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>iOS 开发 - Swift 全面系统的学习（持续更新...） | 以梦为马</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+<a href="https://github.com/liuzhongning" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">以梦为马</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">骐骥一跃, 不能十步; 驽马十驾, 功在不舍.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-主页">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />主页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-关于">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-归档">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/29/iOS 开发 - Swift 全面系统的学习（持续更新...）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="刘朋坤">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="以梦为马">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS 开发 - Swift 全面系统的学习（持续更新...）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+                
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-29T23:47:44+08:00">2017-09-29</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/iOS-开发/" itemprop="url" rel="index"><span itemprop="name">iOS 开发</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>最近项目不算紧，于是就学了学 Swift ，看了一大神写的项目<a href="https://github.com/hrscy/DanTang，" target="_blank" rel="noopener">https://github.com/hrscy/DanTang，</a> 很受益，感谢开源！另外自己也写了一些基础代码，分享出来，第一是希望得到同行前辈的指导，第二是希望对需要的朋友有所帮助。</p>
+</blockquote>
+<h5 id="先分享一些学习资料："><a href="#先分享一些学习资料：" class="headerlink" title="先分享一些学习资料："></a>先分享一些学习资料：</h5><ul>
+<li>学习网站：</li>
+<li><p>苹果官方为开发者提供的 Swift 学习资源: <a href="https://developer.apple.com/swift/resources/" target="_blank" rel="noopener">https://developer.apple.com/swift/resources/</a></p>
+</li>
+<li><p>官方的 API Design: <a href="https://swift.org/documentation/api-design-guidelines/" target="_blank" rel="noopener">https://swift.org/documentation/api-design-guidelines/</a></p>
+</li>
+<li><p>学习书籍：</p>
+</li>
+<li><p>TheSwiftProgrammingLanguage(Swift3): 链接:<a href="http://pan.baidu.com/s/1jIopBwi" target="_blank" rel="noopener">http://pan.baidu.com/s/1jIopBwi</a>  密码:dqho</p>
+</li>
+<li><p>The Swift Programming Language 中文版: 链接:<a href="http://pan.baidu.com/s/1slpxtTj" target="_blank" rel="noopener">http://pan.baidu.com/s/1slpxtTj</a>  密码:xay1</p>
+</li>
+<li><p>其它学习资料</p>
+</li>
+<li><a href="https://github.com/Tim9Liu9/TimLiu-iOS/blob/master/Swift.md#swift" target="_blank" rel="noopener">https://github.com/Tim9Liu9/TimLiu-iOS/blob/master/Swift.md#swift</a></li>
+<li><a href="https://github.com/ipader/SwiftGuide" target="_blank" rel="noopener">https://github.com/ipader/SwiftGuide</a><a id="more"></a>
+</li>
+</ul>
+<hr>
+<p><strong>练习的 demo 地址：</strong> <a href="https://github.com/liuzhongning/NNMintFurniture" target="_blank" rel="noopener">https://github.com/liuzhongning/NNMintFurniture</a></p>
+<ul>
+<li>主要包括以下功能：</li>
+<li>多页面滑动视图（分页控制器）</li>
+<li>图片轮播</li>
+<li>导航栏渐变</li>
+<li>瀑布流练习</li>
+<li>UIScrollView 练习</li>
+<li>照相功能，更换头像</li>
+<li>二维码扫描及识别</li>
+<li>随机图片验证码封装</li>
+<li>圆形输入框封装</li>
+<li>第三方库 SnapKit 用法</li>
+<li>…………</li>
+</ul>
+<hr>
+<blockquote>
+<p>练习 demo 的简单介绍，前方高能预警，大量图片请注意手机流量！</p>
+</blockquote>
+<h4 id="一、多页面滑动视图（分页控制器）"><a href="#一、多页面滑动视图（分页控制器）" class="headerlink" title="一、多页面滑动视图（分页控制器）"></a>一、多页面滑动视图（分页控制器）</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-32882dd38dd1bc87.gif?imageMogr2/auto-orient/strip" alt="多页面滑动视图"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">// MARK: 点击了标签栏</span><br><span class="line">func titlesClick(button: UIButton) &#123;</span><br><span class="line">selectedButton!.isEnabled = true</span><br><span class="line">selectedButton!.setTitleColor(UIColor.gray, for: .normal)</span><br><span class="line">button.isEnabled = false</span><br><span class="line">selectedButton = button</span><br><span class="line">selectedButton?.setTitleColor(UIColor.red, for: .normal)</span><br><span class="line"></span><br><span class="line">var offset = contentView!.contentOffset</span><br><span class="line">offset.x = CGFloat(button.tag) * (contentView?.frame.size.width)!</span><br><span class="line">contentView!.setContentOffset(offset, animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: 点击了右边搜索框</span><br><span class="line">func rightBarButtonClick() &#123;</span><br><span class="line">navigationController?.pushViewController(NNSearchController(), animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: 点击了箭头</span><br><span class="line">func arrowButtonClick(button: UIButton) &#123;</span><br><span class="line">UIView.animate(withDuration: 0.25) &#123;</span><br><span class="line">button.imageView?.transform = button.imageView!.transform.rotated(by: CGFloat(Double.pi))</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - UIScrollViewDelegate 代理</span><br><span class="line">// MARK: scrollViewDidEndScrollingAnimation</span><br><span class="line">func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) &#123;</span><br><span class="line">let index = Int(scrollView.contentOffset.x / scrollView.frame.size.width)</span><br><span class="line">// 取出子控制器</span><br><span class="line">let vc = childViewControllers[index]</span><br><span class="line">vc.view.frame.origin.x = scrollView.contentOffset.x</span><br><span class="line">vc.view.frame.origin.y = 0</span><br><span class="line">// 设置控制器的 view 的 height 值为整个屏幕的高度</span><br><span class="line">vc.view.frame.size.height = scrollView.frame.size.height</span><br><span class="line">scrollView.addSubview(vc.view)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: scrollViewDidEndDecelerating</span><br><span class="line">func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) &#123;</span><br><span class="line">scrollViewDidEndScrollingAnimation(scrollView)</span><br><span class="line">// 当前索引</span><br><span class="line">let index = Int(scrollView.contentOffset.x / scrollView.frame.size.width)</span><br><span class="line">// 点击 Button</span><br><span class="line">let button = titlesView.subviews[index] as! UIButton</span><br><span class="line">titlesClick(button: button)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二、图片轮播"><a href="#二、图片轮播" class="headerlink" title="二、图片轮播"></a>二、图片轮播</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-0e923b9e52af87c1.gif?imageMogr2/auto-orient/strip" alt="图片轮播"></p>
+<ul>
+<li>核心代码：</li>
+</ul>
+<p><strong>轮播图的封装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 懒加载轮播视图</span><br><span class="line">private lazy var shufflingFigureView : NNShufflingFigureView = &#123;</span><br><span class="line">let frame = CGRect(x: 0, y: 0, width: NNScreenWidth, height: 180)</span><br><span class="line">let imageView = [&quot;shuffling1&quot;, &quot;shuffling2&quot;, &quot;shuffling3&quot;, &quot;shuffling4&quot;]</span><br><span class="line">let shufflingFigureView = NNShufflingFigureView(frame: frame, images: imageView as NSArray, autoPlay: true, delay: 3, isFromNet: false)</span><br><span class="line">shufflingFigureView.delegate = self</span><br><span class="line">return shufflingFigureView</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure></p>
+<p><strong>通过代理处理图片的点击事件</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 轮播代理方法，处理轮播图的点击事件</span><br><span class="line">extension NNItemTableViewController: NNShufflingFigureViewDelegate &#123;</span><br><span class="line">func addShufflingFigureView(addShufflingFigureView: NNShufflingFigureView, iconClick index: NSInteger) &#123;</span><br><span class="line">print(index)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="三、导航栏渐变"><a href="#三、导航栏渐变" class="headerlink" title="三、导航栏渐变"></a>三、导航栏渐变</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-b6506cb5fab324c0.gif?imageMogr2/auto-orient/strip" alt="导航栏渐变"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<p><strong>页面滚动时调用</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - UIScrollViewDelegate 滚动页面时调用</span><br><span class="line">extension NNItemTableViewController &#123;</span><br><span class="line">override func scrollViewDidScroll(_ scrollView: UIScrollView) &#123;</span><br><span class="line">if type == tableViewType.haveHeader &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">currentPostion = scrollView.contentOffset.y</span><br><span class="line">if currentPostion &gt; 0 &#123;</span><br><span class="line">if currentPostion - lastPosition &gt;= 0 &#123;</span><br><span class="line">if topBool &#123;</span><br><span class="line">topBool = false</span><br><span class="line">bottomBool = true</span><br><span class="line">stopPosition = currentPostion + 64</span><br><span class="line">&#125;</span><br><span class="line">lastPosition = currentPostion</span><br><span class="line">navigationController?.navigationBar.alpha = 1 - currentPostion / 500</span><br><span class="line">&#125; else &#123;</span><br><span class="line">if bottomBool &#123;</span><br><span class="line">bottomBool = false</span><br><span class="line">topBool = true</span><br><span class="line">stopPosition = currentPostion + 64</span><br><span class="line">&#125;</span><br><span class="line">lastPosition = currentPostion</span><br><span class="line">navigationController?.navigationBar.alpha = (stopPosition - currentPostion) / 200</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="四、瀑布流练习"><a href="#四、瀑布流练习" class="headerlink" title="四、瀑布流练习"></a>四、瀑布流练习</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-c47f2e1053e05065.gif?imageMogr2/auto-orient/strip" alt="瀑布流练习"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<p><strong>基础设置</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 布局</span><br><span class="line">let layout = NNItemCollectionViewFlowLayout()</span><br><span class="line">// 创建collectionView</span><br><span class="line">let collectionView = UICollectionView.init(frame: view.bounds, collectionViewLayout: layout)</span><br><span class="line">view.addSubview(collectionView)</span><br><span class="line">collectionView.dataSource = self</span><br><span class="line">collectionView.delegate = self</span><br><span class="line">collectionView.backgroundColor = UIColor.white</span><br><span class="line">collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: NNItemCollectionViewControllerID)</span><br></pre></td></tr></table></figure></p>
+<p><strong>自定义 UICollectionViewFlowLayout</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 更新布局</span><br><span class="line">override func prepare() &#123;</span><br><span class="line">super.prepare()</span><br><span class="line">// 清除所有的布局属性</span><br><span class="line">attrsArray.removeAll()</span><br><span class="line">columnHeightsAry.removeAll()</span><br><span class="line"></span><br><span class="line">for _ in 0 ..&lt; columnCountDefault &#123;</span><br><span class="line">columnHeightsAry.append(edgeInsetsDefault.top)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let sections : Int = (collectionView?.numberOfSections)!</span><br><span class="line">for num in 0 ..&lt; sections &#123;</span><br><span class="line">let count : Int = (collectionView?.numberOfItems(inSection: num))!</span><br><span class="line">for i in 0 ..&lt; count &#123;</span><br><span class="line">let indexpath : NSIndexPath = NSIndexPath.init(item: i, section: num)</span><br><span class="line">let attrs = layoutAttributesForItem(at: indexpath as IndexPath)!</span><br><span class="line">attrsArray.append(attrs)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - cell 对应的布局属性</span><br><span class="line">override func layoutAttributesForItem(at indexPath: IndexPath) -&gt; UICollectionViewLayoutAttributes? &#123;</span><br><span class="line"></span><br><span class="line">let attrs = UICollectionViewLayoutAttributes.init(forCellWith: indexPath)</span><br><span class="line">let collectionWidth = collectionView?.frame.size.width</span><br><span class="line">// 获得所有 item 的宽度</span><br><span class="line">let itemW = (collectionWidth! - edgeInsetsDefault.left - edgeInsetsDefault.right - CGFloat(columnCountDefault-1) * columnMargin) / CGFloat(columnCountDefault)</span><br><span class="line">let itemH = 50 + arc4random_uniform(100)</span><br><span class="line"></span><br><span class="line">// 找出高度最短那一列</span><br><span class="line">var dextColum : Int = 0</span><br><span class="line">var minH = columnHeightsAry[0]</span><br><span class="line">for i in 1 ..&lt; columnCountDefault&#123;</span><br><span class="line">// 取出第 i 列的高度</span><br><span class="line">let columnH = columnHeightsAry[i]</span><br><span class="line"></span><br><span class="line">if minH &gt; columnH &#123;</span><br><span class="line">minH = columnH</span><br><span class="line">dextColum = i</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let x = edgeInsetsDefault.left + CGFloat(dextColum) * (itemW + columnMargin)</span><br><span class="line">var y = minH</span><br><span class="line">if y != edgeInsetsDefault.top&#123;</span><br><span class="line">y = y + itemMargin</span><br><span class="line">&#125;</span><br><span class="line">attrs.frame = CGRect(x: x, y: y, width: itemW, height: CGFloat(itemH))</span><br><span class="line">// 更新最短那列高度</span><br><span class="line">columnHeightsAry[dextColum] = attrs.frame.maxY</span><br><span class="line">return attrs</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="五、UIScrollView-练习"><a href="#五、UIScrollView-练习" class="headerlink" title="五、UIScrollView 练习"></a>五、UIScrollView 练习</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-f96ca085518cc164.gif?imageMogr2/auto-orient/strip" alt="UIScrollView 练习"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 放大缩小</span><br><span class="line">// MARK: 放大</span><br><span class="line">func amplificationBtnClick() &#123;</span><br><span class="line">var zoomScale = scrollView.zoomScale // 当前缩放</span><br><span class="line">zoomScale += 0.1</span><br><span class="line">if zoomScale &gt;= scrollView.maximumZoomScale &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">self.scrollView.setZoomScale(zoomScale, animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: 缩小</span><br><span class="line">func narrowDownBtnClick() &#123;</span><br><span class="line">var zoomScale = scrollView.zoomScale // 当前缩放</span><br><span class="line">zoomScale -= 0.1</span><br><span class="line">if zoomScale &lt;= scrollView.minimumZoomScale &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">self.scrollView.setZoomScale(zoomScale, animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - NNItemBtnViewDelegate 上下左右点击代理</span><br><span class="line">extension NNItemScrollView &#123;</span><br><span class="line">// MARK: 向左</span><br><span class="line">func leftBtnClickDelegate() &#123;</span><br><span class="line">var point = self.scrollView.contentOffset</span><br><span class="line">point.x += 100</span><br><span class="line">point.x = point.x &gt;= self.scrollView.contentSize.width ? 0 : point.x</span><br><span class="line">scrollView.setContentOffset(point, animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: 向右</span><br><span class="line">func rightBtnClickDelegate() &#123;</span><br><span class="line">var point = self.scrollView.contentOffset</span><br><span class="line">point.x -= 100</span><br><span class="line">point.x = point.x &lt;= -NNScreenWidth ? 0 : point.x</span><br><span class="line">scrollView.setContentOffset(point, animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: 向上</span><br><span class="line">func topBtnClickDelegate() &#123;</span><br><span class="line">var point = self.scrollView.contentOffset</span><br><span class="line">point.y += 50</span><br><span class="line">point.y = point.y &gt;= self.scrollView.contentSize.height ? 0 : point.y</span><br><span class="line">scrollView.setContentOffset(point, animated: true)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: 向下</span><br><span class="line">func bottomBtnClickDelegate() &#123;</span><br><span class="line">var point = self.scrollView.contentOffset</span><br><span class="line">point.y -= 50</span><br><span class="line">point.y = point.y &lt;= -NNScreenHeight ? 0 : point.y</span><br><span class="line">scrollView.setContentOffset(point, animated: true)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="六、照相功能，更换头像（建议用真机）"><a href="#六、照相功能，更换头像（建议用真机）" class="headerlink" title="六、照相功能，更换头像（建议用真机）"></a>六、照相功能，更换头像（建议用真机）</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-eedef65d59cce265.gif?imageMogr2/auto-orient/strip" alt="照相功能，更换头像"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 点击头像按钮，更换头像</span><br><span class="line">func changePicture() &#123;</span><br><span class="line">let alertcontroller = UIAlertController(title: &quot;请选择相片&quot;, message: nil, preferredStyle: .actionSheet)</span><br><span class="line">let alertaction = UIAlertAction(title: &quot;从相册选取&quot;, style: .destructive) &#123; (action) in</span><br><span class="line">let imagePicker = UIImagePickerController()</span><br><span class="line">imagePicker.delegate = self</span><br><span class="line">imagePicker.sourceType = .photoLibrary</span><br><span class="line">imagePicker.allowsEditing = true</span><br><span class="line">self.present(imagePicker, animated: true, completion: nil)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let alertaction2 = UIAlertAction(title: &quot;拍照&quot;, style: .destructive) &#123; (action) in</span><br><span class="line">if (!UIImagePickerController.isSourceTypeAvailable(.camera)) &#123;</span><br><span class="line">print(&quot;设备不支持相机&quot;)</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">let imagePicker = UIImagePickerController()</span><br><span class="line">imagePicker.delegate = self</span><br><span class="line">imagePicker.sourceType = .camera</span><br><span class="line">imagePicker.allowsEditing = true</span><br><span class="line">self.present(imagePicker, animated: true, completion: nil)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let alertAction3 = UIAlertAction(title: &quot;取消&quot;, style: .cancel) &#123; (action) in</span><br><span class="line">print(&quot;取消&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alertcontroller.addAction(alertaction)</span><br><span class="line">alertcontroller.addAction(alertaction2)</span><br><span class="line">alertcontroller.addAction(alertAction3)</span><br><span class="line">present(alertcontroller, animated: true, completion: nil)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - UIImagePickerControllerDelegate</span><br><span class="line">func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</span><br><span class="line">let image = info[UIImagePickerControllerOriginalImage] as! UIImage</span><br><span class="line">imageView.image = image</span><br><span class="line">self.dismiss(animated: true, completion: nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="七、二维码扫描及识别（建议用真机）"><a href="#七、二维码扫描及识别（建议用真机）" class="headerlink" title="七、二维码扫描及识别（建议用真机）"></a>七、二维码扫描及识别（建议用真机）</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-2bdb11d7ef7db000.gif?imageMogr2/auto-orient/strip" alt="二维码扫描及识别"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 扫描设备设置</span><br><span class="line">func setupScanSession() &#123;</span><br><span class="line">do &#123;</span><br><span class="line">// 设置捕捉设备</span><br><span class="line">let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)</span><br><span class="line">// 设置设备输入输出</span><br><span class="line">let input = try AVCaptureDeviceInput(device: device)</span><br><span class="line">let output = AVCaptureMetadataOutput()</span><br><span class="line">output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)</span><br><span class="line"></span><br><span class="line">// 设置会话</span><br><span class="line">let  scanSession = AVCaptureSession()</span><br><span class="line">scanSession.canSetSessionPreset(AVCaptureSessionPresetHigh)</span><br><span class="line"></span><br><span class="line">if scanSession.canAddInput(input) &#123;</span><br><span class="line">scanSession.addInput(input)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">if scanSession.canAddOutput(output) &#123;</span><br><span class="line">scanSession.addOutput(output)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设置扫描类型(二维码和条形码)</span><br><span class="line">output.metadataObjectTypes = [</span><br><span class="line">AVMetadataObjectTypeQRCode,</span><br><span class="line">AVMetadataObjectTypeCode39Code,</span><br><span class="line">AVMetadataObjectTypeCode128Code,</span><br><span class="line">AVMetadataObjectTypeCode39Mod43Code,</span><br><span class="line">AVMetadataObjectTypeEAN13Code,</span><br><span class="line">AVMetadataObjectTypeEAN8Code,</span><br><span class="line">AVMetadataObjectTypeCode93Code]</span><br><span class="line"></span><br><span class="line">// 预览图层</span><br><span class="line">let scanPreviewLayer = AVCaptureVideoPreviewLayer(session:scanSession)</span><br><span class="line">scanPreviewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill</span><br><span class="line">scanPreviewLayer!.frame = view.layer.bounds</span><br><span class="line"></span><br><span class="line">view.layer.insertSublayer(scanPreviewLayer!, at: 0)</span><br><span class="line"></span><br><span class="line">// 设置扫描区域</span><br><span class="line">NotificationCenter.default.addObserver(forName: NSNotification.Name.AVCaptureInputPortFormatDescriptionDidChange, object: nil, queue: nil, using: &#123; (noti) in</span><br><span class="line">output.rectOfInterest = (scanPreviewLayer?.metadataOutputRectOfInterest(for:self.scanImageView.frame))!</span><br><span class="line">&#125;)</span><br><span class="line">// 保存会话</span><br><span class="line">self.scanSession = scanSession</span><br><span class="line"></span><br><span class="line">&#125; catch &#123;</span><br><span class="line">// 摄像头不可用</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>扫描完成后调用</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - AVCaptureMetadataOutputObjectsDelegate 扫描捕捉完成</span><br><span class="line">extension NNScanCodeController : AVCaptureMetadataOutputObjectsDelegate &#123;</span><br><span class="line">func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) &#123;</span><br><span class="line">// 停止扫描</span><br><span class="line">scanLine.layer.removeAllAnimations()</span><br><span class="line">scanSession!.stopRunning()</span><br><span class="line"></span><br><span class="line">// 扫完完成</span><br><span class="line">if metadataObjects.count &gt; 0 &#123;</span><br><span class="line">if let resultObj = metadataObjects.first as? AVMetadataMachineReadableCodeObject &#123;</span><br><span class="line">print(resultObj.stringValue)</span><br><span class="line">scanResult.text = &quot;扫描结果:&quot; + resultObj.stringValue</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>识别验证码，从相册中选择</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate</span><br><span class="line">extension NNScanCodeController : UIImagePickerControllerDelegate , UINavigationControllerDelegate &#123;</span><br><span class="line">func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) &#123;</span><br><span class="line"></span><br><span class="line">// 判断是否能取到图片</span><br><span class="line">guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">// 转成ciimage</span><br><span class="line">guard let ciimage = CIImage(image: image) else &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">// 从选中的图片中读取二维码</span><br><span class="line">// 创建探测器</span><br><span class="line">let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy : CIDetectorAccuracyLow])</span><br><span class="line">let resoult = (detector?.features(in: ciimage))!</span><br><span class="line">scanResult.text = &quot;无法识别&quot;</span><br><span class="line">for result in resoult &#123;</span><br><span class="line">guard (result as! CIQRCodeFeature).messageString != nil else &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">scanResult.text = &quot;扫描结果:&quot; + (result as! CIQRCodeFeature).messageString!</span><br><span class="line">&#125;</span><br><span class="line">picker.dismiss(animated: true, completion: nil)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="八、随机图片验证码封装"><a href="#八、随机图片验证码封装" class="headerlink" title="八、随机图片验证码封装"></a>八、随机图片验证码封装</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-7660d135f12c9d38.gif?imageMogr2/auto-orient/strip" alt="随机图片验证码封装"></p>
+<ul>
+<li>核心代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 绘制图形验证码</span><br><span class="line">override func draw(_ rect: CGRect) &#123;</span><br><span class="line">if charString.isEmpty &#123;</span><br><span class="line">return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let textString:String = charString</span><br><span class="line">let charSize = textString.substring(to: textString.startIndex).size(attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 14)])</span><br><span class="line">let width = rect.size.width / CGFloat(charCount) - charSize.width - 15;</span><br><span class="line">let hight = rect.size.height - charSize.height;</span><br><span class="line">var point: CGPoint</span><br><span class="line"></span><br><span class="line">var pointX: CGFloat</span><br><span class="line">var pointY: CGFloat</span><br><span class="line">for i in 0..&lt;textString.characters.count &#123;</span><br><span class="line">let char = CGFloat(i)</span><br><span class="line">pointX = (CGFloat)(arc4random() % UInt32(Float(width))) + rect.size.width / (CGFloat)(textString.characters.count) * char</span><br><span class="line">pointY = (CGFloat)(arc4random() % UInt32(Float(hight)))</span><br><span class="line">point = CGPoint(x: pointX, y: pointY)</span><br><span class="line">let charStr = textString[textString.index(textString.startIndex, offsetBy:i)]</span><br><span class="line">let string = String(charStr)</span><br><span class="line">string.draw(at: point,withAttributes:([NSFontAttributeName : UIFont.systemFont(ofSize: 14)]))</span><br><span class="line">&#125;</span><br><span class="line">drawLine(rect)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - 绘制干扰线</span><br><span class="line">func drawLine(_ rect: CGRect) &#123;</span><br><span class="line">let context = UIGraphicsGetCurrentContext()</span><br><span class="line">context!.setLineWidth(1.0)</span><br><span class="line">var pointX = 0.0</span><br><span class="line">var pointY = 0.0</span><br><span class="line">for _ in 0..&lt;lineCount &#123;</span><br><span class="line">context!.setStrokeColor(randomColor().cgColor)</span><br><span class="line">pointX = Double(arc4random() % UInt32(Float(rect.size.width)))</span><br><span class="line">pointY = Double(arc4random() % UInt32(Float(rect.size.height)))</span><br><span class="line">context?.move(to: CGPoint(x: pointX, y: pointY))</span><br><span class="line">pointX = Double(CGFloat(arc4random() % UInt32(Float(rect.size.width))))</span><br><span class="line">pointY = Double(CGFloat(arc4random() % UInt32(Float(rect.size.height))))</span><br><span class="line">context?.addLine(to: CGPoint(x: pointX, y: pointY))</span><br><span class="line">context!.strokePath()</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>OC版本：<a href="https://liuzhongning.github.io/2018/04/15/iOS开发%20-%20随机图片验证码封装/" target="_blank" rel="noopener">iOS开发 - 随机图片验证码封装</a></strong></p>
+<h4 id="九、圆形输入框封装"><a href="#九、圆形输入框封装" class="headerlink" title="九、圆形输入框封装"></a>九、圆形输入框封装</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-47ebc91140d2ea1c.gif?imageMogr2/auto-orient/strip" alt="圆形输入框封装"></p>
+<ul>
+<li>核心代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">// MARK: - 监听文本输入 核心操作</span><br><span class="line">func textFieldDidChange(_ textField: UITextField) &#123;</span><br><span class="line">let i = textField.text?.characters.count</span><br><span class="line">if i! &gt; labelCount &#123;</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">if i == 0 &#123;</span><br><span class="line">((labelArr.object(at: 0)) as! UILabel).text = &quot;&quot;</span><br><span class="line">((labelArr.object(at: 0)) as! UILabel).layer.borderColor = defaultColor.cgColor</span><br><span class="line">&#125; else &#123;</span><br><span class="line">((labelArr.object(at: (i! - 1))) as! UILabel).text = (textField.text! as NSString).substring(with: NSMakeRange(i! - 1, 1))</span><br><span class="line">((labelArr.object(at: (i! - 1))) as! UILabel).layer.borderColor = changedColor.cgColor</span><br><span class="line">((labelArr.object(at: (i! - 1))) as! UILabel).textColor = changedColor</span><br><span class="line">if labelCount &gt; i! &#123;</span><br><span class="line">((labelArr.object(at: (i!))) as! UILabel).text = &quot;&quot;</span><br><span class="line">((labelArr.object(at: (i!))) as! UILabel).layer.borderColor = defaultColor.cgColor</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - setupUI</span><br><span class="line">func setupUI() &#123;</span><br><span class="line">setupTextField()</span><br><span class="line">var labelX = CGFloat()</span><br><span class="line">let labelY : CGFloat = 0.0</span><br><span class="line">let labelWidth = self.width / CGFloat(labelCount)</span><br><span class="line">let sideLength = labelWidth &lt; self.height ? labelWidth : self.height</span><br><span class="line"></span><br><span class="line">for i in 0..&lt;labelCount &#123;</span><br><span class="line">if i == 0 &#123;</span><br><span class="line">labelX = 0</span><br><span class="line">&#125; else &#123;</span><br><span class="line">labelX = CGFloat(i) * (sideLength + labelDistance)</span><br><span class="line">&#125;</span><br><span class="line">let label = UILabel(frame: CGRect(x: labelX, y: labelY, width: sideLength, height: sideLength))</span><br><span class="line">self.addSubview(label)</span><br><span class="line">label.textAlignment = NSTextAlignment.center</span><br><span class="line">label.layer.borderColor = UIColor.black.cgColor</span><br><span class="line">label.layer.borderWidth = 1.0</span><br><span class="line">label.layer.cornerRadius = sideLength / 2.0</span><br><span class="line">labelArr.add(label)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: - UITextFieldDelegate</span><br><span class="line">// MARK: 监听输入框</span><br><span class="line">func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -&gt; Bool &#123;</span><br><span class="line">// 允许删除</span><br><span class="line">if (string.characters.count == 0) &#123;</span><br><span class="line">return true</span><br><span class="line">&#125; else if (textField.text?.characters.count)! &gt;= labelCount &#123;</span><br><span class="line">return false</span><br><span class="line">&#125; else &#123;</span><br><span class="line">return true</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">// MARK: 回车收起键盘</span><br><span class="line">func textFieldShouldReturn(_ textField: UITextField) -&gt; Bool &#123;</span><br><span class="line">textField.resignFirstResponder()</span><br><span class="line">return false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>OC版本：<a href="https://liuzhongning.github.io/2018/04/15/iOS开发%20-%20圆形验证码(或密码" target="_blank" rel="noopener">iOS开发 - 圆形验证码(或密码)输入框的封装</a>输入框的封装/)</strong></p>
+<h4 id="十、第三方库-SnapKit-用法"><a href="#十、第三方库-SnapKit-用法" class="headerlink" title="十、第三方库 SnapKit 用法"></a>十、第三方库 SnapKit 用法</h4><p><img src="http://upload-images.jianshu.io/upload_images/2665449-5e2952f51add8ded.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="第三方库 SnapKit 用法"></p>
+<ul>
+<li>示例代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">func addRedView() &#123;</span><br><span class="line">redView.backgroundColor = UIColor.red</span><br><span class="line">view.addSubview(redView)</span><br><span class="line"></span><br><span class="line">// redView 距离父视图四条边的距离都是 50</span><br><span class="line">redView.snp.makeConstraints &#123; (make) in</span><br><span class="line">make.edges.equalTo(view).inset(50)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addBlueView() &#123;</span><br><span class="line">blueView.backgroundColor = UIColor.blue</span><br><span class="line">view.addSubview(blueView)</span><br><span class="line"></span><br><span class="line">// blueView 左边距离父视图为 0；上边距离父视图为 0；size 是(50，50)</span><br><span class="line">blueView.snp.makeConstraints &#123; (make) in</span><br><span class="line">make.left.equalTo(0)</span><br><span class="line">make.top.equalTo(0)</span><br><span class="line">make.size.equalTo(CGSize(width: 50, height: 50))</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addBlackView() &#123;</span><br><span class="line">blackView.backgroundColor = UIColor.black</span><br><span class="line">view.addSubview(blackView)</span><br><span class="line"></span><br><span class="line">// blackView 左边和 redView 的右边距离为 0；大小与 blueView 相同；且与 blueView 上对齐</span><br><span class="line">blackView.snp.makeConstraints &#123; (make) in</span><br><span class="line">make.left.equalTo(redView.snp.right)</span><br><span class="line">make.size.equalTo(blueView)</span><br><span class="line">make.top.equalTo(blueView)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addCyanView() &#123;</span><br><span class="line">cyanView.backgroundColor = UIColor.cyan</span><br><span class="line">view.addSubview(cyanView)</span><br><span class="line"></span><br><span class="line">// cyanView 与 blueView 左对齐；cyanView 的顶部距离 redView 的底部 10；cyanView 的高是40；cyanView 与 blueView 等宽</span><br><span class="line">cyanView.snp.makeConstraints &#123; (make) in</span><br><span class="line">make.trailing.equalTo(blueView)</span><br><span class="line">make.top.equalTo(redView.snp.bottom).offset(10)</span><br><span class="line">make.height.equalTo(40)</span><br><span class="line">make.width.equalTo(blueView)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addYellowView() &#123;</span><br><span class="line">yellowView.backgroundColor = UIColor.yellow</span><br><span class="line">view.addSubview(yellowView)</span><br><span class="line"></span><br><span class="line">// yellowView 顶部与 redView 的底部对齐；yellowView 与 blackView 左对齐；yellowView 与 blueView 相同大小</span><br><span class="line">yellowView.snp.makeConstraints &#123; (make) in</span><br><span class="line">make.top.equalTo(redView.snp.bottom)</span><br><span class="line">make.trailing.equalTo(blackView)</span><br><span class="line">make.size.equalTo(blueView)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func addWhiteView() &#123;</span><br><span class="line">whiteView.backgroundColor = UIColor.white</span><br><span class="line">redView.addSubview(whiteView)</span><br><span class="line"></span><br><span class="line">// whiteView 的父视图是 redView，距离父视图四条边的距离分别是（30，10，30，10）</span><br><span class="line"></span><br><span class="line">whiteView.snp.makeConstraints &#123; (make) in</span><br><span class="line">// 第一种方式</span><br><span class="line">make.edges.equalTo(redView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))</span><br><span class="line">// 第二种方式</span><br><span class="line">//            make.top.equalTo(redView).offset(30)</span><br><span class="line">//            make.left.equalTo(redView).offset(10)</span><br><span class="line">//            make.bottom.equalTo(redView).offset(-30)</span><br><span class="line">//            make.right.equalTo(redView).offset(-10)</span><br><span class="line">// 第三种方式</span><br><span class="line">//            make.top.left.bottom.right.equalTo(redView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="详情代码，请移步到-https-github-com-liuzhongning-NNMintFurniture-中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为-guide-swift-的类，简单标出了代码的结构，更方便阅读。"><a href="#详情代码，请移步到-https-github-com-liuzhongning-NNMintFurniture-中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为-guide-swift-的类，简单标出了代码的结构，更方便阅读。" class="headerlink" title="详情代码，请移步到 https://github.com/liuzhongning/NNMintFurniture 中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为 guide.swift 的类，简单标出了代码的结构，更方便阅读。"></a>详情代码，请移步到 <a href="https://github.com/liuzhongning/NNMintFurniture" target="_blank" rel="noopener">https://github.com/liuzhongning/NNMintFurniture</a> 中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为 <code>guide.swift</code> 的类，简单标出了代码的结构，更方便阅读。</h5><h5 id="会持续更新……"><a href="#会持续更新……" class="headerlink" title="会持续更新……"></a>会持续更新……</h5>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+
+    <div>
+    
+    <div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+    
+    </div>
+
+    <div>
+    
+    
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发/" rel="tag"><i class="fa fa-tag"></i> iOS 开发</a>
+          
+            <a href="/tags/Swift/" rel="tag"><i class="fa fa-tag"></i> Swift</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/29/iOS 开发中导航栏渐变的两种方法/" rel="next" title="iOS 开发中导航栏渐变的两种方法">
+                <i class="fa fa-chevron-left"></i> iOS 开发中导航栏渐变的两种方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/21/iOS 获取设备的各种信息/" rel="prev" title="iOS 获取设备的各种信息">
+                iOS 获取设备的各种信息 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.png"
+                alt="刘朋坤" />
+            
+              <p class="site-author-name" itemprop="name">刘朋坤</p>
+              <p class="site-description motion-element" itemprop="description">iOS 修炼中...</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">44</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuzhongning" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:pengkun1011@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/u/3828401985" target="_blank" title="微博"><i class="fa fa-fw fa-weibo"></i>微博</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.jianshu.com/u/4f54fbd2ea5f" target="_blank" title="简书"><i class="fa fa-fw fa-address-book"></i>简书</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#先分享一些学习资料："><span class="nav-number">1.</span> <span class="nav-text">先分享一些学习资料：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、多页面滑动视图（分页控制器）"><span class="nav-number"></span> <span class="nav-text">一、多页面滑动视图（分页控制器）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、图片轮播"><span class="nav-number"></span> <span class="nav-text">二、图片轮播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、导航栏渐变"><span class="nav-number"></span> <span class="nav-text">三、导航栏渐变</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、瀑布流练习"><span class="nav-number"></span> <span class="nav-text">四、瀑布流练习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五、UIScrollView-练习"><span class="nav-number"></span> <span class="nav-text">五、UIScrollView 练习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六、照相功能，更换头像（建议用真机）"><span class="nav-number"></span> <span class="nav-text">六、照相功能，更换头像（建议用真机）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七、二维码扫描及识别（建议用真机）"><span class="nav-number"></span> <span class="nav-text">七、二维码扫描及识别（建议用真机）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八、随机图片验证码封装"><span class="nav-number"></span> <span class="nav-text">八、随机图片验证码封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九、圆形输入框封装"><span class="nav-number"></span> <span class="nav-text">九、圆形输入框封装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#十、第三方库-SnapKit-用法"><span class="nav-number"></span> <span class="nav-text">十、第三方库 SnapKit 用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#详情代码，请移步到-https-github-com-liuzhongning-NNMintFurniture-中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为-guide-swift-的类，简单标出了代码的结构，更方便阅读。"><span class="nav-number">1.</span> <span class="nav-text">详情代码，请移步到 https://github.com/liuzhongning/NNMintFurniture 中查看，如有疑问或有建议的地方，欢迎讨论。另外代码中有一个名为 guide.swift 的类，简单标出了代码的结构，更方便阅读。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#会持续更新……"><span class="nav-number">2.</span> <span class="nav-text">会持续更新……</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-apple"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘朋坤</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+    <div class="powered-by">
+<i class="fa fa-user-md"></i>
+<span id="busuanzi_container_site_uv">
+本站总访问量 <span id="busuanzi_value_site_uv"></span> 次
+</span>
+    </div>
+
+
+
+
+
+<div class="theme-info">
+<div class="powered-by"></div>
+<span class="post-count">博客全站共 90.9k 字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.1.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
